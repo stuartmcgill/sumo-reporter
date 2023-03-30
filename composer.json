@@ -20,5 +20,8 @@
     },
     "config": {
         "bin-dir": "bin"
+    },
+    "scripts": {
+        "unit-tests": "vendor/bin/phpunit"
     }
 }
