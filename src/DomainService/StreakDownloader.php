@@ -8,7 +8,7 @@ use StuartMcGill\SumoScraper\Model\Wrestler;
 
 class StreakDownloader
 {
-    /** list<Wrestler> */
+    /** @return list<Wrestler> */
     public function download(): array
     {
         return [
