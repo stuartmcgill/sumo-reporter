@@ -1,6 +1,7 @@
 {
     "name": "stuartmcgill/sumo-scraper",
     "description": "Scrapes the Sumo DB website to produce formatted reports",
+    "license": "GPL-3.0-or-later",
     "autoload": {
         "psr-4": {
             "StuartMcGill\\SumoScraper\\": "src/"
