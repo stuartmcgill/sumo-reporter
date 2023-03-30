@@ -20,7 +20,7 @@
         "symfony/console": "^6.2"
     },
     "scripts": {
-        "unit-tests": "vendor/bin/phpunit",
+        "unit-tests": "vendor/bin/phpunit tests/unit",
         "phpstan": "vendor/bin/phpstan analyse"
     }
 }
