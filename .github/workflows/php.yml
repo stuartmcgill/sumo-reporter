@@ -18,6 +18,13 @@ jobs:
     steps:
     - uses: actions/checkout@v3
     - uses: actions/cache@v3
+
+    - name: Cache Security DB
+      id: cache-db
+      uses: actions/cache@v3
+      with:
+        path: ~/.symfony/cache
+        key: db
     - uses: symfonycorp/security-checker-action@v4
 
     - name: Validate composer.json and composer.lock
