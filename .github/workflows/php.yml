@@ -32,9 +32,7 @@ jobs:
 
     - name: Install dependencies
       run: composer install --prefer-dist --no-progress
-
-    # Add a test script to composer.json, for instance: "test": "vendor/bin/phpunit"
-    # Docs: https://getcomposer.org/doc/articles/scripts.md
-
-    - name: Run test suite
+    - name: Unit tests
       run: composer run-script unit-tests
+    - name: Static analysis
+      run: composer run-script phpstan
