@@ -2,6 +2,8 @@
 
 declare(strict_types=1);
 
+namespace unit\DomainService;
+
 use PHPUnit\Framework\TestCase;
 use StuartMcGill\SumoScraper\DomainService\StreakDownloader;
 
