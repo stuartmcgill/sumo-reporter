@@ -5,6 +5,8 @@ declare(strict_types=1);
 namespace unit\CliCommand;
 
 use Mockery;
+use Mockery\LegacyMockInterface;
+use Mockery\MockInterface;
 use PHPUnit\Framework\TestCase;
 use StuartMcGill\SumoScraper\CliCommand\DownloadStreaks;
 use StuartMcGill\SumoScraper\DomainService\StreakDownloader;
@@ -13,23 +15,26 @@ use Symfony\Component\Console\Tester\CommandTester;
 
 class DownloadStreaksTest extends TestCase
 {
+    private StreakDownloader|MockInterface $streakDownloader;
+
+    public function setUp(): void
+    {
+        $this->streakDownloader = Mockery::mock(StreakDownloader::class);
+    }
+
     /** @test */
     public function download(): void
     {
-        $streakDownloader = Mockery::mock(StreakDownloader::class);
-        $streakDownloader->expects('download')->once()->andReturn([
+        $this->streakDownloader->expects('download')->once()->andReturn([
             new Wrestler('1', 'TEST WRESTLER 1'),
             new Wrestler('2', 'TEST WRESTLER 2'),
         ]);
 
-        $command = new DownloadStreaks($streakDownloader);
-        $commandTester = new CommandTester($command);
+        $commandTester = new CommandTester(new DownloadStreaks($this->streakDownloader));
 
         $commandTester->execute([]);
-
         $commandTester->assertCommandIsSuccessful();
 
-        // the output of the command in the console
         $output = $commandTester->getDisplay();
         $this->assertStringContainsString('TEST WRESTLER 1', $output);
         $this->assertStringContainsString('TEST WRESTLER 2', $output);
