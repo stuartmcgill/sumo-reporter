@@ -14,6 +14,7 @@
     </report>
     <exclude>
       <file>src/run.php</file>
+      <file>src/serviceManager.php</file>
     </exclude>
   </coverage>
 </phpunit>
