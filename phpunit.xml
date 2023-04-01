@@ -12,5 +12,8 @@
     <report>
       <clover outputFile="clover.xml"/>
     </report>
+    <exclude>
+      <file>src/run.php</file>
+    </exclude>
   </coverage>
 </phpunit>
