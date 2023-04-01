@@ -10,9 +10,9 @@ use StuartMcGill\SumoScraper\DomainService\StreakDownloader;
 class StreakDownloaderTest extends TestCase
 {
     /** @test */
-    public function download(): void
+    public  function download(): void
     {
-        $downloader  = new StreakDownloader();
+        $downloader = new StreakDownloader();
         $wrestlers = $downloader->download();
 
         $this->assertSame(expected: 'Hakuho', actual: $wrestlers[0]->name);
