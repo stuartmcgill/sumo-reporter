@@ -36,6 +36,6 @@ jobs:
     - name: Install dependencies
       run: composer install --prefer-dist --no-progress
     - name: Unit tests
-      run: composer run-script unit-tests
+      run: XDEBUG_MODE=coverage composer run-script unit-tests
     - name: Static analysis
       run: composer run-script phpstan
