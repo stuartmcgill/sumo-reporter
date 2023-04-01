@@ -17,7 +17,8 @@
         "phpstan/phpstan": "^1.10"
     },
     "require": {
-        "symfony/console": "^6.2"
+        "symfony/console": "^6.2",
+        "guzzlehttp/guzzle": "^7.5"
     },
     "scripts": {
         "unit-tests": "vendor/bin/phpunit tests/unit",
