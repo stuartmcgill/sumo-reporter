@@ -10,7 +10,7 @@ use StuartMcGill\SumoScraper\DomainService\StreakDownloader;
 class StreakDownloaderTest extends TestCase
 {
     /** @test */
-    public  function download(): void
+    public function download(): void
     {
         $downloader = new StreakDownloader();
         $wrestlers = $downloader->download();
