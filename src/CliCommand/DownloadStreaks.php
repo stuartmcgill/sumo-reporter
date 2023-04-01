@@ -17,12 +17,17 @@ use Symfony\Component\Console\Style\SymfonyStyle;
 )]
 class DownloadStreaks extends Command
 {
+    public function __construct(private readonly StreakDownloader $streakDownloader)
+    {
+        parent::__construct();
+    }
+
     protected function execute(InputInterface $input, OutputInterface $output): int
     {
         $io = new SymfonyStyle($input, $output);
         $io->title('Downloading wrestler streaks...');
 
-        $wrestlers = (new StreakDownloader())->download();
+        $wrestlers = $this->streakDownloader->download();
 
         foreach ($wrestlers as $wrestler) {
             $output->writeln($wrestler->name);
