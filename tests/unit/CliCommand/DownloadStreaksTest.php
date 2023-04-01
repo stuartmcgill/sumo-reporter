@@ -26,8 +26,8 @@ class DownloadStreaksTest extends TestCase
     public function download(): void
     {
         $this->streakDownloader->expects('download')->once()->andReturn([
-            new Wrestler('1', 'TEST WRESTLER 1'),
-            new Wrestler('2', 'TEST WRESTLER 2'),
+            new Wrestler(1, 'TEST WRESTLER 1'),
+            new Wrestler(2, 'TEST WRESTLER 2'),
         ]);
 
         $commandTester = new CommandTester(new DownloadStreaks($this->streakDownloader));

@@ -6,7 +6,7 @@ namespace StuartMcGill\SumoScraper\Model;
 
 class Wrestler
 {
-    public function __construct(public readonly string $sumoDbId, public readonly string $name)
+    public function __construct(public readonly int $sumoDbId, public readonly string $name)
     {
     }
 }
