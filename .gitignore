@@ -37,6 +37,7 @@
 
 # PHPUnit
 /.phpunit.cache
+/clover.xml
 
 # Build data
 /build/
