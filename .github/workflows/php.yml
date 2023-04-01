@@ -23,6 +23,9 @@ jobs:
     - name: PHP Security Checker
       uses: symfonycorp/security-checker-action@v5
 
+    - name: Syntax
+      run: vendor/bin/parallel-lint --exclude vendor .
+
     - name: Validate composer.json and composer.lock
       run: composer validate --strict
 
