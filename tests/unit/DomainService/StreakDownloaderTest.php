@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace unit\DomainService;
 
 use Mockery;
+use Mockery\Adapter\Phpunit\MockeryPHPUnitIntegration;
 use Mockery\MockInterface;
 use PHPUnit\Framework\TestCase;
 use StuartMcGill\SumoScraper\DomainService\Api\BashoService;
@@ -12,6 +13,8 @@ use StuartMcGill\SumoScraper\DomainService\StreakDownloader;
 
 class StreakDownloaderTest extends TestCase
 {
+    use MockeryPHPUnitIntegration;
+
     private BashoService|MockInterface $bashoService;
 
     public function setUp(): void

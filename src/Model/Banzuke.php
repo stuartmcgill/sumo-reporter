@@ -16,13 +16,9 @@ class Banzuke
 
     public static function build(array $east, array $west): self
     {
-        $eastPerformances = [];
-        $westPerformances = [];
-
-        foreach ($east as $performance) {
-            $wrestler = new Wrestler($performance->rikishiID, $performance->shikonaEn);
-            $eastPerformances[] = new Performance(
-                $wrestler,
+        $mapPerformances = static fn (stdClass $performance) =>
+            new Performance(
+                new Wrestler($performance->rikishiID, $performance->shikonaEn),
                 array_map(
                     static fn (stdClass $record) =>
                         new OpponentResult(
@@ -34,23 +30,10 @@ class Banzuke
                     $performance->record
                 )
             );
-        }
 
-        foreach ($west as $performance) {
-            $wrestler = new Wrestler($performance->rikishiID, $performance->shikonaEn);
-            $westPerformances[] = new Performance(
-                $wrestler,
-                array_map(
-                    static fn (stdClass $record) =>
-                    new OpponentResult(
-                        new Wrestler($record->opponentID, $record->opponentShikonaEn),
-                        Result::from($record->result),
-                    ),
-                    $performance->record
-                )
-            );
-        }
-
-        return new self($eastPerformances, $westPerformances);
+        return new self(
+            array_map($mapPerformances, $east),
+            array_map($mapPerformances, $west),
+        );
     }
 }

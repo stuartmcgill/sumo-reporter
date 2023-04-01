@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace unit\CliCommand;
 
 use Mockery;
+use Mockery\Adapter\Phpunit\MockeryPHPUnitIntegration;
 use Mockery\LegacyMockInterface;
 use Mockery\MockInterface;
 use PHPUnit\Framework\TestCase;
@@ -15,6 +16,8 @@ use Symfony\Component\Console\Tester\CommandTester;
 
 class DownloadStreaksTest extends TestCase
 {
+    use MockeryPHPUnitIntegration;
+
     private StreakDownloader|MockInterface $streakDownloader;
 
     public function setUp(): void
