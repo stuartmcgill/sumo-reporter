@@ -23,9 +23,6 @@ jobs:
     - name: PHP Security Checker
       uses: symfonycorp/security-checker-action@v5
 
-    - name: Syntax
-      run: vendor/bin/parallel-lint --exclude vendor .
-
     - name: Setup PHP
       uses: shivammathur/setup-php@v2
       with:
@@ -49,6 +46,10 @@ jobs:
 
     - name: Install dependencies
       run: composer install --prefer-dist --no-progress
+
+    - name: Syntax
+      run: vendor/bin/parallel-lint --exclude vendor .
+
     - name: Unit tests
       run: XDEBUG_MODE=coverage composer run-script unit-tests
     - name: Make code coverage badge
