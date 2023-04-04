@@ -13,7 +13,13 @@ class StreakCompilation
 
     public function addBasho(Basho $basho): void
     {
-
+        foreach ($basho->compileStreaks() as $streak) {
+            if ($streak->isOpen) {
+                $this->openStreaks[] = $streak;
+            } else {
+                $this->closedStreaks[] = $streak;
+            }
+        }
     }
 
     public function isIncomplete(): bool

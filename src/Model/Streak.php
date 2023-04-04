@@ -8,8 +8,9 @@ class Streak
 {
     public function __construct(
         private readonly Wrestler $wrestler,
-        private readonly int $Length,
         private readonly StreakType $type,
+        private readonly int $length,
+        public readonly bool $isOpen,
     ) {
     }
 }

@@ -30,8 +30,9 @@ class Performance
 
         return new Streak(
             wrestler: $this->wrestler,
-            Length: $index,
-            type: StreakType::fromResult($initialOpponentResult->result)
+            length: $index,
+            type: StreakType::fromResult($initialOpponentResult->result),
+            isOpen: $index === count($this->opponentResults),
         );
     }
 }

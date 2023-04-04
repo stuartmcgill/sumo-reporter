@@ -19,12 +19,10 @@ class PerformanceTest extends TestCase
      *
      * @dataProvider calculateStreakProvider
      * @param list<Result> $results
+     * @param array{type: StreakType, length: int, isOpen: bool} $expected
      */
-    public function calculateStreak(
-        array $results,
-        ?StreakType $expectedType,
-        ?int $expectedLength,
-    ): void {
+    public function calculateStreak(array $results, array $expected): void
+    {
         $wrestler = new Wrestler(1, 'Octofuji');
         $opponent = new Wrestler(2, 'Nonogawa');
 
@@ -37,7 +35,12 @@ class PerformanceTest extends TestCase
         );
 
         $this->assertEquals(
-            expected: new Streak($wrestler, $expectedLength, $expectedType),
+            expected: new Streak(
+                wrestler: $wrestler,
+                type: $expected['type'],
+                length: $expected['length'],
+                isOpen: $expected['isOpen'],
+            ),
             actual: $performance->calculateStreak(),
         );
     }
@@ -48,23 +51,35 @@ class PerformanceTest extends TestCase
         return [
             'zensho' => [
                 'results' => [Result::Win, Result::Win],
-                'expectedType' => StreakType::Winning,
-                'expectedLength' => 2,
+                'expected' => [
+                    'type' => StreakType::Winning,
+                    'length' => 2,
+                    'isOpen' => true,
+                ],
             ],
             'zenpai' => [
                 'results' => [Result::Loss, Result::Loss],
-                'expectedType' => StreakType::Losing,
-                'expectedLength' => 2,
+                'expected' => [
+                    'type' => StreakType::Losing,
+                    'length' => 2,
+                    'isOpen' => true,
+                ],
             ],
             'Partial winning' => [
                 'results' => [Result::Loss, Result::Win, Result::Win],
-                'expectedType' => StreakType::Winning,
-                'expectedLength' => 2,
+                'expected' => [
+                    'type' => StreakType::Winning,
+                    'length' => 2,
+                    'isOpen' => false,
+                ],
             ],
             'Partial losing' => [
                 'results' => [Result::Win, Result::Win, Result::Loss],
-                'expectedType' => StreakType::Losing,
-                'expectedLength' => 1,
+                'expected' => [
+                    'type' => StreakType::Losing,
+                    'length' => 1,
+                    'isOpen' => false,
+                ],
             ],
         ];
     }
