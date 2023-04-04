@@ -31,21 +31,10 @@ class PerformanceTest extends TestCase
         $performance = new Performance(
             $wrestler,
             array_map(
-                static function (Result $result) use ($opponent) {
-                    return new OpponentResult(
-                        $result->didBoutHappen() ? $opponent : null,
-                        $result,
-                    );
-                },
-                $results
+                static fn (Result $result) => new OpponentResult($opponent, $result),
+                $results,
             ),
         );
-
-        if (is_null($expectedType)) {
-            $this->assertNull($performance->calculateStreak());
-
-            return;
-        }
 
         $this->assertEquals(
             expected: new Streak($wrestler, $expectedLength, $expectedType),
@@ -67,11 +56,6 @@ class PerformanceTest extends TestCase
                 'expectedType' => StreakType::Losing,
                 'expectedLength' => 2,
             ],
-            'Finish off kyujo' => [
-                'results' => [Result::Loss, Result::Absent],
-                'expectedType' => null,
-                'expectedLength' => null,
-            ],
             'Partial winning' => [
                 'results' => [Result::Loss, Result::Win, Result::Win],
                 'expectedType' => StreakType::Winning,
@@ -81,6 +65,41 @@ class PerformanceTest extends TestCase
                 'results' => [Result::Win, Result::Win, Result::Loss],
                 'expectedType' => StreakType::Losing,
                 'expectedLength' => 1,
+            ],
+        ];
+    }
+
+    /**
+     * @test
+     *
+     * @dataProvider noStreakProvider
+     * @param list<Result> $results
+     */
+    public function calculateStreakNoneExpected(array $results): void
+    {
+        $performance = new Performance(
+            new Wrestler(1, 'Octofuji'),
+            array_map(
+                static fn (Result $result) => new OpponentResult(null, $result),
+                $results,
+            ),
+        );
+
+        $this->assertNull($performance->calculateStreak());
+    }
+
+    /** @return array<string, mixed> */
+    public static function noStreakProvider(): array
+    {
+        return [
+            'Finish off kyujo' => [
+                'results' => [Result::Loss, Result::Absent],
+            ],
+            'Kyujo streak' => [
+                'results' => [Result::Absent, Result::Absent],
+            ],
+            'Fusen loss streak' => [
+                'results' => [Result::FusenLoss, Result::FusenLoss],
             ],
         ];
     }

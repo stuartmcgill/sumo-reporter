@@ -22,10 +22,8 @@ class Performance
             return null;
         }
 
-        for ($index = 1; $index <= count($results); $index++) {
-            $opponentResult = $results[$index];
-
-            if ($opponentResult->result !== $results[$index - 1]->result) {
+        for ($index = 1; $index < count($results); $index++) {
+            if (!$results[$index]->matches($results[$index - 1])) {
                 break;
             }
         }

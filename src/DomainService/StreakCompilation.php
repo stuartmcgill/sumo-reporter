@@ -13,7 +13,6 @@ class StreakCompilation
 
     public function addBasho(Basho $basho): void
     {
-        foreach ($basho) {}
 
     }
 

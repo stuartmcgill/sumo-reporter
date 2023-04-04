@@ -16,4 +16,9 @@ class OpponentResult
     {
         return $this->result->didBoutHappen();
     }
+
+    public function matches(OpponentResult $other): bool
+    {
+        return $this->result === $other->result;
+    }
 }
