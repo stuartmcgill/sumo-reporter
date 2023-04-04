@@ -8,7 +8,12 @@ class OpponentResult
 {
     public function __construct(
         private readonly ?Wrestler $opponent,
-        private readonly Result $result,
+        public readonly Result $result,
     ) {
+    }
+
+    public function didBoutHappen(): bool
+    {
+        return $this->result->didBoutHappen();
     }
 }

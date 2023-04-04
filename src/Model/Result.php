@@ -11,4 +11,9 @@ enum Result: string
     case FusenWin = 'fusen win';
     case FusenLoss = 'fusen loss';
     case Absent = 'absent';
+
+    public function didBoutHappen(): bool
+    {
+        return $this === self::Win || $this === self::Loss;
+    }
 }
