@@ -23,7 +23,7 @@ class Basho
         $streaks = [];
 
         foreach (array_merge($this->eastPerformances, $this->westPerformances) as $performance) {
-            $streaks[] = $performance->compileStreak();
+            $streaks[] = $performance->calculateStreak();
         }
 
         return $streaks;

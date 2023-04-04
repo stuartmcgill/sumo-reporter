@@ -9,6 +9,7 @@ use Mockery\Adapter\Phpunit\MockeryPHPUnitIntegration;
 use Mockery\MockInterface;
 use PHPUnit\Framework\TestCase;
 use StuartMcGill\SumoScraper\DomainService\Api\BashoService;
+use StuartMcGill\SumoScraper\DomainService\StreakCompilation;
 use StuartMcGill\SumoScraper\DomainService\StreakDownloader;
 
 class StreakDownloaderTest extends TestCase
@@ -29,7 +30,7 @@ class StreakDownloaderTest extends TestCase
             __DIR__ . '/../../_data/basho.json'
         )));
 
-        $downloader = new StreakDownloader($this->bashoService);
+        $downloader = new StreakDownloader($this->bashoService, new StreakCompilation());
         $wrestlers = $downloader->download();
 
         $this->assertSame(expected: 'Hakuho', actual: $wrestlers[0]->name);

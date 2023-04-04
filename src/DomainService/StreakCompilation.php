@@ -24,6 +24,6 @@ class StreakCompilation
 
     public function isIncomplete(): bool
     {
-        return count($this->openStreaks) > 0;
+        return count($this->closedStreaks) === 0 || count($this->openStreaks) > 0;
     }
 }
