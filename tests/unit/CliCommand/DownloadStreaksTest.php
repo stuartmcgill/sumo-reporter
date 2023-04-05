@@ -6,7 +6,6 @@ namespace unit\CliCommand;
 
 use Mockery;
 use Mockery\Adapter\Phpunit\MockeryPHPUnitIntegration;
-use Mockery\LegacyMockInterface;
 use Mockery\MockInterface;
 use PHPUnit\Framework\TestCase;
 use StuartMcGill\SumoScraper\CliCommand\DownloadStreaks;
