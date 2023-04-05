@@ -19,10 +19,13 @@ class BashoService
         $this->rateLimit = (int)$config['apiRateLimit'];
     }
 
-    /** @param list<string> $divisions */
-    public function fetch(int $year, int $month, array $divisions): stdClass
+    /**
+     * @param list<string> $divisions
+     * @return list<stdClass>
+     */
+    public function fetch(int $year, int $month, array $divisions): array
     {
-        usleep($this->rateLimit * 1000);
+        $this->throttleRequest();
 
         $bashoDate = sprintf("%d%02d", $year, $month);
         $baseUrl = 'https://sumo-api.com/api' . "/basho/$bashoDate/banzuke/";
@@ -34,6 +37,14 @@ class BashoService
 
         $responses = Utils::settle(Utils::unwrap($promises))->wait();
 
-        return json_decode((string)$responses[0]['value']->getBody());
+        return array_map(
+            static fn (array $response) => json_decode((string)$response['value']->getBody()),
+            $responses,
+        );
+    }
+
+    private function throttleRequest(): void
+    {
+        usleep($this->rateLimit * 1000);
     }
 }

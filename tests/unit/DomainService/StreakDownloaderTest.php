@@ -32,7 +32,7 @@ class StreakDownloaderTest extends TestCase
         $this->bashoService
             ->expects('fetch')
             ->with(2023, 3, ['TEST_DIVISION'])
-            ->andReturn(json_decode(file_get_contents(__DIR__ . '/../../_data/basho.json')));
+            ->andReturn([json_decode(file_get_contents(__DIR__ . '/../../_data/basho.json'))]);
 
         $this->streakCompilation
             ->expects('isIncomplete')

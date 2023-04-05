@@ -44,11 +44,11 @@ class BashoServiceTest extends TestCase
             ->andReturn($promise);
 
         $bashoService = new BashoService($this->httpClient, ['apiRateLimit' => 0]);
-        $bashoData = $bashoService->fetch(2023, 3, ['First']);
+        $divisionData = $bashoService->fetch(2023, 3, ['First']);
 
         $this->assertEquals(
             expected: (object)['TEST_KEY' => 'TEST_VALUE'],
-            actual: $bashoData,
+            actual: $divisionData[0],
         );
     }
 }

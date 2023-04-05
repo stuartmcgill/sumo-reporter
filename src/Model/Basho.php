@@ -33,14 +33,15 @@ class Basho
         return $streaks;
     }
 
-    public static function build(stdClass $bashoData): self
+    // SJM TODO divisions
+    public static function build(array $bashoData): self
     {
         return new self(
-            year: (int)substr(string: $bashoData->bashoId, offset: 0, length: 4),
-            month: (int)substr(string: $bashoData->bashoId, offset: 4, length: 2),
-            division: $bashoData->division,
-            eastPerformances: self::buildPerformances($bashoData->east),
-            westPerformances: self::buildPerformances($bashoData->east),
+            year: (int)substr(string: $bashoData[0]->bashoId, offset: 0, length: 4),
+            month: (int)substr(string: $bashoData[0]->bashoId, offset: 4, length: 2),
+            division: $bashoData[0]->division,
+            eastPerformances: self::buildPerformances($bashoData[0]->east),
+            westPerformances: self::buildPerformances($bashoData[0]->west),
         );
     }
 
