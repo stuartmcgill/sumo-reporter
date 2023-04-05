@@ -9,15 +9,12 @@ use stdClass;
 class Basho
 {
     /**
-     * @param list<Performance> $eastPerformances
-     * @param list<Performance> $westPerformances
+     * @param list<Performance> $performances
     */
     public function __construct(
         private readonly int $year,
         private readonly int $month,
-        private readonly string $division,
-        private readonly array $eastPerformances,
-        private readonly array $westPerformances,
+        private readonly array $performances,
     ) {
     }
 
@@ -26,7 +23,7 @@ class Basho
     {
         $streaks = [];
 
-        foreach (array_merge($this->eastPerformances, $this->westPerformances) as $performance) {
+        foreach ($this->performances as $performance) {
             $streaks[] = $performance->calculateStreak();
         }
 
@@ -34,14 +31,25 @@ class Basho
     }
 
     // SJM TODO divisions
-    public static function build(array $bashoData): self
+    public static function build(array $divisionData): self
     {
+        $performanceData = array_reduce(
+            array: $divisionData,
+            callback: static function (array $performances, stdClass $divisionData) {
+                $performances = array_merge(
+                    $performances,
+                    $divisionData->east,
+                    $divisionData->west,
+                );
+                return $performances;
+            },
+            initial: []
+        );
+
         return new self(
-            year: (int)substr(string: $bashoData[0]->bashoId, offset: 0, length: 4),
-            month: (int)substr(string: $bashoData[0]->bashoId, offset: 4, length: 2),
-            division: $bashoData[0]->division,
-            eastPerformances: self::buildPerformances($bashoData[0]->east),
-            westPerformances: self::buildPerformances($bashoData[0]->west),
+            year: (int)substr(string: $divisionData[0]->bashoId, offset: 0, length: 4),
+            month: (int)substr(string: $divisionData[0]->bashoId, offset: 4, length: 2),
+            performances: self::buildPerformances($performanceData),
         );
     }
 

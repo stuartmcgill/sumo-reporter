@@ -11,6 +11,7 @@ enum Result: string
     case FusenWin = 'fusen win';
     case FusenLoss = 'fusen loss';
     case Absent = 'absent';
+    case NoBoutScheduled = '';
 
     public function didBoutHappen(): bool
     {
