@@ -18,9 +18,9 @@ class StreakDownloader
     }
 
     /** @return list<Wrestler> */
-    public function download(): array
+    public function download(int $year, int $month): array
     {
-        $bashoDate = new BashoDate(2023, 3);
+        $bashoDate = new BashoDate($year, $month);
 
         while ($this->streakCompilation->isIncomplete()) {
             $basho = $this->retrieveBasho($bashoDate);

@@ -35,7 +35,7 @@ class DownloadStreaksTest extends TestCase
 
         $commandTester = new CommandTester(new DownloadStreaks($this->streakDownloader));
 
-        $commandTester->execute([]);
+        $commandTester->execute(['date' => '2023-01']);
         $commandTester->assertCommandIsSuccessful();
 
         $output = $commandTester->getDisplay();
