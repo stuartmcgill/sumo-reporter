@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace StuartMcGill\SumoScraper\DomainService\Api;
 
 use GuzzleHttp\Client;
+use GuzzleHttp\Promise\Utils;
 use stdClass;
 
 class BashoService
@@ -17,11 +18,15 @@ class BashoService
     public function fetch(int $year, int $month, array $divisions): stdClass
     {
         $bashoDate = sprintf("%d%02d", $year, $month);
+        $baseUrl = 'https://sumo-api.com/api' . "/basho/$bashoDate/banzuke/";
 
-        $response = $this->httpClient->get(
-            'https://sumo-api.com/api' . "/basho/$bashoDate/banzuke/" . $divisions[0]
+        $promises = array_map(
+            callback: fn (string $division) => $this->httpClient->getAsync($baseUrl . $division),
+            array: $divisions,
         );
 
-        return json_decode((string)$response->getBody());
+        $responses = Utils::settle(Utils::unwrap($promises))->wait();
+
+        return json_decode((string)$responses[0]['value']->getBody());
     }
 }

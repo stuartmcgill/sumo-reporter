@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace unit\DomainService\Api;
 
 use GuzzleHttp\Client;
+use GuzzleHttp\Promise\PromiseInterface;
 use GuzzleHttp\Psr7\Response;
 use Mockery;
 use Mockery\Adapter\Phpunit\MockeryPHPUnitIntegration;
@@ -33,11 +34,14 @@ class BashoServiceTest extends TestCase
             ->once()
             ->andReturn('{"TEST_KEY": "TEST_VALUE"}');
 
+        $promise = Mockery::mock(PromiseInterface::class);
+        $promise->expects('wait')->once()->andReturn($response);
+
         $this->httpClient
-            ->expects('get')
+            ->expects('getAsync')
             ->once()
             ->with('https://sumo-api.com/api/basho/202303/banzuke/First')
-            ->andReturn($response);
+            ->andReturn($promise);
 
         $bashoService = new BashoService($this->httpClient);
         $bashoData = $bashoService->fetch(2023, 3, ['First']);
