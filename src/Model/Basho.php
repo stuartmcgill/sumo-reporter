@@ -8,6 +8,10 @@ use stdClass;
 
 class Basho
 {
+    /**
+     * @param list<Performance> $eastPerformances
+     * @param list<Performance> $westPerformances
+    */
     public function __construct(
         private readonly int $year,
         private readonly int $month,
@@ -17,7 +21,7 @@ class Basho
     ) {
     }
 
-    /** @return list<Streak> */
+    /** @return list<?Streak> */
     public function compileStreaks(): array
     {
         $streaks = [];
@@ -40,6 +44,10 @@ class Basho
         );
     }
 
+    /**
+     * @param list<stdClass> $performanceData
+     * @return list<Performance>
+     */
     private static function buildPerformances(array $performanceData): array
     {
         $mapPerformances = static fn (stdClass $performance) =>
@@ -47,12 +55,12 @@ class Basho
                 wrestler: new Wrestler($performance->rikishiID, $performance->shikonaEn),
                 opponentResults: array_map(
                     static fn (stdClass $record) =>
-                    new OpponentResult(
-                        opponent: $record->opponentID > 0
-                            ? new Wrestler($record->opponentID, $record->opponentShikonaEn)
-                            : null,
-                        result: Result::from($record->result),
-                    ),
+                        new OpponentResult(
+                            opponent: $record->opponentID > 0
+                                ? new Wrestler($record->opponentID, $record->opponentShikonaEn)
+                                : null,
+                            result: Result::from($record->result),
+                        ),
                     $performance->record
                 )
             );

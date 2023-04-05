@@ -11,7 +11,7 @@ use StuartMcGill\SumoScraper\Model\Wrestler;
 
 class StreakDownloader
 {
-    /** @param array<string, mixed> */
+    /** @param array<string, mixed> $config */
     public function __construct(
         private readonly BashoService $bashoService,
         private readonly StreakCompilation $streakCompilation,

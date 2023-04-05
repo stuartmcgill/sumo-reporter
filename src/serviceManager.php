@@ -4,15 +4,15 @@ declare(strict_types=1);
 
 namespace StuartMcGill\SumoScraper;
 
+require_once __DIR__ . '/../config/config.php';
+
 use Laminas\ServiceManager\AbstractFactory\ReflectionBasedAbstractFactory;
 use Laminas\ServiceManager\ServiceManager;
 
 $serviceManager = new ServiceManager([
     'factories' => [
-        'config' => fn () => [
-            'divisions' => ['Makuuchi', 'Juryo', 'Makushita', 'Sandanme', 'Jonidan', 'Jonokuchi'],
-            'apiRateLimit' => 500,
-        ],
+        /** @phpstan-ignore-next-line */
+        'config' => fn () => $config,
     ],
     'abstract_factories' => [new ReflectionBasedAbstractFactory()]
 ]);

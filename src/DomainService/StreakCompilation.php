@@ -5,10 +5,14 @@ declare(strict_types=1);
 namespace StuartMcGill\SumoScraper\DomainService;
 
 use StuartMcGill\SumoScraper\Model\Basho;
+use StuartMcGill\SumoScraper\Model\Streak;
 
 class StreakCompilation
 {
+    /** @var list<Streak> */
     private array $openStreaks = [];
+
+    /** @var list<Streak> */
     private array $closedStreaks = [];
 
     public function addBasho(Basho $basho): void

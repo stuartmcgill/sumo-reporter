@@ -13,10 +13,8 @@ class BashoService
     /** Milliseconds */
     private int $rateLimit;
 
-    /** @param array<string, mixed> */
-    public function __construct(
-        private readonly Client $httpClient,
-        array $config)
+    /** @param array<string, mixed> $config */
+    public function __construct(private readonly Client $httpClient, array $config)
     {
         $this->rateLimit = (int)$config['apiRateLimit'];
     }

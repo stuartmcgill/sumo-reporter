@@ -33,6 +33,7 @@ class StreakCompilationTest extends TestCase
      * @test
      *
      * @dataProvider isIncompleteProvider
+     * @param list<bool> $streakStates
      */
     public function isIncomplete(array $streakStates, bool $expected): void
     {
