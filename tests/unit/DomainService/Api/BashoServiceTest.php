@@ -43,7 +43,7 @@ class BashoServiceTest extends TestCase
             ->with('https://sumo-api.com/api/basho/202303/banzuke/First')
             ->andReturn($promise);
 
-        $bashoService = new BashoService($this->httpClient);
+        $bashoService = new BashoService($this->httpClient, ['apiRateLimit' => 0]);
         $bashoData = $bashoService->fetch(2023, 3, ['First']);
 
         $this->assertEquals(

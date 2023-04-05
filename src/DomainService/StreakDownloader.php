@@ -11,9 +11,11 @@ use StuartMcGill\SumoScraper\Model\Wrestler;
 
 class StreakDownloader
 {
+    /** @param array<string, mixed> */
     public function __construct(
         private readonly BashoService $bashoService,
         private readonly StreakCompilation $streakCompilation,
+        private array $config,
     ) {
     }
 
@@ -40,7 +42,7 @@ class StreakDownloader
         return Basho::build($this->bashoService->fetch(
             year: $bashoDate->year,
             month: $bashoDate->month,
-            divisions: ['Makuuchi'],
+            divisions: $this->config['divisions'],
         ));
     }
 }

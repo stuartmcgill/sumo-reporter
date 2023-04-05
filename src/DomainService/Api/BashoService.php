@@ -10,13 +10,22 @@ use stdClass;
 
 class BashoService
 {
-    public function __construct(private readonly Client $httpClient)
+    /** Milliseconds */
+    private int $rateLimit;
+
+    /** @param array<string, mixed> */
+    public function __construct(
+        private readonly Client $httpClient,
+        array $config)
     {
+        $this->rateLimit = (int)$config['apiRateLimit'];
     }
 
     /** @param list<string> $divisions */
     public function fetch(int $year, int $month, array $divisions): stdClass
     {
+        usleep($this->rateLimit * 1000);
+
         $bashoDate = sprintf("%d%02d", $year, $month);
         $baseUrl = 'https://sumo-api.com/api' . "/basho/$bashoDate/banzuke/";
 

@@ -31,7 +31,7 @@ class StreakDownloaderTest extends TestCase
     {
         $this->bashoService
             ->expects('fetch')
-            ->with(2023, 3, ['Makuuchi'])
+            ->with(2023, 3, ['TEST_DIVISION'])
             ->andReturn(json_decode(file_get_contents(__DIR__ . '/../../_data/basho.json')));
 
         $this->streakCompilation
@@ -46,7 +46,11 @@ class StreakDownloaderTest extends TestCase
                 return true;
             }));
 
-        $downloader = new StreakDownloader($this->bashoService, $this->streakCompilation);
+        $downloader = new StreakDownloader(
+            $this->bashoService,
+            $this->streakCompilation,
+            ['divisions' => ['TEST_DIVISION']],
+        );
         $wrestlers = $downloader->download(2023, 3);
 
         $this->assertSame(expected: 'Hakuho', actual: $wrestlers[0]->name);

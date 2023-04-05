@@ -14,6 +14,10 @@ class StreakCompilation
     public function addBasho(Basho $basho): void
     {
         foreach ($basho->compileStreaks() as $streak) {
+            if (is_null($streak)) {
+                continue;
+            }
+
             if ($streak->isOpen) {
                 $this->openStreaks[] = $streak;
             } else {
