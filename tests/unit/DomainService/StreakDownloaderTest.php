@@ -31,7 +31,7 @@ class StreakDownloaderTest extends TestCase
     {
         $this->bashoService
             ->expects('fetch')
-            ->with(2023, 3, 'Makuuchi')
+            ->with(2023, 3, ['Makuuchi'])
             ->andReturn(json_decode(file_get_contents(__DIR__ . '/../../_data/basho.json')));
 
         $this->streakCompilation

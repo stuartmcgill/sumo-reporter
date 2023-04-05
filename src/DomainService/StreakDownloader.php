@@ -40,7 +40,7 @@ class StreakDownloader
         return Basho::build($this->bashoService->fetch(
             year: $bashoDate->year,
             month: $bashoDate->month,
-            division: 'Makuuchi',
+            divisions: ['Makuuchi'],
         ));
     }
 }

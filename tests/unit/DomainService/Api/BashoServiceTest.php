@@ -40,7 +40,7 @@ class BashoServiceTest extends TestCase
             ->andReturn($response);
 
         $bashoService = new BashoService($this->httpClient);
-        $bashoData = $bashoService->fetch(2023, 3, 'First');
+        $bashoData = $bashoService->fetch(2023, 3, ['First']);
 
         $this->assertEquals(
             expected: (object)['TEST_KEY' => 'TEST_VALUE'],

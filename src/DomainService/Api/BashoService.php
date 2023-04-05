@@ -13,12 +13,13 @@ class BashoService
     {
     }
 
-    public function fetch(int $year, int $month, string $division): stdClass
+    /** @param list<string> $divisions */
+    public function fetch(int $year, int $month, array $divisions): stdClass
     {
         $bashoDate = sprintf("%d%02d", $year, $month);
 
         $response = $this->httpClient->get(
-            'https://sumo-api.com/api' . "/basho/$bashoDate/banzuke/$division"
+            'https://sumo-api.com/api' . "/basho/$bashoDate/banzuke/" . $divisions[0]
         );
 
         return json_decode((string)$response->getBody());
