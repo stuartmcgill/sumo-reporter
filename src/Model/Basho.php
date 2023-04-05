@@ -21,16 +21,13 @@ class Basho
     /** @return list<?Streak> */
     public function compileStreaks(): array
     {
-        $streaks = [];
-
-        foreach ($this->performances as $performance) {
-            $streaks[] = $performance->calculateStreak();
-        }
-
-        return $streaks;
+        return array_map(
+            static fn (Performance $performance) => $performance->calculateStreak(),
+            $this->performances,
+        );
     }
 
-    // SJM TODO divisions
+    /** @param list<stdClass> $divisionData */
     public static function build(array $divisionData): self
     {
         $performanceData = array_reduce(
