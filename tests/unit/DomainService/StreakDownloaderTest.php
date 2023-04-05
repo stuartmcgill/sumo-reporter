@@ -11,16 +11,19 @@ use PHPUnit\Framework\TestCase;
 use StuartMcGill\SumoScraper\DomainService\Api\BashoService;
 use StuartMcGill\SumoScraper\DomainService\StreakCompilation;
 use StuartMcGill\SumoScraper\DomainService\StreakDownloader;
+use StuartMcGill\SumoScraper\Model\Basho;
 
 class StreakDownloaderTest extends TestCase
 {
     use MockeryPHPUnitIntegration;
 
     private BashoService|MockInterface $bashoService;
+    private StreakCompilation|MockInterface $streakCompilation;
 
     public function setUp(): void
     {
         $this->bashoService = Mockery::mock(BashoService::class);
+        $this->streakCompilation = Mockery::mock(StreakCompilation::class);
     }
 
     /** @test */
@@ -31,7 +34,19 @@ class StreakDownloaderTest extends TestCase
             ->with(2023, 3, 'Makuuchi')
             ->andReturn(json_decode(file_get_contents(__DIR__ . '/../../_data/basho.json')));
 
-        $downloader = new StreakDownloader($this->bashoService, new StreakCompilation());
+        $this->streakCompilation
+            ->expects('isIncomplete')
+            ->twice()
+            ->andReturn(true, false);
+
+        $this->streakCompilation
+            ->expects('addBasho')
+            ->andReturn(Mockery::on(static function (Basho $basho): bool {
+                // TODO add more sophisticated check as more data exposed from basho
+                return true;
+            }));
+
+        $downloader = new StreakDownloader($this->bashoService, $this->streakCompilation);
         $wrestlers = $downloader->download(2023, 3);
 
         $this->assertSame(expected: 'Hakuho', actual: $wrestlers[0]->name);
