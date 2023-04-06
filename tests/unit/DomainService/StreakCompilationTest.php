@@ -86,11 +86,41 @@ class StreakCompilationTest extends TestCase
     }
 
     #[Test]
-    public function addInitialBasho(): void
+    public function addInitialBashoWithNullStreak(): void
     {
-
+        $this->basho->expects('compileStreaks')->andReturn([null]);
 
         $compilation = new StreakCompilation();
         $compilation->addBasho($this->basho);
+
+        $this->assertEmpty($compilation->closedStreaks());
+    }
+
+    #[Test]
+    public function addInitialBashoWithOpenStreak(): void
+    {
+        $streak = Mockery::mock(Streak::class);
+        $streak->expects('isOpen')->once()->andReturn(true);
+
+        $this->basho->expects('compileStreaks')->andReturn([$streak]);
+
+        $compilation = new StreakCompilation();
+        $compilation->addBasho($this->basho);
+
+        $this->assertEmpty($compilation->closedStreaks());
+    }
+
+    #[Test]
+    public function addInitialBashoWithClosedStreak(): void
+    {
+        $streak = Mockery::mock(Streak::class);
+        $streak->expects('isOpen')->once()->andReturn(false);
+
+        $this->basho->expects('compileStreaks')->andReturn([$streak]);
+
+        $compilation = new StreakCompilation();
+        $compilation->addBasho($this->basho);
+
+        $this->assertCount(1, $compilation->closedStreaks());
     }
 }
