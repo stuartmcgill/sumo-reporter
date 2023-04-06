@@ -7,6 +7,8 @@ namespace unit\DomainService;
 use Mockery;
 use Mockery\Adapter\Phpunit\MockeryPHPUnitIntegration;
 use Mockery\MockInterface;
+use PHPUnit\Framework\Attributes\DataProvider;
+use PHPUnit\Framework\Attributes\Test;
 use PHPUnit\Framework\TestCase;
 use ReflectionProperty;
 use StuartMcGill\SumoScraper\DomainService\StreakCompilation;
@@ -30,11 +32,10 @@ class StreakCompilationTest extends TestCase
     }
 
     /**
-     * @test
-     *
-     * @dataProvider isIncompleteProvider
      * @param list<bool> $streakStates
      */
+    #[DataProvider('isIncompleteProvider')]
+    #[Test]
     public function isIncomplete(array $streakStates, bool $expected): void
     {
         $this->basho->expects('compileStreaks')->andReturn(

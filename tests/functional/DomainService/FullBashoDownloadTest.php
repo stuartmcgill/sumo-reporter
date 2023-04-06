@@ -4,13 +4,12 @@ declare(strict_types=1);
 
 namespace functional\DomainService;
 
-require __DIR__ . '/../../../vendor/autoload.php';
-
 use Laminas\ServiceManager\AbstractFactory\ReflectionBasedAbstractFactory;
 use Laminas\ServiceManager\ServiceManager;
 use Mockery;
 use Mockery\Adapter\Phpunit\MockeryPHPUnitIntegration;
 use Mockery\MockInterface;
+use PHPUnit\Framework\Attributes\Test;
 use PHPUnit\Framework\TestCase;
 use stdClass;
 use StuartMcGill\SumoScraper\DomainService\Api\BashoService;
@@ -38,7 +37,7 @@ class FullBashoDownloadTest extends TestCase
         $this->streakDownloader = $serviceManager->get(StreakDownloader::class);
     }
 
-    /** @test */
+    #[Test]
     public function fullBashoDownload(): void
     {
         $this->bashoService

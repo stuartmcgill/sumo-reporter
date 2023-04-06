@@ -7,6 +7,7 @@ namespace unit\CliCommand;
 use Mockery;
 use Mockery\Adapter\Phpunit\MockeryPHPUnitIntegration;
 use Mockery\MockInterface;
+use PHPUnit\Framework\Attributes\Test;
 use PHPUnit\Framework\TestCase;
 use StuartMcGill\SumoScraper\CliCommand\DownloadStreaks;
 use StuartMcGill\SumoScraper\DomainService\StreakDownloader;
@@ -24,7 +25,7 @@ class DownloadStreaksTest extends TestCase
         $this->streakDownloader = Mockery::mock(StreakDownloader::class);
     }
 
-    /** @test */
+    #[Test]
     public function download(): void
     {
         $this->streakDownloader->expects('download')->once()->andReturn([

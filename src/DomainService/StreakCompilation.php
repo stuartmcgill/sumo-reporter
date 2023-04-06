@@ -17,6 +17,22 @@ class StreakCompilation
 
     public function addBasho(Basho $basho): void
     {
+        if ($this->isEmpty()) {
+            $this->addInitialBasho($basho);
+
+            return;
+        }
+
+        $this->addSubsequentBasho($basho);
+    }
+
+    private function isEmpty(): bool
+    {
+        return count($this->openStreaks) === 0 && count($this->closedStreaks) === 0;
+    }
+
+    private function addInitialBasho(Basho $basho): void
+    {
         foreach ($basho->compileStreaks() as $streak) {
             if (is_null($streak)) {
                 continue;
@@ -28,6 +44,11 @@ class StreakCompilation
                 $this->closedStreaks[] = $streak;
             }
         }
+    }
+
+    private function addSubsequentBasho(Basho $basho): void
+    {
+
     }
 
     public function isIncomplete(): bool

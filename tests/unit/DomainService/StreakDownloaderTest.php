@@ -7,6 +7,7 @@ namespace unit\DomainService;
 use Mockery;
 use Mockery\Adapter\Phpunit\MockeryPHPUnitIntegration;
 use Mockery\MockInterface;
+use PHPUnit\Framework\Attributes\Test;
 use PHPUnit\Framework\TestCase;
 use StuartMcGill\SumoScraper\DomainService\Api\BashoService;
 use StuartMcGill\SumoScraper\DomainService\StreakCompilation;
@@ -26,7 +27,7 @@ class StreakDownloaderTest extends TestCase
         $this->streakCompilation = Mockery::mock(StreakCompilation::class);
     }
 
-    /** @test */
+    #[Test]
     public function download(): void
     {
         $this->bashoService

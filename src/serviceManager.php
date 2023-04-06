@@ -9,7 +9,6 @@ use Laminas\ServiceManager\ServiceManager;
 
 $serviceManager = new ServiceManager([
     'factories' => [
-        /** @phpstan-ignore-next-line */
         'config' => fn () => require_once __DIR__ . '/../config/config.php',
     ],
     'abstract_factories' => [new ReflectionBasedAbstractFactory()]

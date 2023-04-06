@@ -10,6 +10,7 @@ use GuzzleHttp\Psr7\Response;
 use Mockery;
 use Mockery\Adapter\Phpunit\MockeryPHPUnitIntegration;
 use Mockery\MockInterface;
+use PHPUnit\Framework\Attributes\Test;
 use PHPUnit\Framework\TestCase;
 use StuartMcGill\SumoScraper\DomainService\Api\BashoService;
 
@@ -25,7 +26,7 @@ class BashoServiceTest extends TestCase
         $this->httpClient = Mockery::mock(Client::class);
     }
 
-    /** @test */
+    #[Test]
     public function fetch(): void
     {
         $response = Mockery::mock(Response::class);
