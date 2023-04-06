@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-$config = [
+return [
     'divisions' => ['Makuuchi', 'Juryo', 'Makushita', 'Sandanme', 'Jonidan', 'Jonokuchi'],
     'apiRateLimit' => 500,
 ];
