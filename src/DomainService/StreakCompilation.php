@@ -16,6 +16,12 @@ class StreakCompilation
     private array $closedStreaks = [];
 
     /** @return list<Streak> */
+    public function openStreaks(): array
+    {
+        return $this->openStreaks;
+    }
+
+    /** @return list<Streak> */
     public function closedStreaks(): array
     {
         return $this->closedStreaks;

@@ -96,31 +96,28 @@ class StreakCompilationTest extends TestCase
         $this->assertEmpty($compilation->closedStreaks());
     }
 
+    #[DataProvider('addInitialBashoProvider')]
     #[Test]
-    public function addInitialBashoWithOpenStreak(): void
+    public function addInitialBashoWithNonNullStreak(bool $isOpen): void
     {
         $streak = Mockery::mock(Streak::class);
-        $streak->expects('isOpen')->once()->andReturn(true);
+        $streak->expects('isOpen')->once()->andReturn($isOpen);
 
         $this->basho->expects('compileStreaks')->andReturn([$streak]);
 
         $compilation = new StreakCompilation();
         $compilation->addBasho($this->basho);
 
-        $this->assertEmpty($compilation->closedStreaks());
+        $this->assertCount($isOpen ? 1 : 0, $compilation->openStreaks());
+        $this->assertCount($isOpen ? 0 : 1, $compilation->closedStreaks());
     }
 
-    #[Test]
-    public function addInitialBashoWithClosedStreak(): void
+    /** @return array<string, mixed> */
+    public function addInitialBashoProvider(): array
     {
-        $streak = Mockery::mock(Streak::class);
-        $streak->expects('isOpen')->once()->andReturn(false);
-
-        $this->basho->expects('compileStreaks')->andReturn([$streak]);
-
-        $compilation = new StreakCompilation();
-        $compilation->addBasho($this->basho);
-
-        $this->assertCount(1, $compilation->closedStreaks());
+        return [
+            'Open streak' => ['open' => true],
+            'Closed streak' => ['open' => false],
+        ];
     }
 }
