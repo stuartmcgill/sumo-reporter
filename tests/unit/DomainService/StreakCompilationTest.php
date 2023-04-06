@@ -126,10 +126,10 @@ class StreakCompilationTest extends TestCase
     #[Test]
     public function addSubsequentBasho(): void
     {
-        $wrestler1 = new Wrestler(1, '1');
-        $wrestler2 = new Wrestler(2, '2');
-        $wrestler3 = new Wrestler(3, '3');
-        $wrestler4 = new Wrestler(4, '4');
+        $wrestler1 = new Wrestler(1, 'TEST WRESTLER 1');
+        $wrestler2 = new Wrestler(2, 'TEST WRESTLER 2');
+        $wrestler3 = new Wrestler(3, 'TEST WRESTLER 3');
+        $wrestler4 = new Wrestler(4, 'TEST WRESTLER 4');
 
         // Basho 1. We want one wrestler with an open streak. Two with a closed one.
         // Basho 2. We want one new wrestler who wasn't in Basho 1.
@@ -186,6 +186,15 @@ class StreakCompilationTest extends TestCase
         $this->assertCount(0, $compilation->openStreaks());
         $closed = $compilation->closedStreaks();
         $this->assertCount(3, $closed);
+
+        // Sort by wrestler ID
+        usort(array: $closed, callback: static function (Streak $a, Streak $b): int {
+            if ($a->isForSameWrestlerAs($b)) {
+                return 0;
+            }
+
+            return $a->wrestler->name < $b->wrestler->name ? -1 : 1;
+        });
 
         $wrestler1Streak = $closed[0];
         $wrestler2Streak = $closed[1];

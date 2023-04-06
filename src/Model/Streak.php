@@ -10,7 +10,7 @@ class Streak
         public readonly Wrestler $wrestler,
         public readonly StreakType $type,
         private int $length,
-        private readonly bool $isOpen,
+        private bool $isOpen,
     ) {
     }
 
@@ -29,7 +29,7 @@ class Streak
         return !$this->isOpen();
     }
 
-    public function isForSameWrestler(Streak $otherStreak): bool
+    public function isForSameWrestlerAs(Streak $otherStreak): bool
     {
         return $this->wrestler->equals($otherStreak->wrestler);
     }
@@ -37,5 +37,10 @@ class Streak
     public function increment(int $extra): void
     {
         $this->length += $extra;
+    }
+
+    public function close(): void
+    {
+        $this->isOpen = false;
     }
 }

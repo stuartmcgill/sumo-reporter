@@ -19,8 +19,8 @@ class StreakTest extends TestCase
         $streak1b = $this->createStreak(wrestlerId: 1, wrestlerName: 'TEST 1B');
         $streak2 = $this->createStreak(wrestlerId: 2, wrestlerName: 'TEST 2');
 
-        $this->assertTrue($streak1a->isForSameWrestler($streak1b));
-        $this->assertFalse($streak1a->isForSameWrestler($streak2));
+        $this->assertTrue($streak1a->isForSameWrestlerAs($streak1b));
+        $this->assertFalse($streak1a->isForSameWrestlerAs($streak2));
     }
 
     #[Test]

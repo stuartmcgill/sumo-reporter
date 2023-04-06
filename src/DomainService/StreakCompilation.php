@@ -61,37 +61,41 @@ class StreakCompilation
     private function addSubsequentBasho(Basho $basho): void
     {
         foreach ($basho->compileStreaks() as $newStreak) {
-            $existingStreak = $this->findExistingStreak($newStreak);
+            $openStreak = $this->findOpenStreak($newStreak);
 
-            if (is_null($existingStreak)) {
+            if (is_null($openStreak)) {
                 continue;
             }
 
             if (is_null($newStreak) || $newStreak->isClosed()) {
-                $this->closeStreak($existingStreak, $newStreak);
+                $this->closeStreak($openStreak, $newStreak->length());
+                continue;
             }
+
+            $openStreak->increment($newStreak->length());
         }
     }
 
-    private function findExistingStreak(Streak $newStreak): ?Streak
+    private function findOpenStreak(Streak $newStreak): ?Streak
     {
-        $combined = array_merge($this->openStreaks, $this->closedStreaks);
-
         $streaks = array_values(array_filter(
-            array: $combined,
-            callback: static fn (Streak $existingStreak) => $newStreak->isForSameWrestler($existingStreak),
+            array: $this->openStreaks,
+            callback: static fn (Streak $existingStreak) =>
+                $newStreak->isForSameWrestlerAs($existingStreak),
         ));
 
         return $streaks[0] ?? null;
     }
 
-    private function closeStreak(Streak $existingStreak, Streak $newStreak): void
+    private function closeStreak(Streak $existingStreak, int $length): void
     {
-        $existingStreak->increment($newStreak->length());
+        $existingStreak->increment($length);
+        $existingStreak->close();
 
         $streaks = array_filter(
             array: $this->openStreaks,
-            callback: static fn (Streak $openStreak) => $openStreak->wrestler->equals($existingStreak->wrestler),
+            callback: static fn (Streak $openStreak) =>
+                $openStreak->wrestler->equals($existingStreak->wrestler),
         );
 
         unset($this->openStreaks[array_key_first($streaks)]);
