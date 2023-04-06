@@ -13,6 +13,9 @@ use StuartMcGill\SumoScraper\DomainService\Api\BashoService;
 use StuartMcGill\SumoScraper\DomainService\StreakCompilation;
 use StuartMcGill\SumoScraper\DomainService\StreakDownloader;
 use StuartMcGill\SumoScraper\Model\Basho;
+use StuartMcGill\SumoScraper\Model\Streak;
+use StuartMcGill\SumoScraper\Model\StreakType;
+use StuartMcGill\SumoScraper\Model\Wrestler;
 
 class StreakDownloaderTest extends TestCase
 {
@@ -44,19 +47,38 @@ class StreakDownloaderTest extends TestCase
 
         $this->streakCompilation
             ->expects('addBasho')
+            ->once()
             ->andReturn(Mockery::on(static function (Basho $basho): bool {
                 // TODO add more sophisticated check as more data exposed from basho
                 return true;
             }));
+
+        $this->streakCompilation
+            ->expects('closedStreaks')
+            ->once()
+            ->andReturn([
+                $this->createStreak('Hakuho'),
+                $this->createStreak('Kakuryu'),
+            ]);
 
         $downloader = new StreakDownloader(
             $this->bashoService,
             $this->streakCompilation,
             ['divisions' => ['TEST_DIVISION']],
         );
-        $wrestlers = $downloader->download(2023, 3);
+        $streaks = $downloader->download(2023, 3);
 
-        $this->assertSame(expected: 'Hakuho', actual: $wrestlers[0]->name);
-        $this->assertSame(expected: 'Kakuryu', actual: $wrestlers[1]->name);
+        $this->assertSame(expected: 'Hakuho', actual: $streaks[0]->wrestler->name);
+        $this->assertSame(expected: 'Kakuryu', actual: $streaks[1]->wrestler->name);
+    }
+
+    private function createStreak(string $wrestlerName): Streak
+    {
+        return new Streak(
+            new Wrestler(1, $wrestlerName),
+            StreakType::Winning,
+            1,
+            false,
+        );
     }
 }

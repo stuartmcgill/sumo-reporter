@@ -10,7 +10,6 @@ use Mockery\MockInterface;
 use PHPUnit\Framework\Attributes\DataProvider;
 use PHPUnit\Framework\Attributes\Test;
 use PHPUnit\Framework\TestCase;
-use ReflectionProperty;
 use StuartMcGill\SumoScraper\DomainService\StreakCompilation;
 use StuartMcGill\SumoScraper\Model\Basho;
 use StuartMcGill\SumoScraper\Model\Streak;
@@ -42,9 +41,7 @@ class StreakCompilationTest extends TestCase
             array_map(
                 static function (bool $streakState): Streak {
                     $streak = Mockery::mock(Streak::class);
-
-                    $reflectionProperty = new ReflectionProperty(Streak::class, 'isOpen');
-                    $reflectionProperty->setValue($streak, $streakState);
+                    $streak->expects('isOpen')->once()->andReturn($streakState);
 
                     return $streak;
                 },
@@ -86,5 +83,14 @@ class StreakCompilationTest extends TestCase
                 'expected' => true,
             ],
         ];
+    }
+
+    #[Test]
+    public function addInitialBasho(): void
+    {
+
+
+        $compilation = new StreakCompilation();
+        $compilation->addBasho($this->basho);
     }
 }

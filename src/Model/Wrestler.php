@@ -9,4 +9,9 @@ class Wrestler
     public function __construct(public readonly int $sumoDbId, public readonly string $name)
     {
     }
+
+    public function equals(self $otherWrestler): bool
+    {
+        return $otherWrestler->sumoDbId === $this->sumoDbId;
+    }
 }

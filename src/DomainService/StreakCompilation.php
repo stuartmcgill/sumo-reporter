@@ -15,6 +15,12 @@ class StreakCompilation
     /** @var list<Streak> */
     private array $closedStreaks = [];
 
+    /** @return list<Streak> */
+    public function closedStreaks(): array
+    {
+        return $this->closedStreaks;
+    }
+
     public function addBasho(Basho $basho): void
     {
         if ($this->isEmpty()) {
@@ -38,7 +44,7 @@ class StreakCompilation
                 continue;
             }
 
-            if ($streak->isOpen) {
+            if ($streak->isOpen()) {
                 $this->openStreaks[] = $streak;
             } else {
                 $this->closedStreaks[] = $streak;
@@ -48,7 +54,40 @@ class StreakCompilation
 
     private function addSubsequentBasho(Basho $basho): void
     {
+        foreach ($basho->compileStreaks() as $newStreak) {
+            $existingStreak = $this->findExistingStreak($newStreak);
 
+            if (is_null($existingStreak)) {
+                continue;
+            }
+
+            if (is_null($newStreak) || $newStreak->isClosed()) {
+                $this->closeStreak($existingStreak);
+            }
+        }
+    }
+
+    private function findExistingStreak(Streak $newStreak): ?Streak
+    {
+        $combined = array_merge($this->openStreaks, $this->closedStreaks);
+
+        $streaks = array_values(array_filter(
+            array: $combined,
+            callback: static fn (Streak $existingStreak) => $newStreak->isForSameWrestler($existingStreak),
+        ));
+
+        return $streaks[0] ?? null;
+    }
+
+    private function closeStreak(Streak $streak): void
+    {
+        $streaks = array_filter(
+            array: $this->openStreaks,
+            callback: static fn (Streak $openStreak) => $openStreak->wrestler->equals($streak->wrestler),
+        );
+
+        unset($this->openStreaks[array_key_first($streaks)]);
+        $this->closedStreaks[] = $streak;
     }
 
     public function isIncomplete(): bool

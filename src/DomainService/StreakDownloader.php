@@ -7,6 +7,7 @@ namespace StuartMcGill\SumoScraper\DomainService;
 use StuartMcGill\SumoScraper\DomainService\Api\BashoService;
 use StuartMcGill\SumoScraper\Model\Basho;
 use StuartMcGill\SumoScraper\Model\BashoDate;
+use StuartMcGill\SumoScraper\Model\Streak;
 use StuartMcGill\SumoScraper\Model\Wrestler;
 
 class StreakDownloader
@@ -19,7 +20,7 @@ class StreakDownloader
     ) {
     }
 
-    /** @return list<Wrestler> */
+    /** @return list<Streak> */
     public function download(int $year, int $month): array
     {
         $bashoDate = new BashoDate($year, $month);
@@ -31,10 +32,7 @@ class StreakDownloader
             $bashoDate = $bashoDate->previous();
         }
 
-        return [
-            new Wrestler(1, 'Hakuho'),
-            new Wrestler(2, 'Kakuryu'),
-        ];
+        return $this->streakCompilation->closedStreaks();
     }
 
     private function retrieveBasho(BashoDate $bashoDate): Basho
