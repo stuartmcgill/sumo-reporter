@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace unit\Model;
 
 use Mockery;
+use PHPUnit\Framework\Attributes\Test;
 use PHPUnit\Framework\TestCase;
 use StuartMcGill\SumoScraper\Model\Basho;
 use StuartMcGill\SumoScraper\Model\Performance;
@@ -12,7 +13,7 @@ use StuartMcGill\SumoScraper\Model\Streak;
 
 class BashoTest extends TestCase
 {
-    /** @test */
+    #[Test]
     public function compileStreaks(): void
     {
         $streaks = [

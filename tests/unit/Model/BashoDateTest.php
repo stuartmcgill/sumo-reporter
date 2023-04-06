@@ -5,12 +5,13 @@ declare(strict_types=1);
 namespace unit\Model;
 
 use DateTime;
+use PHPUnit\Framework\Attributes\Test;
 use PHPUnit\Framework\TestCase;
 use StuartMcGill\SumoScraper\Model\BashoDate;
 
 class BashoDateTest extends TestCase
 {
-    /** @test */
+    #[Test]
     public function previousFromJanuary(): void
     {
         $bashoDate = new BashoDate(2023, 1);
@@ -22,7 +23,7 @@ class BashoDateTest extends TestCase
         );
     }
 
-    /** @test */
+    #[Test]
     public function previousFromOtherMonth(): void
     {
         $bashoDate = new BashoDate(2023, 3);
@@ -34,7 +35,7 @@ class BashoDateTest extends TestCase
         );
     }
 
-    /** @test */
+    #[Test]
     public function fromMonthWithBasho(): void
     {
         $bashoDate = BashoDate::fromDateTime(new DateTime('2021-03-01'));
@@ -45,7 +46,7 @@ class BashoDateTest extends TestCase
         );
     }
 
-    /** @test */
+    #[Test]
     public function fromMonthWithoutBasho(): void
     {
         $bashoDate = BashoDate::fromDateTime(new DateTime('2021-04-01'));

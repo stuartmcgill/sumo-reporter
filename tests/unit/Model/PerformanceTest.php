@@ -4,6 +4,8 @@ declare(strict_types=1);
 
 namespace unit\Model;
 
+use PHPUnit\Framework\Attributes\DataProvider;
+use PHPUnit\Framework\Attributes\Test;
 use PHPUnit\Framework\TestCase;
 use StuartMcGill\SumoScraper\Model\OpponentResult;
 use StuartMcGill\SumoScraper\Model\Performance;
@@ -15,12 +17,11 @@ use StuartMcGill\SumoScraper\Model\Wrestler;
 class PerformanceTest extends TestCase
 {
     /**
-     * @test
-     *
-     * @dataProvider calculateStreakProvider
      * @param list<Result> $results
      * @param array{type: StreakType, length: int, isOpen: bool} $expected
      */
+    #[DataProvider('calculateStreakProvider')]
+    #[Test]
     public function calculateStreak(array $results, array $expected): void
     {
         $wrestler = new Wrestler(1, 'Octofuji');
@@ -85,11 +86,10 @@ class PerformanceTest extends TestCase
     }
 
     /**
-     * @test
-     *
-     * @dataProvider noStreakProvider
      * @param list<Result> $results
      */
+    #[DataProvider('noStreakProvider')]
+    #[Test]
     public function calculateStreakNoneExpected(array $results): void
     {
         $performance = new Performance(
