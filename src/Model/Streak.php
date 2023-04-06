@@ -9,9 +9,14 @@ class Streak
     public function __construct(
         public readonly Wrestler $wrestler,
         public readonly StreakType $type,
-        public readonly int $length,
+        private int $length,
         private readonly bool $isOpen,
     ) {
+    }
+
+    public function length(): int
+    {
+        return $this->length;
     }
 
     public function isOpen(): bool
@@ -27,5 +32,10 @@ class Streak
     public function isForSameWrestler(Streak $otherStreak): bool
     {
         return $this->wrestler->equals($otherStreak->wrestler);
+    }
+
+    public function increment(int $extra): void
+    {
+        $this->length += $extra;
     }
 }

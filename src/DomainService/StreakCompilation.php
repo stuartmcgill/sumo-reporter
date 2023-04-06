@@ -68,7 +68,7 @@ class StreakCompilation
             }
 
             if (is_null($newStreak) || $newStreak->isClosed()) {
-                $this->closeStreak($existingStreak);
+                $this->closeStreak($existingStreak, $newStreak);
             }
         }
     }
@@ -85,15 +85,17 @@ class StreakCompilation
         return $streaks[0] ?? null;
     }
 
-    private function closeStreak(Streak $streak): void
+    private function closeStreak(Streak $existingStreak, Streak $newStreak): void
     {
+        $existingStreak->increment($newStreak->length());
+
         $streaks = array_filter(
             array: $this->openStreaks,
-            callback: static fn (Streak $openStreak) => $openStreak->wrestler->equals($streak->wrestler),
+            callback: static fn (Streak $openStreak) => $openStreak->wrestler->equals($existingStreak->wrestler),
         );
 
         unset($this->openStreaks[array_key_first($streaks)]);
-        $this->closedStreaks[] = $streak;
+        $this->closedStreaks[] = $existingStreak;
     }
 
     public function isIncomplete(): bool

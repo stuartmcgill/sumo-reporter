@@ -13,6 +13,8 @@ use PHPUnit\Framework\TestCase;
 use StuartMcGill\SumoScraper\DomainService\StreakCompilation;
 use StuartMcGill\SumoScraper\Model\Basho;
 use StuartMcGill\SumoScraper\Model\Streak;
+use StuartMcGill\SumoScraper\Model\StreakType;
+use StuartMcGill\SumoScraper\Model\Wrestler;
 
 class StreakCompilationTest extends TestCase
 {
@@ -113,11 +115,89 @@ class StreakCompilationTest extends TestCase
     }
 
     /** @return array<string, mixed> */
-    public function addInitialBashoProvider(): array
+    public static function addInitialBashoProvider(): array
     {
         return [
             'Open streak' => ['open' => true],
             'Closed streak' => ['open' => false],
         ];
+    }
+
+    #[Test]
+    public function addSubsequentBasho(): void
+    {
+        $wrestler1 = new Wrestler(1, '1');
+        $wrestler2 = new Wrestler(2, '2');
+        $wrestler3 = new Wrestler(3, '3');
+        $wrestler4 = new Wrestler(4, '4');
+
+        // Basho 1. We want one wrestler with an open streak. Two with a closed one.
+        // Basho 2. We want one new wrestler who wasn't in Basho 1.
+        // We want the open wrestler to become closed, and the streak count to be extended.
+        // For the other two the basho 2 data shouldn't count, even if they are unbeaten
+        $basho1Streaks = [
+            new Streak(
+                $wrestler1,
+                StreakType::Winning,
+                15,
+                true,
+            ),
+            new Streak(
+                $wrestler2,
+                StreakType::Losing,
+                7,
+                false,
+            ),
+            new Streak(
+                $wrestler3,
+                StreakType::Losing,
+                3,
+                false,
+            ),
+        ];
+        $basho2Streaks = [
+            new Streak(
+                $wrestler1,
+                StreakType::Winning,
+                1,
+                false,
+            ),
+            new Streak(
+                $wrestler2,
+                StreakType::Winning,
+                15,
+                true,
+            ),
+            new Streak(
+                $wrestler4,
+                StreakType::Winning,
+                1,
+                false,
+            ),
+        ];
+
+        $this->basho->expects('compileStreaks')->andReturn($basho1Streaks);
+        $this->basho->expects('compileStreaks')->andReturn($basho2Streaks);
+
+        $compilation = new StreakCompilation();
+        $compilation->addBasho($this->basho);
+        $compilation->addBasho($this->basho);
+
+        $this->assertCount(0, $compilation->openStreaks());
+        $closed = $compilation->closedStreaks();
+        $this->assertCount(3, $closed);
+
+        $wrestler1Streak = $closed[0];
+        $wrestler2Streak = $closed[1];
+        $wrestler3Streak = $closed[2];
+
+        $this->assertSame(expected: 16, actual: $wrestler1Streak->length());
+        $this->assertTrue($wrestler1Streak->isClosed());
+
+        $this->assertSame(expected: 7, actual: $wrestler2Streak->length());
+        $this->assertTrue($wrestler2Streak->isClosed());
+
+        $this->assertSame(expected: 3, actual: $wrestler3Streak->length());
+        $this->assertTrue($wrestler3Streak->isClosed());
     }
 }
