@@ -4,6 +4,9 @@
     <testsuite name="Unit">
       <directory>tests/unit</directory>
     </testsuite>
+    <testsuite name="Functional">
+      <directory>tests/functional</directory>
+    </testsuite>
   </testsuites>
   <coverage>
     <include>

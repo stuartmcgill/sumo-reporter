@@ -50,8 +50,8 @@ jobs:
     - name: Syntax
       run: vendor/bin/parallel-lint --exclude vendor .
 
-    - name: Unit tests
-      run: XDEBUG_MODE=coverage composer run-script unit-tests
+    - name: Tests
+      run: XDEBUG_MODE=coverage composer run-script tests
     - name: Make code coverage badge
       uses: timkrase/phpunit-coverage-badge@v1.2.1
       with:
