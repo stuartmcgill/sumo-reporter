@@ -95,7 +95,7 @@ class StreakCompilationTest extends TestCase
         $compilation = new StreakCompilation();
         $compilation->addBasho($this->basho);
 
-        $this->assertEmpty($compilation->closedStreaks());
+        $this->assertEmpty($compilation->streaks());
     }
 
     #[DataProvider('addInitialBashoProvider')]

@@ -27,6 +27,12 @@ class StreakCompilation
         return $this->closedStreaks;
     }
 
+    /** @return list<Streak> */
+    public function streaks(): array
+    {
+        return array_merge($this->openStreaks, $this->closedStreaks);
+    }
+
     public function addBasho(Basho $basho): void
     {
         if ($this->isEmpty()) {

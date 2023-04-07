@@ -54,7 +54,7 @@ class StreakDownloaderTest extends TestCase
             }));
 
         $this->streakCompilation
-            ->expects('closedStreaks')
+            ->expects('streaks')
             ->once()
             ->andReturn([
                 $this->createStreak('Hakuho'),

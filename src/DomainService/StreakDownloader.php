@@ -32,7 +32,7 @@ class StreakDownloader
             $bashoDate = $bashoDate->previous();
         }
 
-        return $this->streakCompilation->closedStreaks();
+        return $this->streakCompilation->streaks();
     }
 
     private function retrieveBasho(BashoDate $bashoDate): Basho
