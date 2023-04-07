@@ -82,6 +82,22 @@ class PerformanceTest extends TestCase
                     'isOpen' => false,
                 ],
             ],
+            'Lower-ranked wrestler after a day where he is not scheduled to fight' => [
+                'results' => [Result::Win, Result::NoBoutScheduled],
+                'expected' => [
+                    'type' => StreakType::Winning,
+                    'length' => 1,
+                    'isOpen' => true,
+                ],
+            ],
+            'Wrestler entering mid-tournament' => [
+                'results' => [Result::NoBoutScheduled, Result::Win],
+                'expected' => [
+                    'type' => StreakType::Winning,
+                    'length' => 1,
+                    'isOpen' => false,
+                ],
+            ],
         ];
     }
 
