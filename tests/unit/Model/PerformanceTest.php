@@ -98,6 +98,12 @@ class PerformanceTest extends TestCase
                     'isOpen' => false,
                 ],
             ],
+            // TODO - 3 tournament streak
+            // TODO - isOpen and isClosed could be methods rather than construction params
+            // TODO - distinguish properly between
+            // TODO - formatting output
+            // TODO - upload for sumo website
+            // TODO - make script work in basho month leading up to basho e.g. on 1st May - should return March
         ];
     }
 
