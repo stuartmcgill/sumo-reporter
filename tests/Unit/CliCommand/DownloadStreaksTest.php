@@ -2,20 +2,18 @@
 
 declare(strict_types=1);
 
-namespace unit\CliCommand;
+namespace StuartMcGill\SumoScraper\Tests\Unit\CliCommand;
 
 use Mockery;
 use Mockery\Adapter\Phpunit\MockeryPHPUnitIntegration;
 use Mockery\MockInterface;
 use PHPUnit\Framework\Attributes\Test;
 use PHPUnit\Framework\TestCase;
-use ReflectionProperty;
 use StuartMcGill\SumoScraper\CliCommand\DownloadStreaks;
-use StuartMcGill\SumoScraper\DomainService\StreakCompilation;
 use StuartMcGill\SumoScraper\DomainService\StreakDownloader;
 use StuartMcGill\SumoScraper\Model\Streak;
 use StuartMcGill\SumoScraper\Model\StreakType;
-use StuartMcGill\SumoScraper\Model\Wrestler;
+use StuartMcGill\SumoScraper\Tests\Unit\Support\Generator;
 use Symfony\Component\Console\Tester\CommandTester;
 
 class DownloadStreaksTest extends TestCase
@@ -52,7 +50,7 @@ class DownloadStreaksTest extends TestCase
     private function createStreak(string $wrestlerName): Streak
     {
         return new Streak(
-            new Wrestler(1, $wrestlerName),
+            Generator::wrestler(name: $wrestlerName),
             StreakType::Winning,
             1,
             false,

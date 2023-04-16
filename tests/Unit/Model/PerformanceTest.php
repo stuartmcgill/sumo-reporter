@@ -12,7 +12,7 @@ use StuartMcGill\SumoScraper\Model\Performance;
 use StuartMcGill\SumoScraper\Model\Result;
 use StuartMcGill\SumoScraper\Model\Streak;
 use StuartMcGill\SumoScraper\Model\StreakType;
-use StuartMcGill\SumoScraper\Model\Wrestler;
+use StuartMcGill\SumoScraper\Tests\Unit\Support\Generator;
 
 class PerformanceTest extends TestCase
 {
@@ -24,8 +24,8 @@ class PerformanceTest extends TestCase
     #[Test]
     public function calculateStreak(array $results, array $expected): void
     {
-        $wrestler = new Wrestler(1, 'Octofuji');
-        $opponent = new Wrestler(2, 'Nonogawa');
+        $wrestler = Generator::wrestler(id: 1, name: 'Octofuji');
+        $opponent = Generator::opponent(id: 2, name: 'Nonogawa');
 
         $performance = new Performance(
             $wrestler,
@@ -82,6 +82,14 @@ class PerformanceTest extends TestCase
                     'isOpen' => false,
                 ],
             ],
+            'Wrestler entering mid-tournament' => [
+                'results' => [Result::Absent, Result::Win],
+                'expected' => [
+                    'type' => StreakType::Winning,
+                    'length' => 1,
+                    'isOpen' => false,
+                ],
+            ],
             'Lower-ranked wrestler after a day where he is not scheduled to fight' => [
                 'results' => [Result::Win, Result::NoBoutScheduled],
                 'expected' => [
@@ -90,16 +98,7 @@ class PerformanceTest extends TestCase
                     'isOpen' => true,
                 ],
             ],
-            'Wrestler entering mid-tournament' => [
-                'results' => [Result::NoBoutScheduled, Result::Win],
-                'expected' => [
-                    'type' => StreakType::Winning,
-                    'length' => 1,
-                    'isOpen' => false,
-                ],
-            ],
             // TODO - 3 tournament streak
-            // TODO - isOpen and isClosed could be methods rather than construction params
             // TODO - distinguish properly between
             // TODO - formatting output
             // TODO - upload for sumo website
@@ -115,7 +114,7 @@ class PerformanceTest extends TestCase
     public function calculateStreakNoneExpected(array $results): void
     {
         $performance = new Performance(
-            new Wrestler(1, 'Octofuji'),
+            Generator::wrestler(id: 1, name: 'Octofuji'),
             array_map(
                 static fn (Result $result) => new OpponentResult(null, $result),
                 $results,

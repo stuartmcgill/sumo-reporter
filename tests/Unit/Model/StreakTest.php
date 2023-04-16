@@ -8,7 +8,7 @@ use PHPUnit\Framework\Attributes\Test;
 use PHPUnit\Framework\TestCase;
 use StuartMcGill\SumoScraper\Model\Streak;
 use StuartMcGill\SumoScraper\Model\StreakType;
-use StuartMcGill\SumoScraper\Model\Wrestler;
+use StuartMcGill\SumoScraper\Tests\Unit\Support\Generator;
 
 class StreakTest extends TestCase
 {
@@ -38,7 +38,7 @@ class StreakTest extends TestCase
         ?int $length = 0,
     ): Streak {
         return new Streak(
-            wrestler: new Wrestler(sumoDbId: $wrestlerId, name: $wrestlerName),
+            wrestler: Generator::wrestler(id: $wrestlerId, name: $wrestlerName),
             type: StreakType::Winning,
             length: $length,
             isOpen: false,

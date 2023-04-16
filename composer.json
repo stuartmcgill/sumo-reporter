@@ -7,6 +7,13 @@
             "StuartMcGill\\SumoScraper\\": "src/"
         }
     },
+    "autoload-dev" :
+    {
+        "psr-4" :
+        {
+            "StuartMcGill\\SumoScraper\\Tests\\": "tests/"
+        }
+    },
     "authors": [
         {
             "name": "Stuart McGill"

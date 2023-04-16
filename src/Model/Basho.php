@@ -58,12 +58,12 @@ class Basho
     {
         $mapPerformances = static fn (stdClass $performance) =>
             new Performance(
-                wrestler: new Wrestler($performance->rikishiID, $performance->shikonaEn),
+                wrestler: Wrestler::build($performance),
                 opponentResults: array_map(
                     static fn (stdClass $record) =>
                         new OpponentResult(
                             opponent: $record->opponentID > 0
-                                ? new Wrestler($record->opponentID, $record->opponentShikonaEn)
+                                ? Opponent::build($record)
                                 : null,
                             result: Result::from($record->result),
                         ),

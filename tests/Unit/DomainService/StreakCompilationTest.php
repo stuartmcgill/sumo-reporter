@@ -15,6 +15,7 @@ use StuartMcGill\SumoScraper\Model\Basho;
 use StuartMcGill\SumoScraper\Model\Streak;
 use StuartMcGill\SumoScraper\Model\StreakType;
 use StuartMcGill\SumoScraper\Model\Wrestler;
+use StuartMcGill\SumoScraper\Tests\Unit\Support\Generator;
 
 class StreakCompilationTest extends TestCase
 {
@@ -126,10 +127,10 @@ class StreakCompilationTest extends TestCase
     #[Test]
     public function addSubsequentBasho(): void
     {
-        $wrestler1 = new Wrestler(1, 'TEST WRESTLER 1');
-        $wrestler2 = new Wrestler(2, 'TEST WRESTLER 2');
-        $wrestler3 = new Wrestler(3, 'TEST WRESTLER 3');
-        $wrestler4 = new Wrestler(4, 'TEST WRESTLER 4');
+        $wrestler1 = Generator::wrestler(id: 1);
+        $wrestler2 = Generator::wrestler(id: 2);
+        $wrestler3 = Generator::wrestler(id: 3);
+        $wrestler4 = Generator::wrestler(id: 4);
 
         // Basho 1. We want one wrestler with an open streak. Two with a closed one.
         // Basho 2. We want one new wrestler who wasn't in Basho 1.
@@ -193,7 +194,7 @@ class StreakCompilationTest extends TestCase
                 return 0;
             }
 
-            return $a->wrestler->name < $b->wrestler->name ? -1 : 1;
+            return $a->wrestler->sumoDbId < $b->wrestler->sumoDbId ? -1 : 1;
         });
 
         $wrestler1Streak = $closed[0];

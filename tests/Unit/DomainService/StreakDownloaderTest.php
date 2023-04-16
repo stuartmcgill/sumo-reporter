@@ -15,7 +15,7 @@ use StuartMcGill\SumoScraper\DomainService\StreakDownloader;
 use StuartMcGill\SumoScraper\Model\Basho;
 use StuartMcGill\SumoScraper\Model\Streak;
 use StuartMcGill\SumoScraper\Model\StreakType;
-use StuartMcGill\SumoScraper\Model\Wrestler;
+use StuartMcGill\SumoScraper\Tests\Unit\Support\Generator;
 
 class StreakDownloaderTest extends TestCase
 {
@@ -75,7 +75,7 @@ class StreakDownloaderTest extends TestCase
     private function createStreak(string $wrestlerName): Streak
     {
         return new Streak(
-            new Wrestler(1, $wrestlerName),
+            Generator::wrestler(name: $wrestlerName),
             StreakType::Winning,
             1,
             false,
