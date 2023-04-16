@@ -14,7 +14,6 @@ use StuartMcGill\SumoScraper\DomainService\StreakCompilation;
 use StuartMcGill\SumoScraper\Model\Basho;
 use StuartMcGill\SumoScraper\Model\Streak;
 use StuartMcGill\SumoScraper\Model\StreakType;
-use StuartMcGill\SumoScraper\Model\Wrestler;
 use StuartMcGill\SumoScraper\Tests\Unit\Support\Generator;
 
 class StreakCompilationTest extends TestCase

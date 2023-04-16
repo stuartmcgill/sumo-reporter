@@ -59,6 +59,9 @@ class Basho
         $mapPerformances = static fn (stdClass $performance) =>
             new Performance(
                 wrestler: Wrestler::build($performance),
+                wins: $performance->wins,
+                losses: $performance->losses,
+                absences: $performance->absences,
                 opponentResults: array_map(
                     static fn (stdClass $record) =>
                         new OpponentResult(

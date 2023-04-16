@@ -9,6 +9,9 @@ class Performance
     /** @param list<OpponentResult> $opponentResults */
     public function __construct(
         private readonly Wrestler $wrestler,
+        private readonly int $wins,
+        private readonly int $losses,
+        private readonly int $absences,
         private readonly array $opponentResults,
     ) {
     }
