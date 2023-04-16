@@ -55,7 +55,7 @@ class Streak
     {
         if ($this->type !== StreakType::NoBoutScheduled) {
             throw new DomainException('It does not make sense to confirm the type for a ' .
-                'streak which already has a type of ' . $this->type->name);
+                'streak which already has type: ' . $this->type->name);
         }
 
         $this->type = $newType;
