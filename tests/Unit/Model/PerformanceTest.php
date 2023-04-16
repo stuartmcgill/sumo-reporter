@@ -102,6 +102,32 @@ class PerformanceTest extends TestCase
                     'isOpen' => false,
                 ],
             ],
+            'Fusensho continues streak' => [
+                'results' => [Result::FusenWin, Result::Win],
+                'summary' => [
+                    'wins' => 2,
+                    'losses' => 0,
+                    'absences' => 0,
+                ],
+                'expected' => [
+                    'type' => StreakType::Winning,
+                    'length' => 2,
+                    'isOpen' => true,
+                ],
+            ],
+            'Fusenpai continues streak' => [
+                'results' => [Result::FusenLoss, Result::Loss],
+                'summary' => [
+                    'wins' => 0,
+                    'losses' => 2,
+                    'absences' => 0,
+                ],
+                'expected' => [
+                    'type' => StreakType::Losing,
+                    'length' => 2,
+                    'isOpen' => true,
+                ],
+            ],
             'Wrestler entering mid-tournament' => [
                 'results' => [Result::Absent, Result::Win],
                 'summary' => [
