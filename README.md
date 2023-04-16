@@ -1,6 +1,6 @@
 # Sumo reporter
 
-![Code coverage badge](https://github.com/stuartmcgill/sumo-scraper/blob/image-data/coverage.svg)
+![Code coverage badge](https://github.com/stuartmcgill/sumo-reporter/blob/image-data/coverage.svg)
 
 This console application uses the [Sumo API](https://sumo-api.com/) to produce formatted reports.
 

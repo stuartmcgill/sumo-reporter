@@ -1,6 +1,6 @@
 {
     "name": "stuartmcgill/sumo-reporter",
-    "description": "Scrapes the Sumo DB website to produce formatted reports",
+    "description": "Uses the Sumo API to produce formatted reports",
     "license": "GPL-3.0-or-later",
     "autoload": {
         "psr-4": {
