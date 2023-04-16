@@ -54,28 +54,28 @@ class FullBashoDownloadTest extends TestCase
 
         $streaks = $this->streakDownloader->download(2023, 3);
 
-        $findStreak = static fn (string $name): Streak =>
+        $findStreak = static fn (array $haystack, string $name): Streak =>
             array_values(array_filter(
-                $streaks,
+                $haystack,
                 static fn (Streak $streak) => $streak->wrestler->name === $name
             ))[0];
 
         // Single basho
-        $kiribayamaStreak = $findStreak('Kiribayama');
-        $this->assertSame('Kiribayama', $kiribayamaStreak->wrestler->name);
-        $this->assertSame(StreakType::Winning, $kiribayamaStreak->type());
-        $this->assertSame(8, $kiribayamaStreak->length());
-        $this->assertSame(false, $kiribayamaStreak->isOpen());
+        $daieishoStreak = $findStreak($streaks, 'Daieisho');
+        $this->assertSame('Daieisho', $daieishoStreak->wrestler->name);
+        $this->assertSame(StreakType::Losing, $daieishoStreak->type());
+        $this->assertSame(1, $daieishoStreak->length());
+        $this->assertSame(false, $daieishoStreak->isOpen());
 
         // Double basho
-        $ryuoStreak = $findStreak('Ryuo');
+        $ryuoStreak = $findStreak($streaks, 'Ryuo');
         $this->assertSame('Ryuo', $ryuoStreak->wrestler->name);
         $this->assertSame(StreakType::Winning, $ryuoStreak->type());
         $this->assertSame(7, $ryuoStreak->length());
         $this->assertSame(false, $ryuoStreak->isOpen());
 
         // Perfect Jonokuchi after Mae-zumo
-        $ryuoStreak = $findStreak('Asahakuryu');
+        $ryuoStreak = $findStreak($streaks, 'Asahakuryu');
         $this->assertSame('Asahakuryu', $ryuoStreak->wrestler->name);
         $this->assertSame(StreakType::Winning, $ryuoStreak->type());
         $this->assertSame(7, $ryuoStreak->length());
