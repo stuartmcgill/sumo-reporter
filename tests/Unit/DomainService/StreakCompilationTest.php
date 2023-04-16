@@ -193,7 +193,7 @@ class StreakCompilationTest extends TestCase
                 return 0;
             }
 
-            return $a->wrestler->sumoDbId < $b->wrestler->sumoDbId ? -1 : 1;
+            return $a->wrestler->id < $b->wrestler->id ? -1 : 1;
         });
 
         $wrestler1Streak = $closed[0];

@@ -9,7 +9,7 @@ use stdClass;
 class Wrestler
 {
     public function __construct(
-        public readonly int $sumoDbId,
+        public readonly int $id,
         public readonly string $name,
         public readonly string $rank,
     ) {
@@ -17,7 +17,7 @@ class Wrestler
 
     public function equals(self $otherWrestler): bool
     {
-        return $otherWrestler->sumoDbId === $this->sumoDbId;
+        return $otherWrestler->id === $this->id;
     }
 
     public static function build(stdClass $performance): self
