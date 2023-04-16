@@ -205,7 +205,11 @@ class PerformanceTest extends TestCase
             wrestler: Generator::wrestler(id: 1, name: 'Octofuji'),
         );
 
-        $this->assertNull($performance->calculateStreak());
+        $streak = $performance->calculateStreak();
+
+        $this->assertSame(StreakType::None, $streak->type);
+        $this->assertSame(0, $streak->length());
+        $this->assertSame(false, $streak->isOpen());
     }
 
     /** @return array<string, mixed> */

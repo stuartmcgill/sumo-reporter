@@ -16,7 +16,7 @@ class Performance
     ) {
     }
 
-    public function calculateStreak(): ?Streak
+    public function calculateStreak(): Streak
     {
         $results = array_reverse($this->opponentResults);
 
