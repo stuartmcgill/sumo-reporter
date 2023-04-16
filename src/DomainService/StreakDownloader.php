@@ -55,7 +55,7 @@ class StreakDownloader
             array: $streaks,
             callback: static fn (Streak $streak)
                 => in_array(
-                    needle: $streak->type,
+                    needle: $streak->type(),
                     haystack: [StreakType::Winning, StreakType::Losing],
                 )
         ));

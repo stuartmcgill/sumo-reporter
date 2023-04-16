@@ -6,6 +6,7 @@ namespace StuartMcGill\SumoScraper\DomainService;
 
 use StuartMcGill\SumoScraper\Model\Basho;
 use StuartMcGill\SumoScraper\Model\Streak;
+use StuartMcGill\SumoScraper\Model\StreakType;
 
 class StreakCompilation
 {
@@ -75,7 +76,11 @@ class StreakCompilation
                 continue;
             }
 
-            if ($newStreak->type !== $openStreak->type) {
+            if ($openStreak->type() === StreakType::NoBoutScheduled) {
+                $openStreak->confirmType($newStreak->type());
+            }
+
+            if ($newStreak->type() !== $openStreak->type()) {
                 $this->closeStreak($openStreak, 0);
                 continue;
             }

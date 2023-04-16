@@ -82,6 +82,7 @@ class Performance
         return null;
     }
 
+    /** @param list<OpponentResult> $results */
     private function areAllDaysSoFarNonScheduled(array $results): bool
     {
         return count(array_filter(

@@ -221,7 +221,7 @@ class PerformanceTest extends TestCase
 
         $streak = $performance->calculateStreak();
 
-        $this->assertSame(StreakType::None, $streak->type);
+        $this->assertSame(StreakType::None, $streak->type());
         $this->assertSame(0, $streak->length());
         $this->assertSame(false, $streak->isOpen());
     }
