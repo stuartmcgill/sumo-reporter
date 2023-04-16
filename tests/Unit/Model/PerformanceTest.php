@@ -211,7 +211,7 @@ class PerformanceTest extends TestCase
      */
     #[DataProvider('noStreakProvider')]
     #[Test]
-    public function calculateStreakNoneExpected(array $results, array $summary): void
+    public function calculateStreakNoneExpected(?array $results, array $summary): void
     {
         $performance = $this->createPerformance(
             summary: $summary,
@@ -255,7 +255,7 @@ class PerformanceTest extends TestCase
                 ],
             ],
             'Intai e.g. Kaisei 2022-09' => [
-                'results' => null,
+                'results' => [],
                 'summary' => [
                     'wins' => 0,
                     'losses' => 0,

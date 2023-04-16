@@ -66,7 +66,7 @@ class StreakDownloaderTest extends TestCase
             $this->streakCompilation,
             ['divisions' => ['TEST_DIVISION']],
         );
-        $streaks = $downloader->download(2023, 3);
+        $streaks = $downloader->download(2023, 3)[0];
 
         $this->assertSame(expected: 'Hakuho', actual: $streaks[0]->wrestler->name);
         $this->assertSame(expected: 'Kakuryu', actual: $streaks[1]->wrestler->name);
