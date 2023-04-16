@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-namespace StuartMcGill\SumoScraper\Tests\Unit\Support;
+namespace StuartMcGill\SumoReporter\Tests\Unit\Support;
 
-use StuartMcGill\SumoScraper\Model\Opponent;
-use StuartMcGill\SumoScraper\Model\Wrestler;
+use StuartMcGill\SumoReporter\Model\Opponent;
+use StuartMcGill\SumoReporter\Model\Wrestler;
 
 abstract class Generator
 {

@@ -2,12 +2,12 @@
 
 declare(strict_types=1);
 
-namespace StuartMcGill\SumoScraper\Tests\Unit\Model;
+namespace StuartMcGill\SumoReporter\Tests\Unit\Model;
 
 use DateTime;
 use PHPUnit\Framework\Attributes\Test;
 use PHPUnit\Framework\TestCase;
-use StuartMcGill\SumoScraper\Model\BashoDate;
+use StuartMcGill\SumoReporter\Model\BashoDate;
 
 class BashoDateTest extends TestCase
 {

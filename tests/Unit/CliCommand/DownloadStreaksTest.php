@@ -2,18 +2,18 @@
 
 declare(strict_types=1);
 
-namespace StuartMcGill\SumoScraper\Tests\Unit\CliCommand;
+namespace StuartMcGill\SumoReporter\Tests\Unit\CliCommand;
 
 use Mockery;
 use Mockery\Adapter\Phpunit\MockeryPHPUnitIntegration;
 use Mockery\MockInterface;
 use PHPUnit\Framework\Attributes\Test;
 use PHPUnit\Framework\TestCase;
-use StuartMcGill\SumoScraper\CliCommand\DownloadStreaks;
-use StuartMcGill\SumoScraper\DomainService\StreakDownloader;
-use StuartMcGill\SumoScraper\Model\Streak;
-use StuartMcGill\SumoScraper\Model\StreakType;
-use StuartMcGill\SumoScraper\Tests\Unit\Support\Generator;
+use StuartMcGill\SumoReporter\CliCommand\DownloadStreaks;
+use StuartMcGill\SumoReporter\DomainService\StreakDownloader;
+use StuartMcGill\SumoReporter\Model\Streak;
+use StuartMcGill\SumoReporter\Model\StreakType;
+use StuartMcGill\SumoReporter\Tests\Unit\Support\Generator;
 use Symfony\Component\Console\Tester\CommandTester;
 
 class DownloadStreaksTest extends TestCase

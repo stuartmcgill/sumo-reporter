@@ -2,14 +2,14 @@
 
 declare(strict_types=1);
 
-namespace StuartMcGill\SumoScraper\Tests\Unit\Model;
+namespace StuartMcGill\SumoReporter\Tests\Unit\Model;
 
 use Mockery;
 use PHPUnit\Framework\Attributes\Test;
 use PHPUnit\Framework\TestCase;
-use StuartMcGill\SumoScraper\Model\Basho;
-use StuartMcGill\SumoScraper\Model\Performance;
-use StuartMcGill\SumoScraper\Model\Streak;
+use StuartMcGill\SumoReporter\Model\Basho;
+use StuartMcGill\SumoReporter\Model\Performance;
+use StuartMcGill\SumoReporter\Model\Streak;
 
 class BashoTest extends TestCase
 {

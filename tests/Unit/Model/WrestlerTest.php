@@ -2,11 +2,11 @@
 
 declare(strict_types=1);
 
-namespace StuartMcGill\SumoScraper\Tests\Unit\Model;
+namespace StuartMcGill\SumoReporter\Tests\Unit\Model;
 
 use PHPUnit\Framework\Attributes\Test;
 use PHPUnit\Framework\TestCase;
-use StuartMcGill\SumoScraper\Tests\Unit\Support\Generator;
+use StuartMcGill\SumoReporter\Tests\Unit\Support\Generator;
 
 class WrestlerTest extends TestCase
 {

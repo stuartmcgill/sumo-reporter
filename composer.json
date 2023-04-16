@@ -1,17 +1,17 @@
 {
-    "name": "stuartmcgill/sumo-scraper",
+    "name": "stuartmcgill/sumo-reporter",
     "description": "Scrapes the Sumo DB website to produce formatted reports",
     "license": "GPL-3.0-or-later",
     "autoload": {
         "psr-4": {
-            "StuartMcGill\\SumoScraper\\": "src/"
+            "StuartMcGill\\SumoReporter\\": "src/"
         }
     },
     "autoload-dev" :
     {
         "psr-4" :
         {
-            "StuartMcGill\\SumoScraper\\Tests\\": "tests/"
+            "StuartMcGill\\SumoReporter\\Tests\\": "tests/"
         }
     },
     "authors": [

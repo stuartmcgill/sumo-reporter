@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace StuartMcGill\SumoScraper;
+namespace StuartMcGill\SumoReporter;
 
 use Laminas\ServiceManager\AbstractFactory\ReflectionBasedAbstractFactory;
 use Laminas\ServiceManager\ServiceManager;

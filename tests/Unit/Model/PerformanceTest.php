@@ -2,19 +2,19 @@
 
 declare(strict_types=1);
 
-namespace StuartMcGill\SumoScraper\Tests\Unit\Model;
+namespace StuartMcGill\SumoReporter\Tests\Unit\Model;
 
 use PHPUnit\Framework\Attributes\DataProvider;
 use PHPUnit\Framework\Attributes\Test;
 use PHPUnit\Framework\TestCase;
-use StuartMcGill\SumoScraper\Model\Opponent;
-use StuartMcGill\SumoScraper\Model\OpponentResult;
-use StuartMcGill\SumoScraper\Model\Performance;
-use StuartMcGill\SumoScraper\Model\Result;
-use StuartMcGill\SumoScraper\Model\Streak;
-use StuartMcGill\SumoScraper\Model\StreakType;
-use StuartMcGill\SumoScraper\Model\Wrestler;
-use StuartMcGill\SumoScraper\Tests\Unit\Support\Generator;
+use StuartMcGill\SumoReporter\Model\Opponent;
+use StuartMcGill\SumoReporter\Model\OpponentResult;
+use StuartMcGill\SumoReporter\Model\Performance;
+use StuartMcGill\SumoReporter\Model\Result;
+use StuartMcGill\SumoReporter\Model\Streak;
+use StuartMcGill\SumoReporter\Model\StreakType;
+use StuartMcGill\SumoReporter\Model\Wrestler;
+use StuartMcGill\SumoReporter\Tests\Unit\Support\Generator;
 
 class PerformanceTest extends TestCase
 {

@@ -2,11 +2,11 @@
 
 declare(strict_types=1);
 
-namespace StuartMcGill\SumoScraper\DomainService;
+namespace StuartMcGill\SumoReporter\DomainService;
 
-use StuartMcGill\SumoScraper\Model\Basho;
-use StuartMcGill\SumoScraper\Model\Streak;
-use StuartMcGill\SumoScraper\Model\StreakType;
+use StuartMcGill\SumoReporter\Model\Basho;
+use StuartMcGill\SumoReporter\Model\Streak;
+use StuartMcGill\SumoReporter\Model\StreakType;
 
 class StreakCompilation
 {

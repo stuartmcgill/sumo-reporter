@@ -3,13 +3,13 @@
 
 declare(strict_types=1);
 
-namespace StuartMcGill\SumoScraper;
+namespace StuartMcGill\SumoReporter;
 
 require __DIR__ . '/../vendor/autoload.php';
 require_once 'serviceManager.php';
 
 use Laminas\ServiceManager\ServiceManager;
-use StuartMcGill\SumoScraper\CliCommand\DownloadStreaks;
+use StuartMcGill\SumoReporter\CliCommand\DownloadStreaks;
 use Symfony\Component\Console\Application;
 
 $app = new Application();

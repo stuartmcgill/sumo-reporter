@@ -2,13 +2,13 @@
 
 declare(strict_types=1);
 
-namespace StuartMcGill\SumoScraper\Tests\Unit\Model;
+namespace StuartMcGill\SumoReporter\Tests\Unit\Model;
 
 use PHPUnit\Framework\Attributes\Test;
 use PHPUnit\Framework\TestCase;
-use StuartMcGill\SumoScraper\Model\Streak;
-use StuartMcGill\SumoScraper\Model\StreakType;
-use StuartMcGill\SumoScraper\Tests\Unit\Support\Generator;
+use StuartMcGill\SumoReporter\Model\Streak;
+use StuartMcGill\SumoReporter\Model\StreakType;
+use StuartMcGill\SumoReporter\Tests\Unit\Support\Generator;
 
 class StreakTest extends TestCase
 {

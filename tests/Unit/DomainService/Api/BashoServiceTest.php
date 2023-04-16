@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace StuartMcGill\SumoScraper\Tests\Unit\DomainService\Api;
+namespace StuartMcGill\SumoReporter\Tests\Unit\DomainService\Api;
 
 use GuzzleHttp\Client;
 use GuzzleHttp\Promise\PromiseInterface;
@@ -12,7 +12,7 @@ use Mockery\Adapter\Phpunit\MockeryPHPUnitIntegration;
 use Mockery\MockInterface;
 use PHPUnit\Framework\Attributes\Test;
 use PHPUnit\Framework\TestCase;
-use StuartMcGill\SumoScraper\DomainService\Api\BashoService;
+use StuartMcGill\SumoReporter\DomainService\Api\BashoService;
 
 class BashoServiceTest extends TestCase
 {

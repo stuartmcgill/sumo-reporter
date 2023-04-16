@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace StuartMcGill\SumoScraper\Model;
+namespace StuartMcGill\SumoReporter\Model;
 
 use stdClass;
 

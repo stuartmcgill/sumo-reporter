@@ -1,4 +1,4 @@
-# Sumo scraper
+# Sumo reporter
 
 ![Code coverage badge](https://github.com/stuartmcgill/sumo-scraper/blob/image-data/coverage.svg)
 

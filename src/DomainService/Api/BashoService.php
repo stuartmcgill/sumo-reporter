@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace StuartMcGill\SumoScraper\DomainService\Api;
+namespace StuartMcGill\SumoReporter\DomainService\Api;
 
 use GuzzleHttp\Client;
 use GuzzleHttp\Promise\Utils;

@@ -2,13 +2,13 @@
 
 declare(strict_types=1);
 
-namespace StuartMcGill\SumoScraper\CliCommand;
+namespace StuartMcGill\SumoReporter\CliCommand;
 
 use DateTime;
-use StuartMcGill\SumoScraper\DomainService\StreakDownloader;
-use StuartMcGill\SumoScraper\Model\BashoDate;
-use StuartMcGill\SumoScraper\Model\Streak;
-use StuartMcGill\SumoScraper\Model\StreakType;
+use StuartMcGill\SumoReporter\DomainService\StreakDownloader;
+use StuartMcGill\SumoReporter\Model\BashoDate;
+use StuartMcGill\SumoReporter\Model\Streak;
+use StuartMcGill\SumoReporter\Model\StreakType;
 use Symfony\Component\Console\Attribute\AsCommand;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Helper\Table;

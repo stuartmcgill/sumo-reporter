@@ -2,14 +2,14 @@
 
 declare(strict_types=1);
 
-namespace StuartMcGill\SumoScraper\DomainService;
+namespace StuartMcGill\SumoReporter\DomainService;
 
-use StuartMcGill\SumoScraper\DomainService\Api\BashoService;
-use StuartMcGill\SumoScraper\Model\Basho;
-use StuartMcGill\SumoScraper\Model\BashoDate;
-use StuartMcGill\SumoScraper\Model\Streak;
-use StuartMcGill\SumoScraper\Model\StreakType;
-use StuartMcGill\SumoScraper\Model\Wrestler;
+use StuartMcGill\SumoReporter\DomainService\Api\BashoService;
+use StuartMcGill\SumoReporter\Model\Basho;
+use StuartMcGill\SumoReporter\Model\BashoDate;
+use StuartMcGill\SumoReporter\Model\Streak;
+use StuartMcGill\SumoReporter\Model\StreakType;
+use StuartMcGill\SumoReporter\Model\Wrestler;
 
 class StreakDownloader
 {

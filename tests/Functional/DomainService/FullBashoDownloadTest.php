@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace StuartMcGill\SumoScraper\Tests\Functional\DomainService;
+namespace StuartMcGill\SumoReporter\Tests\Functional\DomainService;
 
 use Laminas\ServiceManager\AbstractFactory\ReflectionBasedAbstractFactory;
 use Laminas\ServiceManager\ServiceManager;
@@ -12,10 +12,10 @@ use Mockery\MockInterface;
 use PHPUnit\Framework\Attributes\Test;
 use PHPUnit\Framework\TestCase;
 use stdClass;
-use StuartMcGill\SumoScraper\DomainService\Api\BashoService;
-use StuartMcGill\SumoScraper\DomainService\StreakDownloader;
-use StuartMcGill\SumoScraper\Model\Streak;
-use StuartMcGill\SumoScraper\Model\StreakType;
+use StuartMcGill\SumoReporter\DomainService\Api\BashoService;
+use StuartMcGill\SumoReporter\DomainService\StreakDownloader;
+use StuartMcGill\SumoReporter\Model\Streak;
+use StuartMcGill\SumoReporter\Model\StreakType;
 
 /** This tests the real data from the March 2023 basho */
 class FullBashoDownloadTest extends TestCase
