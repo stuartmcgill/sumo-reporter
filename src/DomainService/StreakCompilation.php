@@ -94,7 +94,7 @@ class StreakCompilation
         }
 
         // For any remaining open streaks, if they don't exist in the new streaks (e.g. this might
-        // be their first basho) then close off their streak).
+        // be their first basho) then close off their streak.
         foreach ($this->openStreaks() as $openStreak) {
             $streaks = array_values(array_filter(
                 array: $newStreaks,

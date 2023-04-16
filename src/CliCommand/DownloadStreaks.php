@@ -8,7 +8,6 @@ use DateTime;
 use StuartMcGill\SumoReporter\DomainService\StreakDownloader;
 use StuartMcGill\SumoReporter\Model\BashoDate;
 use StuartMcGill\SumoReporter\Model\Streak;
-use StuartMcGill\SumoReporter\Model\StreakType;
 use Symfony\Component\Console\Attribute\AsCommand;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Helper\Table;
@@ -69,8 +68,6 @@ class DownloadStreaks extends Command
     /** @param list<Streak> $streaks */
     private function printStreaks(OutputInterface $output, array $streaks): void
     {
-        $this->sortStreaks($streaks);
-
         $table = new Table($output);
         $table
             ->setHeaders(['Name', 'Rank', 'Type', 'Streak size', 'Still running?'])
@@ -85,28 +82,5 @@ class DownloadStreaks extends Command
                 array: $streaks
             ))
             ->render();
-    }
-
-    /** @param list<Streak> $streaks */
-    private function sortStreaks(array &$streaks): void
-    {
-        usort(
-            array: $streaks,
-            callback: static function (Streak $a, Streak $b): int {
-                if ($a->isForSameWrestlerAs($b)) {
-                    return 0;
-                }
-
-                if ($a->type() !== $b->type()) {
-                    return $a->type() === StreakType::Winning ? -1 : 1;
-                }
-
-                if ($a->length() !== $b->length()) {
-                    return $a->length() > $b->length() ? -1 : 1;
-                }
-
-                return $a->wrestler->name < $b->wrestler->name ? -1 : 1;
-            }
-        );
     }
 }

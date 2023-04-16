@@ -32,7 +32,10 @@ class StreakDownloader
             $bashoDate = $bashoDate->previous();
         }
 
-        return $this->separate($this->filter($this->streakCompilation->streaks()));
+        $filtered = $this->filter($this->streakCompilation->streaks());
+        $this->sort($filtered);
+
+        return $this->separate($filtered);
     }
 
     private function retrieveBasho(BashoDate $bashoDate): Basho
@@ -77,5 +80,28 @@ class StreakDownloader
         ));
 
         return [$winning, $losing];
+    }
+
+    /** @param list<Streak> $streaks */
+    private function sort(array &$streaks): void
+    {
+        usort(
+            array: $streaks,
+            callback: static function (Streak $a, Streak $b): int {
+                if ($a->isForSameWrestlerAs($b)) {
+                    return 0;
+                }
+
+                if ($a->type() !== $b->type()) {
+                    return $a->type() === StreakType::Winning ? -1 : 1;
+                }
+
+                if ($a->length() !== $b->length()) {
+                    return $a->length() > $b->length() ? -1 : 1;
+                }
+
+                return $a->wrestler->name < $b->wrestler->name ? -1 : 1;
+            }
+        );
     }
 }
