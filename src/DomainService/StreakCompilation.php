@@ -75,11 +75,6 @@ class StreakCompilation
                 continue;
             }
 
-            if (is_null($newStreak)) {
-                $this->closeStreak($openStreak, 0);
-                continue;
-            }
-
             if ($newStreak->type !== $openStreak->type) {
                 $this->closeStreak($openStreak, 0);
                 continue;

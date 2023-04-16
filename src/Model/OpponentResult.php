@@ -12,8 +12,8 @@ class OpponentResult
     ) {
     }
 
-    public function matches(OpponentResult $other): bool
+    public function matchesStreakType(StreakType $streakType): bool
     {
-        return $this->result->matches($other->result);
+        return $this->result->matchesStreakType($streakType);
     }
 }

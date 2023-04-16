@@ -11,6 +11,7 @@ enum StreakType
     case Winning;
     case Losing;
     case None;
+    case NoBoutScheduled;
 
     public static function fromResult(Result $result): self
     {

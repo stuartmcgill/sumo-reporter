@@ -185,6 +185,20 @@ class PerformanceTest extends TestCase
                     'isOpen' => true,
                 ],
             ],
+            'Lower-ranked wrestler not fought yet' => [
+                'results' => [Result::NoBoutScheduled, Result::NoBoutScheduled],
+                'summary' => [
+                    'wins' => 0,
+                    'losses' => 0,
+                    'absences' => 0,
+                ],
+                // Need to do this differently e.g. a no bout scheduled streak?
+                'expected' => [
+                    'type' => StreakType::NoBoutScheduled,
+                    'length' => 0,
+                    'isOpen' => true,
+                ],
+            ],
             // TODO - 3 tournament streak
             // TODO - formatting output
             // TODO - upload for sumo website

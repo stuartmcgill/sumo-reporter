@@ -20,6 +20,15 @@ class Performance
     {
         $results = array_reverse($this->opponentResults);
 
+        if ($this->areAllDaysSoFarNonScheduled($results)) {
+            return new Streak(
+                wrestler: $this->wrestler,
+                type: StreakType::NoBoutScheduled,
+                length: 0,
+                isOpen: true,
+            );
+        }
+
         $indexOfFirstRelevantBout = $this->findFirstRelevantBout($results);
         if (is_null($indexOfFirstRelevantBout)) {
             return new Streak(
@@ -39,7 +48,7 @@ class Performance
                 continue;
             }
 
-            if (!$results[$index]->result->matchesStreakType($type)) {
+            if (!$results[$index]->matchesStreakType($type)) {
                 break;
             }
         }
@@ -71,5 +80,14 @@ class Performance
         }
 
         return null;
+    }
+
+    private function areAllDaysSoFarNonScheduled(array $results): bool
+    {
+        return count(array_filter(
+            array: $results,
+            callback: static fn (OpponentResult $opponentResult)
+                => $opponentResult->result !== Result::NoBoutScheduled
+        )) === 0;
     }
 }
