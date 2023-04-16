@@ -5,8 +5,7 @@
 This console application uses the [Sumo API](https://sumo-api.com/) to produce formatted reports.
 
 Currently it can show ordered wrestler 'streaks' i.e. how many bouts wrestlers have won (or lost) in
-a row, which may of course stretch across successive bashos. (Currently data is only available from the March 2023 basho)
-onwards.
+a row, which may of course stretch across successive bashos.
 
 # Usage
 
