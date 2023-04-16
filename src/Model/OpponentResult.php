@@ -7,7 +7,7 @@ namespace StuartMcGill\SumoScraper\Model;
 class OpponentResult
 {
     public function __construct(
-        private readonly ?Opponent $opponent,
+        public readonly ?Opponent $opponent,
         public readonly Result $result,
     ) {
     }
