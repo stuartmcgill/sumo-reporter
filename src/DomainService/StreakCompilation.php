@@ -66,19 +66,45 @@ class StreakCompilation
 
     private function addSubsequentBasho(Basho $basho): void
     {
-        foreach ($basho->compileStreaks() as $newStreak) {
+        $newStreaks = $basho->compileStreaks();
+
+        foreach ($newStreaks as $newStreak) {
             $openStreak = $this->findOpenStreak($newStreak);
 
             if (is_null($openStreak)) {
                 continue;
             }
 
-            if (is_null($newStreak) || $newStreak->isClosed()) {
+            if (is_null($newStreak)) {
+                $this->closeStreak($openStreak, 0);
+                continue;
+            }
+
+            if ($newStreak->type !== $openStreak->type) {
+                $this->closeStreak($openStreak, 0);
+                continue;
+            }
+
+            if ($newStreak->isClosed()) {
                 $this->closeStreak($openStreak, $newStreak->length());
                 continue;
             }
 
             $openStreak->increment($newStreak->length());
+        }
+
+        // For any remaining open streaks, if they don't exist in the new streaks (e.g. this might
+        // be their first basho) then close off their streak).
+        foreach ($this->openStreaks() as $openStreak) {
+            $streaks = array_values(array_filter(
+                array: $newStreaks,
+                callback: static fn (Streak $existingStreak) =>
+                $openStreak->isForSameWrestlerAs($existingStreak),
+            ));
+
+            if (count($streaks) === 0) {
+                $this->closeStreak($openStreak, 0);
+            }
         }
     }
 

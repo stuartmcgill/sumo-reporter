@@ -8,6 +8,7 @@ use StuartMcGill\SumoScraper\DomainService\Api\BashoService;
 use StuartMcGill\SumoScraper\Model\Basho;
 use StuartMcGill\SumoScraper\Model\BashoDate;
 use StuartMcGill\SumoScraper\Model\Streak;
+use StuartMcGill\SumoScraper\Model\StreakType;
 use StuartMcGill\SumoScraper\Model\Wrestler;
 
 class StreakDownloader
@@ -32,7 +33,7 @@ class StreakDownloader
             $bashoDate = $bashoDate->previous();
         }
 
-        return $this->streakCompilation->streaks();
+        return $this->filter($this->streakCompilation->streaks());
     }
 
     private function retrieveBasho(BashoDate $bashoDate): Basho
@@ -42,5 +43,14 @@ class StreakDownloader
             month: $bashoDate->month,
             divisions: $this->config['divisions'],
         ));
+    }
+
+    /** @param list<Streak> $streaks */
+    private function filter(array $streaks): array
+    {
+        return array_values(array_filter(
+            array: $streaks,
+            callback: static fn (Streak $streak) => $streak->type !== StreakType::None)
+        );
     }
 }

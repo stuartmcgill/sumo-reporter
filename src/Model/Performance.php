@@ -22,13 +22,20 @@ class Performance
 
         $indexOfFirstRelevantBout = $this->findFirstRelevantBout($results);
         if (is_null($indexOfFirstRelevantBout)) {
-            return null;
+            return new Streak(
+                wrestler: $this->wrestler,
+                type: StreakType::None,
+                length: 0,
+                isOpen: false,
+            );
         }
 
         $type = StreakType::fromResult($results[$indexOfFirstRelevantBout]->result);
+        $numDaysWithoutScheduledBouts = $indexOfFirstRelevantBout;
 
         for ($index = $indexOfFirstRelevantBout + 1; $index < count($results); $index++) {
             if ($results[$index]->result === Result::NoBoutScheduled) {
+                $numDaysWithoutScheduledBouts++;
                 continue;
             }
 
@@ -40,7 +47,7 @@ class Performance
         return new Streak(
             wrestler: $this->wrestler,
             type: $type,
-            length: $index - $this->numberOfDaysWithoutScheduledBouts(),
+            length: $index - $numDaysWithoutScheduledBouts,
             isOpen: $this->isStreakOpen(),
         );
     }
