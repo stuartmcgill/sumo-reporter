@@ -10,6 +10,7 @@ enum StreakType
 {
     case Winning;
     case Losing;
+    case None;
 
     public static function fromResult(Result $result): self
     {

@@ -43,15 +43,20 @@ class FullBashoDownloadTest extends TestCase
         $this->bashoService
             ->expects('fetch')
             ->with(2023, 3, Mockery::any())
-            ->andReturn($this->loadTestResponses());
+            ->andReturn($this->loadTestResponses(2023, 3));
+
+        $this->bashoService
+            ->expects('fetch')
+            ->with(2023, 1, Mockery::any())
+            ->andReturn($this->loadTestResponses(2023, 1));
 
         $this->streakDownloader->download(2023, 3);
     }
 
     /** @return list<stdClass> */
-    private function loadTestResponses(): array
+    private function loadTestResponses(int $year, int $month): array
     {
-        $dataDir = __DIR__ . '/../../_data/basho/';
+        $dataDir = __DIR__ . sprintf('/../../_data/basho/%d-%02d/', $year, $month);
         $files = array_diff(scandir($dataDir), ['.', '..']);
 
         return array_values(array_map(

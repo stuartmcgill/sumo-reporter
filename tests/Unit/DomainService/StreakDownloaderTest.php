@@ -37,7 +37,7 @@ class StreakDownloaderTest extends TestCase
             ->expects('fetch')
             ->with(2023, 3, ['TEST_DIVISION'])
             ->andReturn([json_decode(file_get_contents(
-                __DIR__ . '/../../_data/basho/01 makuuchi.json'
+                __DIR__ . '/../../_data/basho/2023-03/01 makuuchi.json'
             ))]);
 
         $this->streakCompilation

@@ -24,6 +24,14 @@ enum Result: string
         };
     }
 
+    public function matchesStreakType(StreakType $streakType): bool
+    {
+        return match($streakType) {
+            StreakType::Winning => $this->isWin(),
+            StreakType::Losing => $this->isLoss(),
+        };
+    }
+
     public function isWinOrLoss(): bool
     {
         return $this->isWin() || $this->isLoss();

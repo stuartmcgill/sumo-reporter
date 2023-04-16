@@ -1,0 +1,3492 @@
+{
+  "bashoId": "202301",
+  "division": "Jonokuchi",
+  "east": [
+    {
+      "side": "East",
+      "rikishiID": 596,
+      "shikonaEn": "Yamadaumi",
+      "rank": "Jonokuchi 1 East",
+      "record": [
+        {
+          "result": "loss",
+          "opponentShikonaEn": "Azumayama",
+          "opponentShikonaJp": "æ±å±±(ã‚ãšã¾ã‚„ã¾)",
+          "opponentID": 581,
+          "kimarite": "yorikiri"
+        },
+        {
+          "result": "",
+          "opponentShikonaEn": "",
+          "opponentShikonaJp": "",
+          "opponentID": 0,
+          "kimarite": ""
+        },
+        {
+          "result": "loss",
+          "opponentShikonaEn": "Koga",
+          "opponentShikonaJp": "åŽšé›…(ã“ã†ãŒ)",
+          "opponentID": 465,
+          "kimarite": "sukuinage"
+        },
+        {
+          "result": "",
+          "opponentShikonaEn": "",
+          "opponentShikonaJp": "",
+          "opponentID": 0,
+          "kimarite": ""
+        },
+        {
+          "result": "loss",
+          "opponentShikonaEn": "Itakozakura",
+          "opponentShikonaJp": "æ½®æ¥æ¡œ(ã„ãŸã“ã–ãã‚‰)",
+          "opponentID": 595,
+          "kimarite": "kotenage"
+        },
+        {
+          "result": "",
+          "opponentShikonaEn": "",
+          "opponentShikonaJp": "",
+          "opponentID": 0,
+          "kimarite": ""
+        },
+        {
+          "result": "win",
+          "opponentShikonaEn": "Soga",
+          "opponentShikonaJp": "æ›½æˆ‘(ããŒ)",
+          "opponentID": 598,
+          "kimarite": "uwatenage"
+        },
+        {
+          "result": "",
+          "opponentShikonaEn": "",
+          "opponentShikonaJp": "",
+          "opponentID": 0,
+          "kimarite": ""
+        },
+        {
+          "result": "loss",
+          "opponentShikonaEn": "Sonoshun",
+          "opponentShikonaJp": "è’¼ä¹ƒé§¿(ãã†ã®ã—ã‚…ã‚“)",
+          "opponentID": 512,
+          "kimarite": "yorikiri"
+        },
+        {
+          "result": "",
+          "opponentShikonaEn": "",
+          "opponentShikonaJp": "",
+          "opponentID": 0,
+          "kimarite": ""
+        },
+        {
+          "result": "loss",
+          "opponentShikonaEn": "Nishikiori",
+          "opponentShikonaJp": "éŒ¦ç¹”(ã«ã—ããŠã‚Š)",
+          "opponentID": 588,
+          "kimarite": "uwatenage"
+        },
+        {
+          "result": "",
+          "opponentShikonaEn": "",
+          "opponentShikonaJp": "",
+          "opponentID": 0,
+          "kimarite": ""
+        },
+        {
+          "result": "",
+          "opponentShikonaEn": "",
+          "opponentShikonaJp": "",
+          "opponentID": 0,
+          "kimarite": ""
+        },
+        {
+          "result": "",
+          "opponentShikonaEn": "",
+          "opponentShikonaJp": "",
+          "opponentID": 0,
+          "kimarite": ""
+        },
+        {
+          "result": "loss",
+          "opponentShikonaEn": "Sakuraba",
+          "opponentShikonaJp": "å®‰æ«»(ã‚ã‚“ã–ãã‚‰)",
+          "opponentID": 591,
+          "kimarite": "shitatenage"
+        }
+      ],
+      "wins": 1,
+      "losses": 6,
+      "absences": 0
+    },
+    {
+      "side": "East",
+      "rikishiID": 582,
+      "shikonaEn": "Sadanojo",
+      "rank": "Jonokuchi 2 East",
+      "record": [
+        {
+          "result": "",
+          "opponentShikonaEn": "",
+          "opponentShikonaJp": "",
+          "opponentID": 0,
+          "kimarite": ""
+        },
+        {
+          "result": "loss",
+          "opponentShikonaEn": "Nishikiori",
+          "opponentShikonaJp": "éŒ¦ç¹”(ã«ã—ããŠã‚Š)",
+          "opponentID": 588,
+          "kimarite": "shitatenage"
+        },
+        {
+          "result": "win",
+          "opponentShikonaEn": "Itakozakura",
+          "opponentShikonaJp": "æ½®æ¥æ¡œ(ã„ãŸã“ã–ãã‚‰)",
+          "opponentID": 595,
+          "kimarite": "oshidashi"
+        },
+        {
+          "result": "",
+          "opponentShikonaEn": "",
+          "opponentShikonaJp": "",
+          "opponentID": 0,
+          "kimarite": ""
+        },
+        {
+          "result": "win",
+          "opponentShikonaEn": "Wakasei",
+          "opponentShikonaJp": "è‹¥æ¸…(ã‚ã‹ã›ã„)",
+          "opponentID": 589,
+          "kimarite": "yorikiri"
+        },
+        {
+          "result": "",
+          "opponentShikonaEn": "",
+          "opponentShikonaJp": "",
+          "opponentID": 0,
+          "kimarite": ""
+        },
+        {
+          "result": "",
+          "opponentShikonaEn": "",
+          "opponentShikonaJp": "",
+          "opponentID": 0,
+          "kimarite": ""
+        },
+        {
+          "result": "win",
+          "opponentShikonaEn": "Sano",
+          "opponentShikonaJp": "ä½é‡Ž(ã•ã®)",
+          "opponentID": 515,
+          "kimarite": "yorikiri"
+        },
+        {
+          "result": "win",
+          "opponentShikonaEn": "Azumayama",
+          "opponentShikonaJp": "æ±å±±(ã‚ãšã¾ã‚„ã¾)",
+          "opponentID": 581,
+          "kimarite": "hatakikomi"
+        },
+        {
+          "result": "",
+          "opponentShikonaEn": "",
+          "opponentShikonaJp": "",
+          "opponentID": 0,
+          "kimarite": ""
+        },
+        {
+          "result": "loss",
+          "opponentShikonaEn": "Okano",
+          "opponentShikonaJp": "è±ªç™½é›²(ã”ã†ã¯ãã†ã‚“)",
+          "opponentID": 578,
+          "kimarite": "oshidashi"
+        },
+        {
+          "result": "",
+          "opponentShikonaEn": "",
+          "opponentShikonaJp": "",
+          "opponentID": 0,
+          "kimarite": ""
+        },
+        {
+          "result": "",
+          "opponentShikonaEn": "",
+          "opponentShikonaJp": "",
+          "opponentID": 0,
+          "kimarite": ""
+        },
+        {
+          "result": "",
+          "opponentShikonaEn": "",
+          "opponentShikonaJp": "",
+          "opponentID": 0,
+          "kimarite": ""
+        },
+        {
+          "result": "loss",
+          "opponentShikonaEn": "Nishikinoryu",
+          "opponentShikonaJp": "éŒ¦ä¹ƒç«œ(ã«ã—ãã®ã‚Šã‚…ã†)",
+          "opponentID": 579,
+          "kimarite": "oshidashi"
+        }
+      ],
+      "wins": 4,
+      "losses": 3,
+      "absences": 0
+    },
+    {
+      "side": "East",
+      "rikishiID": 594,
+      "shikonaEn": "Moriurara",
+      "rank": "Jonokuchi 3 East",
+      "record": [
+        {
+          "result": "win",
+          "opponentShikonaEn": "Itakozakura",
+          "opponentShikonaJp": "æ½®æ¥æ¡œ(ã„ãŸã“ã–ãã‚‰)",
+          "opponentID": 595,
+          "kimarite": "oshidashi"
+        },
+        {
+          "result": "",
+          "opponentShikonaEn": "",
+          "opponentShikonaJp": "",
+          "opponentID": 0,
+          "kimarite": ""
+        },
+        {
+          "result": "",
+          "opponentShikonaEn": "",
+          "opponentShikonaJp": "",
+          "opponentID": 0,
+          "kimarite": ""
+        },
+        {
+          "result": "win",
+          "opponentShikonaEn": "Wakasei",
+          "opponentShikonaJp": "è‹¥æ¸…(ã‚ã‹ã›ã„)",
+          "opponentID": 589,
+          "kimarite": "oshidashi"
+        },
+        {
+          "result": "",
+          "opponentShikonaEn": "",
+          "opponentShikonaJp": "",
+          "opponentID": 0,
+          "kimarite": ""
+        },
+        {
+          "result": "loss",
+          "opponentShikonaEn": "Azumayama",
+          "opponentShikonaJp": "æ±å±±(ã‚ãšã¾ã‚„ã¾)",
+          "opponentID": 581,
+          "kimarite": "oshitaoshi"
+        },
+        {
+          "result": "loss",
+          "opponentShikonaEn": "Okano",
+          "opponentShikonaJp": "è±ªç™½é›²(ã”ã†ã¯ãã†ã‚“)",
+          "opponentID": 578,
+          "kimarite": "yorikiri"
+        },
+        {
+          "result": "",
+          "opponentShikonaEn": "",
+          "opponentShikonaJp": "",
+          "opponentID": 0,
+          "kimarite": ""
+        },
+        {
+          "result": "",
+          "opponentShikonaEn": "",
+          "opponentShikonaJp": "",
+          "opponentID": 0,
+          "kimarite": ""
+        },
+        {
+          "result": "loss",
+          "opponentShikonaEn": "Koga",
+          "opponentShikonaJp": "åŽšé›…(ã“ã†ãŒ)",
+          "opponentID": 465,
+          "kimarite": "yoritaoshi"
+        },
+        {
+          "result": "loss",
+          "opponentShikonaEn": "Kosei",
+          "opponentShikonaJp": "ç…Œæ˜Ÿ(ã“ã†ã›ã„)",
+          "opponentID": 587,
+          "kimarite": "fumidashi"
+        },
+        {
+          "result": "",
+          "opponentShikonaEn": "",
+          "opponentShikonaJp": "",
+          "opponentID": 0,
+          "kimarite": ""
+        },
+        {
+          "result": "loss",
+          "opponentShikonaEn": "Kitanosho",
+          "opponentShikonaJp": "åŒ—ä¹ƒåº„(ããŸã®ã—ã‚‡ã†)",
+          "opponentID": 592,
+          "kimarite": "yorikiri"
+        },
+        {
+          "result": "",
+          "opponentShikonaEn": "",
+          "opponentShikonaJp": "",
+          "opponentID": 0,
+          "kimarite": ""
+        },
+        {
+          "result": "",
+          "opponentShikonaEn": "",
+          "opponentShikonaJp": "",
+          "opponentID": 0,
+          "kimarite": ""
+        }
+      ],
+      "wins": 2,
+      "losses": 5,
+      "absences": 0
+    },
+    {
+      "side": "East",
+      "rikishiID": 589,
+      "shikonaEn": "Wakasei",
+      "rank": "Jonokuchi 4 East",
+      "record": [
+        {
+          "result": "",
+          "opponentShikonaEn": "",
+          "opponentShikonaJp": "",
+          "opponentID": 0,
+          "kimarite": ""
+        },
+        {
+          "result": "win",
+          "opponentShikonaEn": "Soga",
+          "opponentShikonaJp": "æ›½æˆ‘(ããŒ)",
+          "opponentID": 598,
+          "kimarite": "shitatenage"
+        },
+        {
+          "result": "",
+          "opponentShikonaEn": "",
+          "opponentShikonaJp": "",
+          "opponentID": 0,
+          "kimarite": ""
+        },
+        {
+          "result": "loss",
+          "opponentShikonaEn": "Moriurara",
+          "opponentShikonaJp": "æ£®éº—(ã‚‚ã‚Šã†ã‚‰ã‚‰)",
+          "opponentID": 594,
+          "kimarite": "oshidashi"
+        },
+        {
+          "result": "loss",
+          "opponentShikonaEn": "Sadanojo",
+          "opponentShikonaJp": "ä½ç”°ã®åŸŽ(ã•ã ã®ã˜ã‚‡ã†)",
+          "opponentID": 582,
+          "kimarite": "yorikiri"
+        },
+        {
+          "result": "",
+          "opponentShikonaEn": "",
+          "opponentShikonaJp": "",
+          "opponentID": 0,
+          "kimarite": ""
+        },
+        {
+          "result": "",
+          "opponentShikonaEn": "",
+          "opponentShikonaJp": "",
+          "opponentID": 0,
+          "kimarite": ""
+        },
+        {
+          "result": "win",
+          "opponentShikonaEn": "Itakozakura",
+          "opponentShikonaJp": "æ½®æ¥æ¡œ(ã„ãŸã“ã–ãã‚‰)",
+          "opponentID": 595,
+          "kimarite": "shitatenage"
+        },
+        {
+          "result": "",
+          "opponentShikonaEn": "",
+          "opponentShikonaJp": "",
+          "opponentID": 0,
+          "kimarite": ""
+        },
+        {
+          "result": "win",
+          "opponentShikonaEn": "Sano",
+          "opponentShikonaJp": "ä½é‡Ž(ã•ã®)",
+          "opponentID": 515,
+          "kimarite": "uwatenage"
+        },
+        {
+          "result": "loss",
+          "opponentShikonaEn": "Fubu",
+          "opponentShikonaJp": "é¢¨æ­¦(ãµã†ã¶)",
+          "opponentID": 584,
+          "kimarite": "uwatenage"
+        },
+        {
+          "result": "",
+          "opponentShikonaEn": "",
+          "opponentShikonaJp": "",
+          "opponentID": 0,
+          "kimarite": ""
+        },
+        {
+          "result": "loss",
+          "opponentShikonaEn": "Koga",
+          "opponentShikonaJp": "åŽšé›…(ã“ã†ãŒ)",
+          "opponentID": 465,
+          "kimarite": "oshidashi"
+        },
+        {
+          "result": "",
+          "opponentShikonaEn": "",
+          "opponentShikonaJp": "",
+          "opponentID": 0,
+          "kimarite": ""
+        },
+        {
+          "result": "",
+          "opponentShikonaEn": "",
+          "opponentShikonaJp": "",
+          "opponentID": 0,
+          "kimarite": ""
+        }
+      ],
+      "wins": 3,
+      "losses": 4,
+      "absences": 0
+    },
+    {
+      "side": "East",
+      "rikishiID": 603,
+      "shikonaEn": "Fujinonami",
+      "rank": "Jonokuchi 5 East",
+      "record": [
+        {
+          "result": "",
+          "opponentShikonaEn": "",
+          "opponentShikonaJp": "",
+          "opponentID": 0,
+          "kimarite": ""
+        },
+        {
+          "result": "",
+          "opponentShikonaEn": "",
+          "opponentShikonaJp": "",
+          "opponentID": 0,
+          "kimarite": ""
+        },
+        {
+          "result": "",
+          "opponentShikonaEn": "",
+          "opponentShikonaJp": "",
+          "opponentID": 0,
+          "kimarite": ""
+        },
+        {
+          "result": "",
+          "opponentShikonaEn": "",
+          "opponentShikonaJp": "",
+          "opponentID": 0,
+          "kimarite": ""
+        },
+        {
+          "result": "",
+          "opponentShikonaEn": "",
+          "opponentShikonaJp": "",
+          "opponentID": 0,
+          "kimarite": ""
+        },
+        {
+          "result": "",
+          "opponentShikonaEn": "",
+          "opponentShikonaJp": "",
+          "opponentID": 0,
+          "kimarite": ""
+        },
+        {
+          "result": "",
+          "opponentShikonaEn": "",
+          "opponentShikonaJp": "",
+          "opponentID": 0,
+          "kimarite": ""
+        },
+        {
+          "result": "",
+          "opponentShikonaEn": "",
+          "opponentShikonaJp": "",
+          "opponentID": 0,
+          "kimarite": ""
+        },
+        {
+          "result": "",
+          "opponentShikonaEn": "",
+          "opponentShikonaJp": "",
+          "opponentID": 0,
+          "kimarite": ""
+        },
+        {
+          "result": "",
+          "opponentShikonaEn": "",
+          "opponentShikonaJp": "",
+          "opponentID": 0,
+          "kimarite": ""
+        },
+        {
+          "result": "",
+          "opponentShikonaEn": "",
+          "opponentShikonaJp": "",
+          "opponentID": 0,
+          "kimarite": ""
+        },
+        {
+          "result": "",
+          "opponentShikonaEn": "",
+          "opponentShikonaJp": "",
+          "opponentID": 0,
+          "kimarite": ""
+        },
+        {
+          "result": "loss",
+          "opponentShikonaEn": "Kanryu",
+          "opponentShikonaJp": "å¯›é¾(ã‹ã‚“ã‚Šã‚…ã†)",
+          "opponentID": 597,
+          "kimarite": "oshidashi"
+        },
+        {
+          "result": "",
+          "opponentShikonaEn": "",
+          "opponentShikonaJp": "",
+          "opponentID": 0,
+          "kimarite": ""
+        },
+        {
+          "result": "",
+          "opponentShikonaEn": "",
+          "opponentShikonaJp": "",
+          "opponentID": 0,
+          "kimarite": ""
+        }
+      ],
+      "wins": 0,
+      "losses": 1,
+      "absences": 6
+    },
+    {
+      "side": "East",
+      "rikishiID": 598,
+      "shikonaEn": "Soga",
+      "rank": "Jonokuchi 6 East",
+      "record": [
+        {
+          "result": "",
+          "opponentShikonaEn": "",
+          "opponentShikonaJp": "",
+          "opponentID": 0,
+          "kimarite": ""
+        },
+        {
+          "result": "loss",
+          "opponentShikonaEn": "Wakasei",
+          "opponentShikonaJp": "è‹¥æ¸…(ã‚ã‹ã›ã„)",
+          "opponentID": 589,
+          "kimarite": "shitatenage"
+        },
+        {
+          "result": "",
+          "opponentShikonaEn": "",
+          "opponentShikonaJp": "",
+          "opponentID": 0,
+          "kimarite": ""
+        },
+        {
+          "result": "loss",
+          "opponentShikonaEn": "Takatairiku",
+          "opponentShikonaJp": "éš†å¤ªé™¸(ãŸã‹ãŸã„ã‚Šã)",
+          "opponentID": 599,
+          "kimarite": "kotenage"
+        },
+        {
+          "result": "loss",
+          "opponentShikonaEn": "Tsubakifuji",
+          "opponentShikonaJp": "æ¤¿å¯Œå£«(ã¤ã°ããµã˜)",
+          "opponentID": 590,
+          "kimarite": "tsukiotoshi"
+        },
+        {
+          "result": "",
+          "opponentShikonaEn": "",
+          "opponentShikonaJp": "",
+          "opponentID": 0,
+          "kimarite": ""
+        },
+        {
+          "result": "loss",
+          "opponentShikonaEn": "Yamadaumi",
+          "opponentShikonaJp": "å±±ç”°æµ·(ã‚„ã¾ã ã†ã¿)",
+          "opponentID": 596,
+          "kimarite": "uwatenage"
+        },
+        {
+          "result": "",
+          "opponentShikonaEn": "",
+          "opponentShikonaJp": "",
+          "opponentID": 0,
+          "kimarite": ""
+        },
+        {
+          "result": "win",
+          "opponentShikonaEn": "Sawaisamu",
+          "opponentShikonaJp": "æ¾¤å‹‡(ã•ã‚ã„ã•ã‚€)",
+          "opponentID": 602,
+          "kimarite": "oshidashi"
+        },
+        {
+          "result": "",
+          "opponentShikonaEn": "",
+          "opponentShikonaJp": "",
+          "opponentID": 0,
+          "kimarite": ""
+        },
+        {
+          "result": "",
+          "opponentShikonaEn": "",
+          "opponentShikonaJp": "",
+          "opponentID": 0,
+          "kimarite": ""
+        },
+        {
+          "result": "loss",
+          "opponentShikonaEn": "Itakozakura",
+          "opponentShikonaJp": "æ½®æ¥æ¡œ(ã„ãŸã“ã–ãã‚‰)",
+          "opponentID": 595,
+          "kimarite": "yorikiri"
+        },
+        {
+          "result": "",
+          "opponentShikonaEn": "",
+          "opponentShikonaJp": "",
+          "opponentID": 0,
+          "kimarite": ""
+        },
+        {
+          "result": "",
+          "opponentShikonaEn": "",
+          "opponentShikonaJp": "",
+          "opponentID": 0,
+          "kimarite": ""
+        },
+        {
+          "result": "loss",
+          "opponentShikonaEn": "Shokeima",
+          "opponentShikonaJp": "å‹æ¡‚é¦¬(ã—ã‚‡ã†ã‘ã„ã¾)",
+          "opponentID": 593,
+          "kimarite": "tsukiotoshi"
+        }
+      ],
+      "wins": 1,
+      "losses": 6,
+      "absences": 0
+    },
+    {
+      "side": "East",
+      "rikishiID": 590,
+      "shikonaEn": "Tsubakifuji",
+      "rank": "Jonokuchi 7 East",
+      "record": [
+        {
+          "result": "",
+          "opponentShikonaEn": "",
+          "opponentShikonaJp": "",
+          "opponentID": 0,
+          "kimarite": ""
+        },
+        {
+          "result": "loss",
+          "opponentShikonaEn": "Nishikinoryu",
+          "opponentShikonaJp": "éŒ¦ä¹ƒç«œ(ã«ã—ãã®ã‚Šã‚…ã†)",
+          "opponentID": 579,
+          "kimarite": "oshidashi"
+        },
+        {
+          "result": "loss",
+          "opponentShikonaEn": "Fubu",
+          "opponentShikonaJp": "é¢¨æ­¦(ãµã†ã¶)",
+          "opponentID": 584,
+          "kimarite": "yorikiri"
+        },
+        {
+          "result": "",
+          "opponentShikonaEn": "",
+          "opponentShikonaJp": "",
+          "opponentID": 0,
+          "kimarite": ""
+        },
+        {
+          "result": "win",
+          "opponentShikonaEn": "Soga",
+          "opponentShikonaJp": "æ›½æˆ‘(ããŒ)",
+          "opponentID": 598,
+          "kimarite": "tsukiotoshi"
+        },
+        {
+          "result": "",
+          "opponentShikonaEn": "",
+          "opponentShikonaJp": "",
+          "opponentID": 0,
+          "kimarite": ""
+        },
+        {
+          "result": "",
+          "opponentShikonaEn": "",
+          "opponentShikonaJp": "",
+          "opponentID": 0,
+          "kimarite": ""
+        },
+        {
+          "result": "win",
+          "opponentShikonaEn": "Takatairiku",
+          "opponentShikonaJp": "éš†å¤ªé™¸(ãŸã‹ãŸã„ã‚Šã)",
+          "opponentID": 599,
+          "kimarite": "oshitaoshi"
+        },
+        {
+          "result": "",
+          "opponentShikonaEn": "",
+          "opponentShikonaJp": "",
+          "opponentID": 0,
+          "kimarite": ""
+        },
+        {
+          "result": "loss",
+          "opponentShikonaEn": "Kotosato",
+          "opponentShikonaJp": "ç´ä½è—¤(ã“ã¨ã•ã¨ã†)",
+          "opponentID": 577,
+          "kimarite": "yorikiri"
+        },
+        {
+          "result": "",
+          "opponentShikonaEn": "",
+          "opponentShikonaJp": "",
+          "opponentID": 0,
+          "kimarite": ""
+        },
+        {
+          "result": "win",
+          "opponentShikonaEn": "Shokeima",
+          "opponentShikonaJp": "å‹æ¡‚é¦¬(ã—ã‚‡ã†ã‘ã„ã¾)",
+          "opponentID": 593,
+          "kimarite": "hatakikomi"
+        },
+        {
+          "result": "loss",
+          "opponentShikonaEn": "Wakakaneko",
+          "opponentShikonaJp": "è‹¥é‡‘å­(ã‚ã‹ã‹ã­ã“)",
+          "opponentID": 583,
+          "kimarite": "yorikiri"
+        },
+        {
+          "result": "",
+          "opponentShikonaEn": "",
+          "opponentShikonaJp": "",
+          "opponentID": 0,
+          "kimarite": ""
+        },
+        {
+          "result": "",
+          "opponentShikonaEn": "",
+          "opponentShikonaJp": "",
+          "opponentID": 0,
+          "kimarite": ""
+        }
+      ],
+      "wins": 3,
+      "losses": 4,
+      "absences": 0
+    },
+    {
+      "side": "East",
+      "rikishiID": 604,
+      "shikonaEn": "Higohikari",
+      "rank": "Jonokuchi 8 East",
+      "record": [
+        {
+          "result": "absent",
+          "opponentShikonaEn": "",
+          "opponentShikonaJp": "",
+          "opponentID": 0,
+          "kimarite": ""
+        },
+        {
+          "result": "absent",
+          "opponentShikonaEn": "",
+          "opponentShikonaJp": "",
+          "opponentID": 0,
+          "kimarite": ""
+        },
+        {
+          "result": "absent",
+          "opponentShikonaEn": "",
+          "opponentShikonaJp": "",
+          "opponentID": 0,
+          "kimarite": ""
+        },
+        {
+          "result": "absent",
+          "opponentShikonaEn": "",
+          "opponentShikonaJp": "",
+          "opponentID": 0,
+          "kimarite": ""
+        },
+        {
+          "result": "absent",
+          "opponentShikonaEn": "",
+          "opponentShikonaJp": "",
+          "opponentID": 0,
+          "kimarite": ""
+        },
+        {
+          "result": "absent",
+          "opponentShikonaEn": "",
+          "opponentShikonaJp": "",
+          "opponentID": 0,
+          "kimarite": ""
+        },
+        {
+          "result": "absent",
+          "opponentShikonaEn": "",
+          "opponentShikonaJp": "",
+          "opponentID": 0,
+          "kimarite": ""
+        }
+      ],
+      "wins": 0,
+      "losses": 0,
+      "absences": 7
+    },
+    {
+      "side": "East",
+      "rikishiID": 601,
+      "shikonaEn": "Nakaishi",
+      "rank": "Jonokuchi 9 East",
+      "record": [
+        {
+          "result": "",
+          "opponentShikonaEn": "",
+          "opponentShikonaJp": "",
+          "opponentID": 0,
+          "kimarite": ""
+        },
+        {
+          "result": "",
+          "opponentShikonaEn": "",
+          "opponentShikonaJp": "",
+          "opponentID": 0,
+          "kimarite": ""
+        },
+        {
+          "result": "",
+          "opponentShikonaEn": "",
+          "opponentShikonaJp": "",
+          "opponentID": 0,
+          "kimarite": ""
+        },
+        {
+          "result": "",
+          "opponentShikonaEn": "",
+          "opponentShikonaJp": "",
+          "opponentID": 0,
+          "kimarite": ""
+        },
+        {
+          "result": "",
+          "opponentShikonaEn": "",
+          "opponentShikonaJp": "",
+          "opponentID": 0,
+          "kimarite": ""
+        },
+        {
+          "result": "",
+          "opponentShikonaEn": "",
+          "opponentShikonaJp": "",
+          "opponentID": 0,
+          "kimarite": ""
+        },
+        {
+          "result": "",
+          "opponentShikonaEn": "",
+          "opponentShikonaJp": "",
+          "opponentID": 0,
+          "kimarite": ""
+        },
+        {
+          "result": "",
+          "opponentShikonaEn": "",
+          "opponentShikonaJp": "",
+          "opponentID": 0,
+          "kimarite": ""
+        },
+        {
+          "result": "",
+          "opponentShikonaEn": "",
+          "opponentShikonaJp": "",
+          "opponentID": 0,
+          "kimarite": ""
+        },
+        {
+          "result": "",
+          "opponentShikonaEn": "",
+          "opponentShikonaJp": "",
+          "opponentID": 0,
+          "kimarite": ""
+        },
+        {
+          "result": "",
+          "opponentShikonaEn": "",
+          "opponentShikonaJp": "",
+          "opponentID": 0,
+          "kimarite": ""
+        },
+        {
+          "result": "",
+          "opponentShikonaEn": "",
+          "opponentShikonaJp": "",
+          "opponentID": 0,
+          "kimarite": ""
+        },
+        {
+          "result": "win",
+          "opponentShikonaEn": "Sawaisamu",
+          "opponentShikonaJp": "æ¾¤å‹‡(ã•ã‚ã„ã•ã‚€)",
+          "opponentID": 602,
+          "kimarite": "oshitaoshi"
+        },
+        {
+          "result": "",
+          "opponentShikonaEn": "",
+          "opponentShikonaJp": "",
+          "opponentID": 0,
+          "kimarite": ""
+        },
+        {
+          "result": "",
+          "opponentShikonaEn": "",
+          "opponentShikonaJp": "",
+          "opponentID": 0,
+          "kimarite": ""
+        }
+      ],
+      "wins": 1,
+      "losses": 0,
+      "absences": 6
+    },
+    {
+      "side": "East",
+      "rikishiID": 584,
+      "shikonaEn": "Fubu",
+      "rank": "Jonokuchi 10 East",
+      "record": [
+        {
+          "result": "loss",
+          "opponentShikonaEn": "Kazenoumi",
+          "opponentShikonaJp": "é¢¨ã®æ¹–(ã‹ãœã®ã†ã¿)",
+          "opponentID": 6,
+          "kimarite": "yorikiri"
+        },
+        {
+          "result": "",
+          "opponentShikonaEn": "",
+          "opponentShikonaJp": "",
+          "opponentID": 0,
+          "kimarite": ""
+        },
+        {
+          "result": "win",
+          "opponentShikonaEn": "Tsubakifuji",
+          "opponentShikonaJp": "æ¤¿å¯Œå£«(ã¤ã°ããµã˜)",
+          "opponentID": 590,
+          "kimarite": "yorikiri"
+        },
+        {
+          "result": "",
+          "opponentShikonaEn": "",
+          "opponentShikonaJp": "",
+          "opponentID": 0,
+          "kimarite": ""
+        },
+        {
+          "result": "",
+          "opponentShikonaEn": "",
+          "opponentShikonaJp": "",
+          "opponentID": 0,
+          "kimarite": ""
+        },
+        {
+          "result": "win",
+          "opponentShikonaEn": "Takatairiku",
+          "opponentShikonaJp": "éš†å¤ªé™¸(ãŸã‹ãŸã„ã‚Šã)",
+          "opponentID": 599,
+          "kimarite": "oshidashi"
+        },
+        {
+          "result": "loss",
+          "opponentShikonaEn": "Wakakaneko",
+          "opponentShikonaJp": "è‹¥é‡‘å­(ã‚ã‹ã‹ã­ã“)",
+          "opponentID": 583,
+          "kimarite": "oshidashi"
+        },
+        {
+          "result": "",
+          "opponentShikonaEn": "",
+          "opponentShikonaJp": "",
+          "opponentID": 0,
+          "kimarite": ""
+        },
+        {
+          "result": "",
+          "opponentShikonaEn": "",
+          "opponentShikonaJp": "",
+          "opponentID": 0,
+          "kimarite": ""
+        },
+        {
+          "result": "win",
+          "opponentShikonaEn": "Shokeima",
+          "opponentShikonaJp": "å‹æ¡‚é¦¬(ã—ã‚‡ã†ã‘ã„ã¾)",
+          "opponentID": 593,
+          "kimarite": "uwatenage"
+        },
+        {
+          "result": "win",
+          "opponentShikonaEn": "Wakasei",
+          "opponentShikonaJp": "è‹¥æ¸…(ã‚ã‹ã›ã„)",
+          "opponentID": 589,
+          "kimarite": "uwatenage"
+        },
+        {
+          "result": "",
+          "opponentShikonaEn": "",
+          "opponentShikonaJp": "",
+          "opponentID": 0,
+          "kimarite": ""
+        },
+        {
+          "result": "",
+          "opponentShikonaEn": "",
+          "opponentShikonaJp": "",
+          "opponentID": 0,
+          "kimarite": ""
+        },
+        {
+          "result": "loss",
+          "opponentShikonaEn": "Tsuru",
+          "opponentShikonaJp": "é¶´(ã¤ã‚‹)",
+          "opponentID": 580,
+          "kimarite": "oshitaoshi"
+        },
+        {
+          "result": "",
+          "opponentShikonaEn": "",
+          "opponentShikonaJp": "",
+          "opponentID": 0,
+          "kimarite": ""
+        }
+      ],
+      "wins": 4,
+      "losses": 3,
+      "absences": 0
+    },
+    {
+      "side": "East",
+      "rikishiID": 6,
+      "shikonaEn": "Kazenoumi",
+      "rank": "Jonokuchi 11 East",
+      "record": [
+        {
+          "result": "win",
+          "opponentShikonaEn": "Fubu",
+          "opponentShikonaJp": "é¢¨æ­¦(ãµã†ã¶)",
+          "opponentID": 584,
+          "kimarite": "yorikiri"
+        },
+        {
+          "result": "",
+          "opponentShikonaEn": "",
+          "opponentShikonaJp": "",
+          "opponentID": 0,
+          "kimarite": ""
+        },
+        {
+          "result": "",
+          "opponentShikonaEn": "",
+          "opponentShikonaJp": "",
+          "opponentID": 0,
+          "kimarite": ""
+        },
+        {
+          "result": "win",
+          "opponentShikonaEn": "Kotosato",
+          "opponentShikonaJp": "ç´ä½è—¤(ã“ã¨ã•ã¨ã†)",
+          "opponentID": 577,
+          "kimarite": "uwatenage"
+        },
+        {
+          "result": "loss",
+          "opponentShikonaEn": "Nishikinoryu",
+          "opponentShikonaJp": "éŒ¦ä¹ƒç«œ(ã«ã—ãã®ã‚Šã‚…ã†)",
+          "opponentID": 579,
+          "kimarite": "yoritaoshi"
+        },
+        {
+          "result": "",
+          "opponentShikonaEn": "",
+          "opponentShikonaJp": "",
+          "opponentID": 0,
+          "kimarite": ""
+        },
+        {
+          "result": "win",
+          "opponentShikonaEn": "Negishi",
+          "opponentShikonaJp": "è±ªä¹ƒè‹¥(ã”ã†ã®ã‚ã‹)",
+          "opponentID": 585,
+          "kimarite": "yoritaoshi"
+        },
+        {
+          "result": "",
+          "opponentShikonaEn": "",
+          "opponentShikonaJp": "",
+          "opponentID": 0,
+          "kimarite": ""
+        },
+        {
+          "result": "",
+          "opponentShikonaEn": "",
+          "opponentShikonaJp": "",
+          "opponentID": 0,
+          "kimarite": ""
+        },
+        {
+          "result": "win",
+          "opponentShikonaEn": "Wakakaneko",
+          "opponentShikonaJp": "è‹¥é‡‘å­(ã‚ã‹ã‹ã­ã“)",
+          "opponentID": 583,
+          "kimarite": "yorikiri"
+        },
+        {
+          "result": "win",
+          "opponentShikonaEn": "Tochihayate",
+          "opponentShikonaJp": "æ ƒé¢¯(ã¨ã¡ã¯ã‚„ã¦)",
+          "opponentID": 413,
+          "kimarite": "hatakikomi"
+        },
+        {
+          "result": "",
+          "opponentShikonaEn": "",
+          "opponentShikonaJp": "",
+          "opponentID": 0,
+          "kimarite": ""
+        },
+        {
+          "result": "win",
+          "opponentShikonaEn": "Okano",
+          "opponentShikonaJp": "è±ªç™½é›²(ã”ã†ã¯ãã†ã‚“)",
+          "opponentID": 578,
+          "kimarite": "yorikiri"
+        },
+        {
+          "result": "",
+          "opponentShikonaEn": "",
+          "opponentShikonaJp": "",
+          "opponentID": 0,
+          "kimarite": ""
+        },
+        {
+          "result": "",
+          "opponentShikonaEn": "",
+          "opponentShikonaJp": "",
+          "opponentID": 0,
+          "kimarite": ""
+        },
+        {
+          "result": "win",
+          "opponentShikonaEn": "Kotosato",
+          "opponentShikonaJp": "ç´ä½è—¤(ã“ã¨ã•ã¨ã†)",
+          "opponentID": 577,
+          "kimarite": "yoritaoshi"
+        },
+        {
+          "result": "win",
+          "opponentShikonaEn": "Okano",
+          "opponentShikonaJp": "è±ªç™½é›²(ã”ã†ã¯ãã†ã‚“)",
+          "opponentID": 578,
+          "kimarite": "yorikiri"
+        },
+        {
+          "result": "win",
+          "opponentShikonaEn": "Kotosato",
+          "opponentShikonaJp": "ç´ä½è—¤(ã“ã¨ã•ã¨ã†)",
+          "opponentID": 577,
+          "kimarite": "yoritaoshi"
+        },
+        {
+          "result": "win",
+          "opponentShikonaEn": "Okano",
+          "opponentShikonaJp": "è±ªç™½é›²(ã”ã†ã¯ãã†ã‚“)",
+          "opponentID": 578,
+          "kimarite": "yorikiri"
+        }
+      ],
+      "wins": 6,
+      "losses": 1,
+      "absences": 0
+    },
+    {
+      "side": "East",
+      "rikishiID": 585,
+      "shikonaEn": "Negishi",
+      "rank": "Jonokuchi 12 East",
+      "record": [
+        {
+          "result": "",
+          "opponentShikonaEn": "",
+          "opponentShikonaJp": "",
+          "opponentID": 0,
+          "kimarite": ""
+        },
+        {
+          "result": "loss",
+          "opponentShikonaEn": "Kotosato",
+          "opponentShikonaJp": "ç´ä½è—¤(ã“ã¨ã•ã¨ã†)",
+          "opponentID": 577,
+          "kimarite": "yoritaoshi"
+        },
+        {
+          "result": "win",
+          "opponentShikonaEn": "Kazeeidai",
+          "opponentShikonaJp": "é¢¨æ „å¤§(ã‹ãœãˆã„ã ã„)",
+          "opponentID": 586,
+          "kimarite": "uwatenage"
+        },
+        {
+          "result": "",
+          "opponentShikonaEn": "",
+          "opponentShikonaJp": "",
+          "opponentID": 0,
+          "kimarite": ""
+        },
+        {
+          "result": "win",
+          "opponentShikonaEn": "Kitanosho",
+          "opponentShikonaJp": "åŒ—ä¹ƒåº„(ããŸã®ã—ã‚‡ã†)",
+          "opponentID": 592,
+          "kimarite": "oshidashi"
+        },
+        {
+          "result": "",
+          "opponentShikonaEn": "",
+          "opponentShikonaJp": "",
+          "opponentID": 0,
+          "kimarite": ""
+        },
+        {
+          "result": "loss",
+          "opponentShikonaEn": "Kazenoumi",
+          "opponentShikonaJp": "é¢¨ã®æ¹–(ã‹ãœã®ã†ã¿)",
+          "opponentID": 6,
+          "kimarite": "yoritaoshi"
+        },
+        {
+          "result": "",
+          "opponentShikonaEn": "",
+          "opponentShikonaJp": "",
+          "opponentID": 0,
+          "kimarite": ""
+        },
+        {
+          "result": "",
+          "opponentShikonaEn": "",
+          "opponentShikonaJp": "",
+          "opponentID": 0,
+          "kimarite": ""
+        },
+        {
+          "result": "loss",
+          "opponentShikonaEn": "Kosei",
+          "opponentShikonaJp": "ç…Œæ˜Ÿ(ã“ã†ã›ã„)",
+          "opponentID": 587,
+          "kimarite": "kotenage"
+        },
+        {
+          "result": "",
+          "opponentShikonaEn": "",
+          "opponentShikonaJp": "",
+          "opponentID": 0,
+          "kimarite": ""
+        },
+        {
+          "result": "win",
+          "opponentShikonaEn": "Sakuraba",
+          "opponentShikonaJp": "å®‰æ«»(ã‚ã‚“ã–ãã‚‰)",
+          "opponentID": 591,
+          "kimarite": "oshidashi"
+        },
+        {
+          "result": "",
+          "opponentShikonaEn": "",
+          "opponentShikonaJp": "",
+          "opponentID": 0,
+          "kimarite": ""
+        },
+        {
+          "result": "win",
+          "opponentShikonaEn": "Itakozakura",
+          "opponentShikonaJp": "æ½®æ¥æ¡œ(ã„ãŸã“ã–ãã‚‰)",
+          "opponentID": 595,
+          "kimarite": "oshidashi"
+        },
+        {
+          "result": "",
+          "opponentShikonaEn": "",
+          "opponentShikonaJp": "",
+          "opponentID": 0,
+          "kimarite": ""
+        }
+      ],
+      "wins": 4,
+      "losses": 3,
+      "absences": 0
+    },
+    {
+      "side": "East",
+      "rikishiID": 586,
+      "shikonaEn": "Kazeeidai",
+      "rank": "Jonokuchi 13 East",
+      "record": [
+        {
+          "result": "loss",
+          "opponentShikonaEn": "Okano",
+          "opponentShikonaJp": "è±ªç™½é›²(ã”ã†ã¯ãã†ã‚“)",
+          "opponentID": 578,
+          "kimarite": "oshidashi"
+        },
+        {
+          "result": "",
+          "opponentShikonaEn": "",
+          "opponentShikonaJp": "",
+          "opponentID": 0,
+          "kimarite": ""
+        },
+        {
+          "result": "loss",
+          "opponentShikonaEn": "Negishi",
+          "opponentShikonaJp": "è±ªä¹ƒè‹¥(ã”ã†ã®ã‚ã‹)",
+          "opponentID": 585,
+          "kimarite": "uwatenage"
+        },
+        {
+          "result": "",
+          "opponentShikonaEn": "",
+          "opponentShikonaJp": "",
+          "opponentID": 0,
+          "kimarite": ""
+        },
+        {
+          "result": "win",
+          "opponentShikonaEn": "Sakuraba",
+          "opponentShikonaJp": "å®‰æ«»(ã‚ã‚“ã–ãã‚‰)",
+          "opponentID": 591,
+          "kimarite": "oshidashi"
+        },
+        {
+          "result": "",
+          "opponentShikonaEn": "",
+          "opponentShikonaJp": "",
+          "opponentID": 0,
+          "kimarite": ""
+        },
+        {
+          "result": "loss",
+          "opponentShikonaEn": "Tsuru",
+          "opponentShikonaJp": "é¶´(ã¤ã‚‹)",
+          "opponentID": 580,
+          "kimarite": "tsukiotoshi"
+        },
+        {
+          "result": "",
+          "opponentShikonaEn": "",
+          "opponentShikonaJp": "",
+          "opponentID": 0,
+          "kimarite": ""
+        },
+        {
+          "result": "",
+          "opponentShikonaEn": "",
+          "opponentShikonaJp": "",
+          "opponentID": 0,
+          "kimarite": ""
+        },
+        {
+          "result": "win",
+          "opponentShikonaEn": "Nishikiori",
+          "opponentShikonaJp": "éŒ¦ç¹”(ã«ã—ããŠã‚Š)",
+          "opponentID": 588,
+          "kimarite": "oshidashi"
+        },
+        {
+          "result": "win",
+          "opponentShikonaEn": "Kitanosho",
+          "opponentShikonaJp": "åŒ—ä¹ƒåº„(ããŸã®ã—ã‚‡ã†)",
+          "opponentID": 592,
+          "kimarite": "yorikiri"
+        },
+        {
+          "result": "",
+          "opponentShikonaEn": "",
+          "opponentShikonaJp": "",
+          "opponentID": 0,
+          "kimarite": ""
+        },
+        {
+          "result": "",
+          "opponentShikonaEn": "",
+          "opponentShikonaJp": "",
+          "opponentID": 0,
+          "kimarite": ""
+        },
+        {
+          "result": "win",
+          "opponentShikonaEn": "Kosei",
+          "opponentShikonaJp": "ç…Œæ˜Ÿ(ã“ã†ã›ã„)",
+          "opponentID": 587,
+          "kimarite": "hatakikomi"
+        },
+        {
+          "result": "",
+          "opponentShikonaEn": "",
+          "opponentShikonaJp": "",
+          "opponentID": 0,
+          "kimarite": ""
+        }
+      ],
+      "wins": 4,
+      "losses": 3,
+      "absences": 0
+    },
+    {
+      "side": "East",
+      "rikishiID": 591,
+      "shikonaEn": "Sakuraba",
+      "rank": "Jonokuchi 14 East",
+      "record": [
+        {
+          "result": "",
+          "opponentShikonaEn": "",
+          "opponentShikonaJp": "",
+          "opponentID": 0,
+          "kimarite": ""
+        },
+        {
+          "result": "loss",
+          "opponentShikonaEn": "Tsuru",
+          "opponentShikonaJp": "é¶´(ã¤ã‚‹)",
+          "opponentID": 580,
+          "kimarite": "yorikiri"
+        },
+        {
+          "result": "loss",
+          "opponentShikonaEn": "Kitanosho",
+          "opponentShikonaJp": "åŒ—ä¹ƒåº„(ããŸã®ã—ã‚‡ã†)",
+          "opponentID": 592,
+          "kimarite": "uwatenage"
+        },
+        {
+          "result": "",
+          "opponentShikonaEn": "",
+          "opponentShikonaJp": "",
+          "opponentID": 0,
+          "kimarite": ""
+        },
+        {
+          "result": "loss",
+          "opponentShikonaEn": "Kazeeidai",
+          "opponentShikonaJp": "é¢¨æ „å¤§(ã‹ãœãˆã„ã ã„)",
+          "opponentID": 586,
+          "kimarite": "oshidashi"
+        },
+        {
+          "result": "",
+          "opponentShikonaEn": "",
+          "opponentShikonaJp": "",
+          "opponentID": 0,
+          "kimarite": ""
+        },
+        {
+          "result": "",
+          "opponentShikonaEn": "",
+          "opponentShikonaJp": "",
+          "opponentID": 0,
+          "kimarite": ""
+        },
+        {
+          "result": "win",
+          "opponentShikonaEn": "Sawaisamu",
+          "opponentShikonaJp": "æ¾¤å‹‡(ã•ã‚ã„ã•ã‚€)",
+          "opponentID": 602,
+          "kimarite": "oshidashi"
+        },
+        {
+          "result": "win",
+          "opponentShikonaEn": "Itakozakura",
+          "opponentShikonaJp": "æ½®æ¥æ¡œ(ã„ãŸã“ã–ãã‚‰)",
+          "opponentID": 595,
+          "kimarite": "yorikiri"
+        },
+        {
+          "result": "",
+          "opponentShikonaEn": "",
+          "opponentShikonaJp": "",
+          "opponentID": 0,
+          "kimarite": ""
+        },
+        {
+          "result": "",
+          "opponentShikonaEn": "",
+          "opponentShikonaJp": "",
+          "opponentID": 0,
+          "kimarite": ""
+        },
+        {
+          "result": "loss",
+          "opponentShikonaEn": "Negishi",
+          "opponentShikonaJp": "è±ªä¹ƒè‹¥(ã”ã†ã®ã‚ã‹)",
+          "opponentID": 585,
+          "kimarite": "oshidashi"
+        },
+        {
+          "result": "",
+          "opponentShikonaEn": "",
+          "opponentShikonaJp": "",
+          "opponentID": 0,
+          "kimarite": ""
+        },
+        {
+          "result": "",
+          "opponentShikonaEn": "",
+          "opponentShikonaJp": "",
+          "opponentID": 0,
+          "kimarite": ""
+        },
+        {
+          "result": "win",
+          "opponentShikonaEn": "Yamadaumi",
+          "opponentShikonaJp": "å±±ç”°æµ·(ã‚„ã¾ã ã†ã¿)",
+          "opponentID": 596,
+          "kimarite": "shitatenage"
+        }
+      ],
+      "wins": 3,
+      "losses": 4,
+      "absences": 0
+    },
+    {
+      "side": "East",
+      "rikishiID": 587,
+      "shikonaEn": "Kosei",
+      "rank": "Jonokuchi 15 East",
+      "record": [
+        {
+          "result": "win",
+          "opponentShikonaEn": "Kitanosho",
+          "opponentShikonaJp": "åŒ—ä¹ƒåº„(ããŸã®ã—ã‚‡ã†)",
+          "opponentID": 592,
+          "kimarite": "hikiotoshi"
+        },
+        {
+          "result": "",
+          "opponentShikonaEn": "",
+          "opponentShikonaJp": "",
+          "opponentID": 0,
+          "kimarite": ""
+        },
+        {
+          "result": "",
+          "opponentShikonaEn": "",
+          "opponentShikonaJp": "",
+          "opponentID": 0,
+          "kimarite": ""
+        },
+        {
+          "result": "loss",
+          "opponentShikonaEn": "Shokeima",
+          "opponentShikonaJp": "å‹æ¡‚é¦¬(ã—ã‚‡ã†ã‘ã„ã¾)",
+          "opponentID": 593,
+          "kimarite": "utchari"
+        },
+        {
+          "result": "",
+          "opponentShikonaEn": "",
+          "opponentShikonaJp": "",
+          "opponentID": 0,
+          "kimarite": ""
+        },
+        {
+          "result": "win",
+          "opponentShikonaEn": "Sawaisamu",
+          "opponentShikonaJp": "æ¾¤å‹‡(ã•ã‚ã„ã•ã‚€)",
+          "opponentID": 602,
+          "kimarite": "oshitaoshi"
+        },
+        {
+          "result": "",
+          "opponentShikonaEn": "",
+          "opponentShikonaJp": "",
+          "opponentID": 0,
+          "kimarite": ""
+        },
+        {
+          "result": "loss",
+          "opponentShikonaEn": "Kotosato",
+          "opponentShikonaJp": "ç´ä½è—¤(ã“ã¨ã•ã¨ã†)",
+          "opponentID": 577,
+          "kimarite": "oshidashi"
+        },
+        {
+          "result": "",
+          "opponentShikonaEn": "",
+          "opponentShikonaJp": "",
+          "opponentID": 0,
+          "kimarite": ""
+        },
+        {
+          "result": "win",
+          "opponentShikonaEn": "Negishi",
+          "opponentShikonaJp": "è±ªä¹ƒè‹¥(ã”ã†ã®ã‚ã‹)",
+          "opponentID": 585,
+          "kimarite": "kotenage"
+        },
+        {
+          "result": "win",
+          "opponentShikonaEn": "Moriurara",
+          "opponentShikonaJp": "æ£®éº—(ã‚‚ã‚Šã†ã‚‰ã‚‰)",
+          "opponentID": 594,
+          "kimarite": "fumidashi"
+        },
+        {
+          "result": "",
+          "opponentShikonaEn": "",
+          "opponentShikonaJp": "",
+          "opponentID": 0,
+          "kimarite": ""
+        },
+        {
+          "result": "",
+          "opponentShikonaEn": "",
+          "opponentShikonaJp": "",
+          "opponentID": 0,
+          "kimarite": ""
+        },
+        {
+          "result": "loss",
+          "opponentShikonaEn": "Kazeeidai",
+          "opponentShikonaJp": "é¢¨æ „å¤§(ã‹ãœãˆã„ã ã„)",
+          "opponentID": 586,
+          "kimarite": "hatakikomi"
+        },
+        {
+          "result": "",
+          "opponentShikonaEn": "",
+          "opponentShikonaJp": "",
+          "opponentID": 0,
+          "kimarite": ""
+        }
+      ],
+      "wins": 4,
+      "losses": 3,
+      "absences": 0
+    },
+    {
+      "side": "East",
+      "rikishiID": 593,
+      "shikonaEn": "Shokeima",
+      "rank": "Jonokuchi 16 East",
+      "record": [
+        {
+          "result": "",
+          "opponentShikonaEn": "",
+          "opponentShikonaJp": "",
+          "opponentID": 0,
+          "kimarite": ""
+        },
+        {
+          "result": "win",
+          "opponentShikonaEn": "Sawaisamu",
+          "opponentShikonaJp": "æ¾¤å‹‡(ã•ã‚ã„ã•ã‚€)",
+          "opponentID": 602,
+          "kimarite": "oshitaoshi"
+        },
+        {
+          "result": "",
+          "opponentShikonaEn": "",
+          "opponentShikonaJp": "",
+          "opponentID": 0,
+          "kimarite": ""
+        },
+        {
+          "result": "win",
+          "opponentShikonaEn": "Kosei",
+          "opponentShikonaJp": "ç…Œæ˜Ÿ(ã“ã†ã›ã„)",
+          "opponentID": 587,
+          "kimarite": "utchari"
+        },
+        {
+          "result": "",
+          "opponentShikonaEn": "",
+          "opponentShikonaJp": "",
+          "opponentID": 0,
+          "kimarite": ""
+        },
+        {
+          "result": "loss",
+          "opponentShikonaEn": "Okano",
+          "opponentShikonaJp": "è±ªç™½é›²(ã”ã†ã¯ãã†ã‚“)",
+          "opponentID": 578,
+          "kimarite": "tsukiotoshi"
+        },
+        {
+          "result": "",
+          "opponentShikonaEn": "",
+          "opponentShikonaJp": "",
+          "opponentID": 0,
+          "kimarite": ""
+        },
+        {
+          "result": "loss",
+          "opponentShikonaEn": "Kitanosho",
+          "opponentShikonaJp": "åŒ—ä¹ƒåº„(ããŸã®ã—ã‚‡ã†)",
+          "opponentID": 592,
+          "kimarite": "yorikiri"
+        },
+        {
+          "result": "",
+          "opponentShikonaEn": "",
+          "opponentShikonaJp": "",
+          "opponentID": 0,
+          "kimarite": ""
+        },
+        {
+          "result": "loss",
+          "opponentShikonaEn": "Fubu",
+          "opponentShikonaJp": "é¢¨æ­¦(ãµã†ã¶)",
+          "opponentID": 584,
+          "kimarite": "uwatenage"
+        },
+        {
+          "result": "",
+          "opponentShikonaEn": "",
+          "opponentShikonaJp": "",
+          "opponentID": 0,
+          "kimarite": ""
+        },
+        {
+          "result": "loss",
+          "opponentShikonaEn": "Tsubakifuji",
+          "opponentShikonaJp": "æ¤¿å¯Œå£«(ã¤ã°ããµã˜)",
+          "opponentID": 590,
+          "kimarite": "hatakikomi"
+        },
+        {
+          "result": "",
+          "opponentShikonaEn": "",
+          "opponentShikonaJp": "",
+          "opponentID": 0,
+          "kimarite": ""
+        },
+        {
+          "result": "",
+          "opponentShikonaEn": "",
+          "opponentShikonaJp": "",
+          "opponentID": 0,
+          "kimarite": ""
+        },
+        {
+          "result": "win",
+          "opponentShikonaEn": "Soga",
+          "opponentShikonaJp": "æ›½æˆ‘(ããŒ)",
+          "opponentID": 598,
+          "kimarite": "tsukiotoshi"
+        }
+      ],
+      "wins": 3,
+      "losses": 4,
+      "absences": 0
+    }
+  ],
+  "west": [
+    {
+      "side": "West",
+      "rikishiID": 581,
+      "shikonaEn": "Azumayama",
+      "rank": "Jonokuchi 1 West",
+      "record": [
+        {
+          "result": "win",
+          "opponentShikonaEn": "Yamadaumi",
+          "opponentShikonaJp": "å±±ç”°æµ·(ã‚„ã¾ã ã†ã¿)",
+          "opponentID": 596,
+          "kimarite": "yorikiri"
+        },
+        {
+          "result": "",
+          "opponentShikonaEn": "",
+          "opponentShikonaJp": "",
+          "opponentID": 0,
+          "kimarite": ""
+        },
+        {
+          "result": "",
+          "opponentShikonaEn": "",
+          "opponentShikonaJp": "",
+          "opponentID": 0,
+          "kimarite": ""
+        },
+        {
+          "result": "win",
+          "opponentShikonaEn": "Nishikiori",
+          "opponentShikonaJp": "éŒ¦ç¹”(ã«ã—ããŠã‚Š)",
+          "opponentID": 588,
+          "kimarite": "oshitaoshi"
+        },
+        {
+          "result": "",
+          "opponentShikonaEn": "",
+          "opponentShikonaJp": "",
+          "opponentID": 0,
+          "kimarite": ""
+        },
+        {
+          "result": "win",
+          "opponentShikonaEn": "Moriurara",
+          "opponentShikonaJp": "æ£®éº—(ã‚‚ã‚Šã†ã‚‰ã‚‰)",
+          "opponentID": 594,
+          "kimarite": "oshitaoshi"
+        },
+        {
+          "result": "",
+          "opponentShikonaEn": "",
+          "opponentShikonaJp": "",
+          "opponentID": 0,
+          "kimarite": ""
+        },
+        {
+          "result": "loss",
+          "opponentShikonaEn": "Nishikinoryu",
+          "opponentShikonaJp": "éŒ¦ä¹ƒç«œ(ã«ã—ãã®ã‚Šã‚…ã†)",
+          "opponentID": 579,
+          "kimarite": "oshidashi"
+        },
+        {
+          "result": "loss",
+          "opponentShikonaEn": "Sadanojo",
+          "opponentShikonaJp": "ä½ç”°ã®åŸŽ(ã•ã ã®ã˜ã‚‡ã†)",
+          "opponentID": 582,
+          "kimarite": "hatakikomi"
+        },
+        {
+          "result": "",
+          "opponentShikonaEn": "",
+          "opponentShikonaJp": "",
+          "opponentID": 0,
+          "kimarite": ""
+        },
+        {
+          "result": "",
+          "opponentShikonaEn": "",
+          "opponentShikonaJp": "",
+          "opponentID": 0,
+          "kimarite": ""
+        },
+        {
+          "result": "win",
+          "opponentShikonaEn": "Koga",
+          "opponentShikonaJp": "åŽšé›…(ã“ã†ãŒ)",
+          "opponentID": 465,
+          "kimarite": "abisetaoshi"
+        },
+        {
+          "result": "loss",
+          "opponentShikonaEn": "Kotosato",
+          "opponentShikonaJp": "ç´ä½è—¤(ã“ã¨ã•ã¨ã†)",
+          "opponentID": 577,
+          "kimarite": "oshidashi"
+        },
+        {
+          "result": "",
+          "opponentShikonaEn": "",
+          "opponentShikonaJp": "",
+          "opponentID": 0,
+          "kimarite": ""
+        },
+        {
+          "result": "",
+          "opponentShikonaEn": "",
+          "opponentShikonaJp": "",
+          "opponentID": 0,
+          "kimarite": ""
+        }
+      ],
+      "wins": 4,
+      "losses": 3,
+      "absences": 0
+    },
+    {
+      "side": "West",
+      "rikishiID": 588,
+      "shikonaEn": "Nishikiori",
+      "rank": "Jonokuchi 2 West",
+      "record": [
+        {
+          "result": "",
+          "opponentShikonaEn": "",
+          "opponentShikonaJp": "",
+          "opponentID": 0,
+          "kimarite": ""
+        },
+        {
+          "result": "win",
+          "opponentShikonaEn": "Sadanojo",
+          "opponentShikonaJp": "ä½ç”°ã®åŸŽ(ã•ã ã®ã˜ã‚‡ã†)",
+          "opponentID": 582,
+          "kimarite": "shitatenage"
+        },
+        {
+          "result": "",
+          "opponentShikonaEn": "",
+          "opponentShikonaJp": "",
+          "opponentID": 0,
+          "kimarite": ""
+        },
+        {
+          "result": "loss",
+          "opponentShikonaEn": "Azumayama",
+          "opponentShikonaJp": "æ±å±±(ã‚ãšã¾ã‚„ã¾)",
+          "opponentID": 581,
+          "kimarite": "oshitaoshi"
+        },
+        {
+          "result": "",
+          "opponentShikonaEn": "",
+          "opponentShikonaJp": "",
+          "opponentID": 0,
+          "kimarite": ""
+        },
+        {
+          "result": "loss",
+          "opponentShikonaEn": "Wakakaneko",
+          "opponentShikonaJp": "è‹¥é‡‘å­(ã‚ã‹ã‹ã­ã“)",
+          "opponentID": 583,
+          "kimarite": "yorikiri"
+        },
+        {
+          "result": "loss",
+          "opponentShikonaEn": "Koga",
+          "opponentShikonaJp": "åŽšé›…(ã“ã†ãŒ)",
+          "opponentID": 465,
+          "kimarite": "yoritaoshi"
+        },
+        {
+          "result": "",
+          "opponentShikonaEn": "",
+          "opponentShikonaJp": "",
+          "opponentID": 0,
+          "kimarite": ""
+        },
+        {
+          "result": "",
+          "opponentShikonaEn": "",
+          "opponentShikonaJp": "",
+          "opponentID": 0,
+          "kimarite": ""
+        },
+        {
+          "result": "loss",
+          "opponentShikonaEn": "Kazeeidai",
+          "opponentShikonaJp": "é¢¨æ „å¤§(ã‹ãœãˆã„ã ã„)",
+          "opponentID": 586,
+          "kimarite": "oshidashi"
+        },
+        {
+          "result": "win",
+          "opponentShikonaEn": "Yamadaumi",
+          "opponentShikonaJp": "å±±ç”°æµ·(ã‚„ã¾ã ã†ã¿)",
+          "opponentID": 596,
+          "kimarite": "uwatenage"
+        },
+        {
+          "result": "",
+          "opponentShikonaEn": "",
+          "opponentShikonaJp": "",
+          "opponentID": 0,
+          "kimarite": ""
+        },
+        {
+          "result": "",
+          "opponentShikonaEn": "",
+          "opponentShikonaJp": "",
+          "opponentID": 0,
+          "kimarite": ""
+        },
+        {
+          "result": "win",
+          "opponentShikonaEn": "Hamasaki",
+          "opponentShikonaJp": "æ¿±å´Ž(ã¯ã¾ã•ã)",
+          "opponentID": 546,
+          "kimarite": "kotenage"
+        },
+        {
+          "result": "",
+          "opponentShikonaEn": "",
+          "opponentShikonaJp": "",
+          "opponentID": 0,
+          "kimarite": ""
+        }
+      ],
+      "wins": 3,
+      "losses": 4,
+      "absences": 0
+    },
+    {
+      "side": "West",
+      "rikishiID": 595,
+      "shikonaEn": "Itakozakura",
+      "rank": "Jonokuchi 3 West",
+      "record": [
+        {
+          "result": "loss",
+          "opponentShikonaEn": "Moriurara",
+          "opponentShikonaJp": "æ£®éº—(ã‚‚ã‚Šã†ã‚‰ã‚‰)",
+          "opponentID": 594,
+          "kimarite": "oshidashi"
+        },
+        {
+          "result": "",
+          "opponentShikonaEn": "",
+          "opponentShikonaJp": "",
+          "opponentID": 0,
+          "kimarite": ""
+        },
+        {
+          "result": "loss",
+          "opponentShikonaEn": "Sadanojo",
+          "opponentShikonaJp": "ä½ç”°ã®åŸŽ(ã•ã ã®ã˜ã‚‡ã†)",
+          "opponentID": 582,
+          "kimarite": "oshidashi"
+        },
+        {
+          "result": "",
+          "opponentShikonaEn": "",
+          "opponentShikonaJp": "",
+          "opponentID": 0,
+          "kimarite": ""
+        },
+        {
+          "result": "win",
+          "opponentShikonaEn": "Yamadaumi",
+          "opponentShikonaJp": "å±±ç”°æµ·(ã‚„ã¾ã ã†ã¿)",
+          "opponentID": 596,
+          "kimarite": "kotenage"
+        },
+        {
+          "result": "",
+          "opponentShikonaEn": "",
+          "opponentShikonaJp": "",
+          "opponentID": 0,
+          "kimarite": ""
+        },
+        {
+          "result": "",
+          "opponentShikonaEn": "",
+          "opponentShikonaJp": "",
+          "opponentID": 0,
+          "kimarite": ""
+        },
+        {
+          "result": "loss",
+          "opponentShikonaEn": "Wakasei",
+          "opponentShikonaJp": "è‹¥æ¸…(ã‚ã‹ã›ã„)",
+          "opponentID": 589,
+          "kimarite": "shitatenage"
+        },
+        {
+          "result": "loss",
+          "opponentShikonaEn": "Sakuraba",
+          "opponentShikonaJp": "å®‰æ«»(ã‚ã‚“ã–ãã‚‰)",
+          "opponentID": 591,
+          "kimarite": "yorikiri"
+        },
+        {
+          "result": "",
+          "opponentShikonaEn": "",
+          "opponentShikonaJp": "",
+          "opponentID": 0,
+          "kimarite": ""
+        },
+        {
+          "result": "",
+          "opponentShikonaEn": "",
+          "opponentShikonaJp": "",
+          "opponentID": 0,
+          "kimarite": ""
+        },
+        {
+          "result": "win",
+          "opponentShikonaEn": "Soga",
+          "opponentShikonaJp": "æ›½æˆ‘(ããŒ)",
+          "opponentID": 598,
+          "kimarite": "yorikiri"
+        },
+        {
+          "result": "",
+          "opponentShikonaEn": "",
+          "opponentShikonaJp": "",
+          "opponentID": 0,
+          "kimarite": ""
+        },
+        {
+          "result": "loss",
+          "opponentShikonaEn": "Negishi",
+          "opponentShikonaJp": "è±ªä¹ƒè‹¥(ã”ã†ã®ã‚ã‹)",
+          "opponentID": 585,
+          "kimarite": "oshidashi"
+        },
+        {
+          "result": "",
+          "opponentShikonaEn": "",
+          "opponentShikonaJp": "",
+          "opponentID": 0,
+          "kimarite": ""
+        }
+      ],
+      "wins": 2,
+      "losses": 5,
+      "absences": 0
+    },
+    {
+      "side": "West",
+      "rikishiID": 583,
+      "shikonaEn": "Wakakaneko",
+      "rank": "Jonokuchi 4 West",
+      "record": [
+        {
+          "result": "win",
+          "opponentShikonaEn": "Takatairiku",
+          "opponentShikonaJp": "éš†å¤ªé™¸(ãŸã‹ãŸã„ã‚Šã)",
+          "opponentID": 599,
+          "kimarite": "yorikiri"
+        },
+        {
+          "result": "",
+          "opponentShikonaEn": "",
+          "opponentShikonaJp": "",
+          "opponentID": 0,
+          "kimarite": ""
+        },
+        {
+          "result": "loss",
+          "opponentShikonaEn": "Nishikinoryu",
+          "opponentShikonaJp": "éŒ¦ä¹ƒç«œ(ã«ã—ãã®ã‚Šã‚…ã†)",
+          "opponentID": 579,
+          "kimarite": "yorikiri"
+        },
+        {
+          "result": "",
+          "opponentShikonaEn": "",
+          "opponentShikonaJp": "",
+          "opponentID": 0,
+          "kimarite": ""
+        },
+        {
+          "result": "",
+          "opponentShikonaEn": "",
+          "opponentShikonaJp": "",
+          "opponentID": 0,
+          "kimarite": ""
+        },
+        {
+          "result": "win",
+          "opponentShikonaEn": "Nishikiori",
+          "opponentShikonaJp": "éŒ¦ç¹”(ã«ã—ããŠã‚Š)",
+          "opponentID": 588,
+          "kimarite": "yorikiri"
+        },
+        {
+          "result": "win",
+          "opponentShikonaEn": "Fubu",
+          "opponentShikonaJp": "é¢¨æ­¦(ãµã†ã¶)",
+          "opponentID": 584,
+          "kimarite": "oshidashi"
+        },
+        {
+          "result": "",
+          "opponentShikonaEn": "",
+          "opponentShikonaJp": "",
+          "opponentID": 0,
+          "kimarite": ""
+        },
+        {
+          "result": "",
+          "opponentShikonaEn": "",
+          "opponentShikonaJp": "",
+          "opponentID": 0,
+          "kimarite": ""
+        },
+        {
+          "result": "loss",
+          "opponentShikonaEn": "Kazenoumi",
+          "opponentShikonaJp": "é¢¨ã®æ¹–(ã‹ãœã®ã†ã¿)",
+          "opponentID": 6,
+          "kimarite": "yorikiri"
+        },
+        {
+          "result": "",
+          "opponentShikonaEn": "",
+          "opponentShikonaJp": "",
+          "opponentID": 0,
+          "kimarite": ""
+        },
+        {
+          "result": "loss",
+          "opponentShikonaEn": "Tsuru",
+          "opponentShikonaJp": "é¶´(ã¤ã‚‹)",
+          "opponentID": 580,
+          "kimarite": "uwatenage"
+        },
+        {
+          "result": "win",
+          "opponentShikonaEn": "Tsubakifuji",
+          "opponentShikonaJp": "æ¤¿å¯Œå£«(ã¤ã°ããµã˜)",
+          "opponentID": 590,
+          "kimarite": "yorikiri"
+        },
+        {
+          "result": "",
+          "opponentShikonaEn": "",
+          "opponentShikonaJp": "",
+          "opponentID": 0,
+          "kimarite": ""
+        },
+        {
+          "result": "",
+          "opponentShikonaEn": "",
+          "opponentShikonaJp": "",
+          "opponentID": 0,
+          "kimarite": ""
+        }
+      ],
+      "wins": 4,
+      "losses": 3,
+      "absences": 0
+    },
+    {
+      "side": "West",
+      "rikishiID": 597,
+      "shikonaEn": "Kanryu",
+      "rank": "Jonokuchi 5 West",
+      "record": [
+        {
+          "result": "",
+          "opponentShikonaEn": "",
+          "opponentShikonaJp": "",
+          "opponentID": 0,
+          "kimarite": ""
+        },
+        {
+          "result": "",
+          "opponentShikonaEn": "",
+          "opponentShikonaJp": "",
+          "opponentID": 0,
+          "kimarite": ""
+        },
+        {
+          "result": "",
+          "opponentShikonaEn": "",
+          "opponentShikonaJp": "",
+          "opponentID": 0,
+          "kimarite": ""
+        },
+        {
+          "result": "",
+          "opponentShikonaEn": "",
+          "opponentShikonaJp": "",
+          "opponentID": 0,
+          "kimarite": ""
+        },
+        {
+          "result": "",
+          "opponentShikonaEn": "",
+          "opponentShikonaJp": "",
+          "opponentID": 0,
+          "kimarite": ""
+        },
+        {
+          "result": "",
+          "opponentShikonaEn": "",
+          "opponentShikonaJp": "",
+          "opponentID": 0,
+          "kimarite": ""
+        },
+        {
+          "result": "",
+          "opponentShikonaEn": "",
+          "opponentShikonaJp": "",
+          "opponentID": 0,
+          "kimarite": ""
+        },
+        {
+          "result": "",
+          "opponentShikonaEn": "",
+          "opponentShikonaJp": "",
+          "opponentID": 0,
+          "kimarite": ""
+        },
+        {
+          "result": "",
+          "opponentShikonaEn": "",
+          "opponentShikonaJp": "",
+          "opponentID": 0,
+          "kimarite": ""
+        },
+        {
+          "result": "",
+          "opponentShikonaEn": "",
+          "opponentShikonaJp": "",
+          "opponentID": 0,
+          "kimarite": ""
+        },
+        {
+          "result": "",
+          "opponentShikonaEn": "",
+          "opponentShikonaJp": "",
+          "opponentID": 0,
+          "kimarite": ""
+        },
+        {
+          "result": "",
+          "opponentShikonaEn": "",
+          "opponentShikonaJp": "",
+          "opponentID": 0,
+          "kimarite": ""
+        },
+        {
+          "result": "win",
+          "opponentShikonaEn": "Fujinonami",
+          "opponentShikonaJp": "è—¤ä¹ƒæ³¢(ãµã˜ã®ãªã¿)",
+          "opponentID": 603,
+          "kimarite": "oshidashi"
+        },
+        {
+          "result": "",
+          "opponentShikonaEn": "",
+          "opponentShikonaJp": "",
+          "opponentID": 0,
+          "kimarite": ""
+        },
+        {
+          "result": "",
+          "opponentShikonaEn": "",
+          "opponentShikonaJp": "",
+          "opponentID": 0,
+          "kimarite": ""
+        }
+      ],
+      "wins": 1,
+      "losses": 0,
+      "absences": 6
+    },
+    {
+      "side": "West",
+      "rikishiID": 599,
+      "shikonaEn": "Takatairiku",
+      "rank": "Jonokuchi 6 West",
+      "record": [
+        {
+          "result": "loss",
+          "opponentShikonaEn": "Wakakaneko",
+          "opponentShikonaJp": "è‹¥é‡‘å­(ã‚ã‹ã‹ã­ã“)",
+          "opponentID": 583,
+          "kimarite": "yorikiri"
+        },
+        {
+          "result": "",
+          "opponentShikonaEn": "",
+          "opponentShikonaJp": "",
+          "opponentID": 0,
+          "kimarite": ""
+        },
+        {
+          "result": "",
+          "opponentShikonaEn": "",
+          "opponentShikonaJp": "",
+          "opponentID": 0,
+          "kimarite": ""
+        },
+        {
+          "result": "win",
+          "opponentShikonaEn": "Soga",
+          "opponentShikonaJp": "æ›½æˆ‘(ããŒ)",
+          "opponentID": 598,
+          "kimarite": "kotenage"
+        },
+        {
+          "result": "",
+          "opponentShikonaEn": "",
+          "opponentShikonaJp": "",
+          "opponentID": 0,
+          "kimarite": ""
+        },
+        {
+          "result": "loss",
+          "opponentShikonaEn": "Fubu",
+          "opponentShikonaJp": "é¢¨æ­¦(ãµã†ã¶)",
+          "opponentID": 584,
+          "kimarite": "oshidashi"
+        },
+        {
+          "result": "",
+          "opponentShikonaEn": "",
+          "opponentShikonaJp": "",
+          "opponentID": 0,
+          "kimarite": ""
+        },
+        {
+          "result": "loss",
+          "opponentShikonaEn": "Tsubakifuji",
+          "opponentShikonaJp": "æ¤¿å¯Œå£«(ã¤ã°ããµã˜)",
+          "opponentID": 590,
+          "kimarite": "oshitaoshi"
+        },
+        {
+          "result": "loss",
+          "opponentShikonaEn": "Hamasaki",
+          "opponentShikonaJp": "æ¿±å´Ž(ã¯ã¾ã•ã)",
+          "opponentID": 546,
+          "kimarite": "yorikiri"
+        },
+        {
+          "result": "",
+          "opponentShikonaEn": "",
+          "opponentShikonaJp": "",
+          "opponentID": 0,
+          "kimarite": ""
+        },
+        {
+          "result": "",
+          "opponentShikonaEn": "",
+          "opponentShikonaJp": "",
+          "opponentID": 0,
+          "kimarite": ""
+        },
+        {
+          "result": "fusen loss",
+          "opponentShikonaEn": "Sawaisamu",
+          "opponentShikonaJp": "æ¾¤å‹‡(ã•ã‚ã„ã•ã‚€)",
+          "opponentID": 602,
+          "kimarite": "fusen"
+        },
+        {
+          "result": "absent",
+          "opponentShikonaEn": "",
+          "opponentShikonaJp": "",
+          "opponentID": 0,
+          "kimarite": ""
+        },
+        {
+          "result": "absent",
+          "opponentShikonaEn": "",
+          "opponentShikonaJp": "",
+          "opponentID": 0,
+          "kimarite": ""
+        },
+        {
+          "result": "absent",
+          "opponentShikonaEn": "",
+          "opponentShikonaJp": "",
+          "opponentID": 0,
+          "kimarite": ""
+        }
+      ],
+      "wins": 1,
+      "losses": 5,
+      "absences": 1
+    },
+    {
+      "side": "West",
+      "rikishiID": 579,
+      "shikonaEn": "Nishikinoryu",
+      "rank": "Jonokuchi 7 West",
+      "record": [
+        {
+          "result": "",
+          "opponentShikonaEn": "",
+          "opponentShikonaJp": "",
+          "opponentID": 0,
+          "kimarite": ""
+        },
+        {
+          "result": "win",
+          "opponentShikonaEn": "Tsubakifuji",
+          "opponentShikonaJp": "æ¤¿å¯Œå£«(ã¤ã°ããµã˜)",
+          "opponentID": 590,
+          "kimarite": "oshidashi"
+        },
+        {
+          "result": "win",
+          "opponentShikonaEn": "Wakakaneko",
+          "opponentShikonaJp": "è‹¥é‡‘å­(ã‚ã‹ã‹ã­ã“)",
+          "opponentID": 583,
+          "kimarite": "yorikiri"
+        },
+        {
+          "result": "",
+          "opponentShikonaEn": "",
+          "opponentShikonaJp": "",
+          "opponentID": 0,
+          "kimarite": ""
+        },
+        {
+          "result": "win",
+          "opponentShikonaEn": "Kazenoumi",
+          "opponentShikonaJp": "é¢¨ã®æ¹–(ã‹ãœã®ã†ã¿)",
+          "opponentID": 6,
+          "kimarite": "yoritaoshi"
+        },
+        {
+          "result": "",
+          "opponentShikonaEn": "",
+          "opponentShikonaJp": "",
+          "opponentID": 0,
+          "kimarite": ""
+        },
+        {
+          "result": "",
+          "opponentShikonaEn": "",
+          "opponentShikonaJp": "",
+          "opponentID": 0,
+          "kimarite": ""
+        },
+        {
+          "result": "win",
+          "opponentShikonaEn": "Azumayama",
+          "opponentShikonaJp": "æ±å±±(ã‚ãšã¾ã‚„ã¾)",
+          "opponentID": 581,
+          "kimarite": "oshidashi"
+        },
+        {
+          "result": "loss",
+          "opponentShikonaEn": "Okano",
+          "opponentShikonaJp": "è±ªç™½é›²(ã”ã†ã¯ãã†ã‚“)",
+          "opponentID": 578,
+          "kimarite": "sukuinage"
+        },
+        {
+          "result": "",
+          "opponentShikonaEn": "",
+          "opponentShikonaJp": "",
+          "opponentID": 0,
+          "kimarite": ""
+        },
+        {
+          "result": "",
+          "opponentShikonaEn": "",
+          "opponentShikonaJp": "",
+          "opponentID": 0,
+          "kimarite": ""
+        },
+        {
+          "result": "loss",
+          "opponentShikonaEn": "Kotosato",
+          "opponentShikonaJp": "ç´ä½è—¤(ã“ã¨ã•ã¨ã†)",
+          "opponentID": 577,
+          "kimarite": "oshidashi"
+        },
+        {
+          "result": "",
+          "opponentShikonaEn": "",
+          "opponentShikonaJp": "",
+          "opponentID": 0,
+          "kimarite": ""
+        },
+        {
+          "result": "",
+          "opponentShikonaEn": "",
+          "opponentShikonaJp": "",
+          "opponentID": 0,
+          "kimarite": ""
+        },
+        {
+          "result": "win",
+          "opponentShikonaEn": "Sadanojo",
+          "opponentShikonaJp": "ä½ç”°ã®åŸŽ(ã•ã ã®ã˜ã‚‡ã†)",
+          "opponentID": 582,
+          "kimarite": "oshidashi"
+        }
+      ],
+      "wins": 5,
+      "losses": 2,
+      "absences": 0
+    },
+    {
+      "side": "West",
+      "rikishiID": 600,
+      "shikonaEn": "Wakayahara",
+      "rank": "Jonokuchi 8 West",
+      "record": [
+        {
+          "result": "",
+          "opponentShikonaEn": "",
+          "opponentShikonaJp": "",
+          "opponentID": 0,
+          "kimarite": ""
+        },
+        {
+          "result": "",
+          "opponentShikonaEn": "",
+          "opponentShikonaJp": "",
+          "opponentID": 0,
+          "kimarite": ""
+        },
+        {
+          "result": "",
+          "opponentShikonaEn": "",
+          "opponentShikonaJp": "",
+          "opponentID": 0,
+          "kimarite": ""
+        },
+        {
+          "result": "",
+          "opponentShikonaEn": "",
+          "opponentShikonaJp": "",
+          "opponentID": 0,
+          "kimarite": ""
+        },
+        {
+          "result": "",
+          "opponentShikonaEn": "",
+          "opponentShikonaJp": "",
+          "opponentID": 0,
+          "kimarite": ""
+        },
+        {
+          "result": "",
+          "opponentShikonaEn": "",
+          "opponentShikonaJp": "",
+          "opponentID": 0,
+          "kimarite": ""
+        },
+        {
+          "result": "",
+          "opponentShikonaEn": "",
+          "opponentShikonaJp": "",
+          "opponentID": 0,
+          "kimarite": ""
+        },
+        {
+          "result": "",
+          "opponentShikonaEn": "",
+          "opponentShikonaJp": "",
+          "opponentID": 0,
+          "kimarite": ""
+        },
+        {
+          "result": "",
+          "opponentShikonaEn": "",
+          "opponentShikonaJp": "",
+          "opponentID": 0,
+          "kimarite": ""
+        },
+        {
+          "result": "",
+          "opponentShikonaEn": "",
+          "opponentShikonaJp": "",
+          "opponentID": 0,
+          "kimarite": ""
+        },
+        {
+          "result": "win",
+          "opponentShikonaEn": "Sawaisamu",
+          "opponentShikonaJp": "æ¾¤å‹‡(ã•ã‚ã„ã•ã‚€)",
+          "opponentID": 602,
+          "kimarite": "oshidashi"
+        },
+        {
+          "result": "",
+          "opponentShikonaEn": "",
+          "opponentShikonaJp": "",
+          "opponentID": 0,
+          "kimarite": ""
+        },
+        {
+          "result": "",
+          "opponentShikonaEn": "",
+          "opponentShikonaJp": "",
+          "opponentID": 0,
+          "kimarite": ""
+        },
+        {
+          "result": "",
+          "opponentShikonaEn": "",
+          "opponentShikonaJp": "",
+          "opponentID": 0,
+          "kimarite": ""
+        },
+        {
+          "result": "",
+          "opponentShikonaEn": "",
+          "opponentShikonaJp": "",
+          "opponentID": 0,
+          "kimarite": ""
+        }
+      ],
+      "wins": 1,
+      "losses": 0,
+      "absences": 6
+    },
+    {
+      "side": "West",
+      "rikishiID": 605,
+      "shikonaEn": "Hokutoshio",
+      "rank": "Jonokuchi 9 West",
+      "record": [
+        {
+          "result": "absent",
+          "opponentShikonaEn": "",
+          "opponentShikonaJp": "",
+          "opponentID": 0,
+          "kimarite": ""
+        },
+        {
+          "result": "absent",
+          "opponentShikonaEn": "",
+          "opponentShikonaJp": "",
+          "opponentID": 0,
+          "kimarite": ""
+        },
+        {
+          "result": "absent",
+          "opponentShikonaEn": "",
+          "opponentShikonaJp": "",
+          "opponentID": 0,
+          "kimarite": ""
+        },
+        {
+          "result": "absent",
+          "opponentShikonaEn": "",
+          "opponentShikonaJp": "",
+          "opponentID": 0,
+          "kimarite": ""
+        },
+        {
+          "result": "absent",
+          "opponentShikonaEn": "",
+          "opponentShikonaJp": "",
+          "opponentID": 0,
+          "kimarite": ""
+        },
+        {
+          "result": "absent",
+          "opponentShikonaEn": "",
+          "opponentShikonaJp": "",
+          "opponentID": 0,
+          "kimarite": ""
+        },
+        {
+          "result": "absent",
+          "opponentShikonaEn": "",
+          "opponentShikonaJp": "",
+          "opponentID": 0,
+          "kimarite": ""
+        }
+      ],
+      "wins": 0,
+      "losses": 0,
+      "absences": 7
+    },
+    {
+      "side": "West",
+      "rikishiID": 606,
+      "shikonaEn": "Mihonoumi",
+      "rank": "Jonokuchi 10 West",
+      "record": [
+        {
+          "result": "absent",
+          "opponentShikonaEn": "",
+          "opponentShikonaJp": "",
+          "opponentID": 0,
+          "kimarite": ""
+        },
+        {
+          "result": "absent",
+          "opponentShikonaEn": "",
+          "opponentShikonaJp": "",
+          "opponentID": 0,
+          "kimarite": ""
+        },
+        {
+          "result": "absent",
+          "opponentShikonaEn": "",
+          "opponentShikonaJp": "",
+          "opponentID": 0,
+          "kimarite": ""
+        },
+        {
+          "result": "absent",
+          "opponentShikonaEn": "",
+          "opponentShikonaJp": "",
+          "opponentID": 0,
+          "kimarite": ""
+        },
+        {
+          "result": "absent",
+          "opponentShikonaEn": "",
+          "opponentShikonaJp": "",
+          "opponentID": 0,
+          "kimarite": ""
+        },
+        {
+          "result": "absent",
+          "opponentShikonaEn": "",
+          "opponentShikonaJp": "",
+          "opponentID": 0,
+          "kimarite": ""
+        },
+        {
+          "result": "absent",
+          "opponentShikonaEn": "",
+          "opponentShikonaJp": "",
+          "opponentID": 0,
+          "kimarite": ""
+        }
+      ],
+      "wins": 0,
+      "losses": 0,
+      "absences": 7
+    },
+    {
+      "side": "West",
+      "rikishiID": 577,
+      "shikonaEn": "Kotosato",
+      "rank": "Jonokuchi 11 West",
+      "record": [
+        {
+          "result": "",
+          "opponentShikonaEn": "",
+          "opponentShikonaJp": "",
+          "opponentID": 0,
+          "kimarite": ""
+        },
+        {
+          "result": "win",
+          "opponentShikonaEn": "Negishi",
+          "opponentShikonaJp": "è±ªä¹ƒè‹¥(ã”ã†ã®ã‚ã‹)",
+          "opponentID": 585,
+          "kimarite": "yoritaoshi"
+        },
+        {
+          "result": "",
+          "opponentShikonaEn": "",
+          "opponentShikonaJp": "",
+          "opponentID": 0,
+          "kimarite": ""
+        },
+        {
+          "result": "loss",
+          "opponentShikonaEn": "Kazenoumi",
+          "opponentShikonaJp": "é¢¨ã®æ¹–(ã‹ãœã®ã†ã¿)",
+          "opponentID": 6,
+          "kimarite": "uwatenage"
+        },
+        {
+          "result": "",
+          "opponentShikonaEn": "",
+          "opponentShikonaJp": "",
+          "opponentID": 0,
+          "kimarite": ""
+        },
+        {
+          "result": "win",
+          "opponentShikonaEn": "Tsuru",
+          "opponentShikonaJp": "é¶´(ã¤ã‚‹)",
+          "opponentID": 580,
+          "kimarite": "yorikiri"
+        },
+        {
+          "result": "",
+          "opponentShikonaEn": "",
+          "opponentShikonaJp": "",
+          "opponentID": 0,
+          "kimarite": ""
+        },
+        {
+          "result": "win",
+          "opponentShikonaEn": "Kosei",
+          "opponentShikonaJp": "ç…Œæ˜Ÿ(ã“ã†ã›ã„)",
+          "opponentID": 587,
+          "kimarite": "oshidashi"
+        },
+        {
+          "result": "",
+          "opponentShikonaEn": "",
+          "opponentShikonaJp": "",
+          "opponentID": 0,
+          "kimarite": ""
+        },
+        {
+          "result": "win",
+          "opponentShikonaEn": "Tsubakifuji",
+          "opponentShikonaJp": "æ¤¿å¯Œå£«(ã¤ã°ããµã˜)",
+          "opponentID": 590,
+          "kimarite": "yorikiri"
+        },
+        {
+          "result": "",
+          "opponentShikonaEn": "",
+          "opponentShikonaJp": "",
+          "opponentID": 0,
+          "kimarite": ""
+        },
+        {
+          "result": "win",
+          "opponentShikonaEn": "Nishikinoryu",
+          "opponentShikonaJp": "éŒ¦ä¹ƒç«œ(ã«ã—ãã®ã‚Šã‚…ã†)",
+          "opponentID": 579,
+          "kimarite": "oshidashi"
+        },
+        {
+          "result": "win",
+          "opponentShikonaEn": "Azumayama",
+          "opponentShikonaJp": "æ±å±±(ã‚ãšã¾ã‚„ã¾)",
+          "opponentID": 581,
+          "kimarite": "oshidashi"
+        },
+        {
+          "result": "",
+          "opponentShikonaEn": "",
+          "opponentShikonaJp": "",
+          "opponentID": 0,
+          "kimarite": ""
+        },
+        {
+          "result": "",
+          "opponentShikonaEn": "",
+          "opponentShikonaJp": "",
+          "opponentID": 0,
+          "kimarite": ""
+        },
+        {
+          "result": "loss",
+          "opponentShikonaEn": "Kazenoumi",
+          "opponentShikonaJp": "é¢¨ã®æ¹–(ã‹ãœã®ã†ã¿)",
+          "opponentID": 6,
+          "kimarite": "yoritaoshi"
+        },
+        {
+          "result": "loss",
+          "opponentShikonaEn": "Kazenoumi",
+          "opponentShikonaJp": "é¢¨ã®æ¹–(ã‹ãœã®ã†ã¿)",
+          "opponentID": 6,
+          "kimarite": "yoritaoshi"
+        }
+      ],
+      "wins": 6,
+      "losses": 1,
+      "absences": 0
+    },
+    {
+      "side": "West",
+      "rikishiID": 578,
+      "shikonaEn": "Okano",
+      "rank": "Jonokuchi 12 West",
+      "record": [
+        {
+          "result": "win",
+          "opponentShikonaEn": "Kazeeidai",
+          "opponentShikonaJp": "é¢¨æ „å¤§(ã‹ãœãˆã„ã ã„)",
+          "opponentID": 586,
+          "kimarite": "oshidashi"
+        },
+        {
+          "result": "",
+          "opponentShikonaEn": "",
+          "opponentShikonaJp": "",
+          "opponentID": 0,
+          "kimarite": ""
+        },
+        {
+          "result": "",
+          "opponentShikonaEn": "",
+          "opponentShikonaJp": "",
+          "opponentID": 0,
+          "kimarite": ""
+        },
+        {
+          "result": "win",
+          "opponentShikonaEn": "Tsuru",
+          "opponentShikonaJp": "é¶´(ã¤ã‚‹)",
+          "opponentID": 580,
+          "kimarite": "oshidashi"
+        },
+        {
+          "result": "",
+          "opponentShikonaEn": "",
+          "opponentShikonaJp": "",
+          "opponentID": 0,
+          "kimarite": ""
+        },
+        {
+          "result": "win",
+          "opponentShikonaEn": "Shokeima",
+          "opponentShikonaJp": "å‹æ¡‚é¦¬(ã—ã‚‡ã†ã‘ã„ã¾)",
+          "opponentID": 593,
+          "kimarite": "tsukiotoshi"
+        },
+        {
+          "result": "win",
+          "opponentShikonaEn": "Moriurara",
+          "opponentShikonaJp": "æ£®éº—(ã‚‚ã‚Šã†ã‚‰ã‚‰)",
+          "opponentID": 594,
+          "kimarite": "yorikiri"
+        },
+        {
+          "result": "",
+          "opponentShikonaEn": "",
+          "opponentShikonaJp": "",
+          "opponentID": 0,
+          "kimarite": ""
+        },
+        {
+          "result": "win",
+          "opponentShikonaEn": "Nishikinoryu",
+          "opponentShikonaJp": "éŒ¦ä¹ƒç«œ(ã«ã—ãã®ã‚Šã‚…ã†)",
+          "opponentID": 579,
+          "kimarite": "sukuinage"
+        },
+        {
+          "result": "",
+          "opponentShikonaEn": "",
+          "opponentShikonaJp": "",
+          "opponentID": 0,
+          "kimarite": ""
+        },
+        {
+          "result": "win",
+          "opponentShikonaEn": "Sadanojo",
+          "opponentShikonaJp": "ä½ç”°ã®åŸŽ(ã•ã ã®ã˜ã‚‡ã†)",
+          "opponentID": 582,
+          "kimarite": "oshidashi"
+        },
+        {
+          "result": "",
+          "opponentShikonaEn": "",
+          "opponentShikonaJp": "",
+          "opponentID": 0,
+          "kimarite": ""
+        },
+        {
+          "result": "loss",
+          "opponentShikonaEn": "Kazenoumi",
+          "opponentShikonaJp": "é¢¨ã®æ¹–(ã‹ãœã®ã†ã¿)",
+          "opponentID": 6,
+          "kimarite": "yorikiri"
+        },
+        {
+          "result": "",
+          "opponentShikonaEn": "",
+          "opponentShikonaJp": "",
+          "opponentID": 0,
+          "kimarite": ""
+        },
+        {
+          "result": "",
+          "opponentShikonaEn": "",
+          "opponentShikonaJp": "",
+          "opponentID": 0,
+          "kimarite": ""
+        },
+        {
+          "result": "loss",
+          "opponentShikonaEn": "Kazenoumi",
+          "opponentShikonaJp": "é¢¨ã®æ¹–(ã‹ãœã®ã†ã¿)",
+          "opponentID": 6,
+          "kimarite": "yorikiri"
+        },
+        {
+          "result": "loss",
+          "opponentShikonaEn": "Kazenoumi",
+          "opponentShikonaJp": "é¢¨ã®æ¹–(ã‹ãœã®ã†ã¿)",
+          "opponentID": 6,
+          "kimarite": "yorikiri"
+        }
+      ],
+      "wins": 6,
+      "losses": 1,
+      "absences": 0
+    },
+    {
+      "side": "West",
+      "rikishiID": 580,
+      "shikonaEn": "Tsuru",
+      "rank": "Jonokuchi 13 West",
+      "record": [
+        {
+          "result": "",
+          "opponentShikonaEn": "",
+          "opponentShikonaJp": "",
+          "opponentID": 0,
+          "kimarite": ""
+        },
+        {
+          "result": "win",
+          "opponentShikonaEn": "Sakuraba",
+          "opponentShikonaJp": "å®‰æ«»(ã‚ã‚“ã–ãã‚‰)",
+          "opponentID": 591,
+          "kimarite": "yorikiri"
+        },
+        {
+          "result": "",
+          "opponentShikonaEn": "",
+          "opponentShikonaJp": "",
+          "opponentID": 0,
+          "kimarite": ""
+        },
+        {
+          "result": "loss",
+          "opponentShikonaEn": "Okano",
+          "opponentShikonaJp": "è±ªç™½é›²(ã”ã†ã¯ãã†ã‚“)",
+          "opponentID": 578,
+          "kimarite": "oshidashi"
+        },
+        {
+          "result": "",
+          "opponentShikonaEn": "",
+          "opponentShikonaJp": "",
+          "opponentID": 0,
+          "kimarite": ""
+        },
+        {
+          "result": "loss",
+          "opponentShikonaEn": "Kotosato",
+          "opponentShikonaJp": "ç´ä½è—¤(ã“ã¨ã•ã¨ã†)",
+          "opponentID": 577,
+          "kimarite": "yorikiri"
+        },
+        {
+          "result": "win",
+          "opponentShikonaEn": "Kazeeidai",
+          "opponentShikonaJp": "é¢¨æ „å¤§(ã‹ãœãˆã„ã ã„)",
+          "opponentID": 586,
+          "kimarite": "tsukiotoshi"
+        },
+        {
+          "result": "",
+          "opponentShikonaEn": "",
+          "opponentShikonaJp": "",
+          "opponentID": 0,
+          "kimarite": ""
+        },
+        {
+          "result": "win",
+          "opponentShikonaEn": "Kitanosho",
+          "opponentShikonaJp": "åŒ—ä¹ƒåº„(ããŸã®ã—ã‚‡ã†)",
+          "opponentID": 592,
+          "kimarite": "yoritaoshi"
+        },
+        {
+          "result": "",
+          "opponentShikonaEn": "",
+          "opponentShikonaJp": "",
+          "opponentID": 0,
+          "kimarite": ""
+        },
+        {
+          "result": "",
+          "opponentShikonaEn": "",
+          "opponentShikonaJp": "",
+          "opponentID": 0,
+          "kimarite": ""
+        },
+        {
+          "result": "win",
+          "opponentShikonaEn": "Wakakaneko",
+          "opponentShikonaJp": "è‹¥é‡‘å­(ã‚ã‹ã‹ã­ã“)",
+          "opponentID": 583,
+          "kimarite": "uwatenage"
+        },
+        {
+          "result": "",
+          "opponentShikonaEn": "",
+          "opponentShikonaJp": "",
+          "opponentID": 0,
+          "kimarite": ""
+        },
+        {
+          "result": "win",
+          "opponentShikonaEn": "Fubu",
+          "opponentShikonaJp": "é¢¨æ­¦(ãµã†ã¶)",
+          "opponentID": 584,
+          "kimarite": "oshitaoshi"
+        },
+        {
+          "result": "",
+          "opponentShikonaEn": "",
+          "opponentShikonaJp": "",
+          "opponentID": 0,
+          "kimarite": ""
+        }
+      ],
+      "wins": 5,
+      "losses": 2,
+      "absences": 0
+    },
+    {
+      "side": "West",
+      "rikishiID": 592,
+      "shikonaEn": "Kitanosho",
+      "rank": "Jonokuchi 14 West",
+      "record": [
+        {
+          "result": "loss",
+          "opponentShikonaEn": "Kosei",
+          "opponentShikonaJp": "ç…Œæ˜Ÿ(ã“ã†ã›ã„)",
+          "opponentID": 587,
+          "kimarite": "hikiotoshi"
+        },
+        {
+          "result": "",
+          "opponentShikonaEn": "",
+          "opponentShikonaJp": "",
+          "opponentID": 0,
+          "kimarite": ""
+        },
+        {
+          "result": "win",
+          "opponentShikonaEn": "Sakuraba",
+          "opponentShikonaJp": "å®‰æ«»(ã‚ã‚“ã–ãã‚‰)",
+          "opponentID": 591,
+          "kimarite": "uwatenage"
+        },
+        {
+          "result": "",
+          "opponentShikonaEn": "",
+          "opponentShikonaJp": "",
+          "opponentID": 0,
+          "kimarite": ""
+        },
+        {
+          "result": "loss",
+          "opponentShikonaEn": "Negishi",
+          "opponentShikonaJp": "è±ªä¹ƒè‹¥(ã”ã†ã®ã‚ã‹)",
+          "opponentID": 585,
+          "kimarite": "oshidashi"
+        },
+        {
+          "result": "",
+          "opponentShikonaEn": "",
+          "opponentShikonaJp": "",
+          "opponentID": 0,
+          "kimarite": ""
+        },
+        {
+          "result": "",
+          "opponentShikonaEn": "",
+          "opponentShikonaJp": "",
+          "opponentID": 0,
+          "kimarite": ""
+        },
+        {
+          "result": "win",
+          "opponentShikonaEn": "Shokeima",
+          "opponentShikonaJp": "å‹æ¡‚é¦¬(ã—ã‚‡ã†ã‘ã„ã¾)",
+          "opponentID": 593,
+          "kimarite": "yorikiri"
+        },
+        {
+          "result": "loss",
+          "opponentShikonaEn": "Tsuru",
+          "opponentShikonaJp": "é¶´(ã¤ã‚‹)",
+          "opponentID": 580,
+          "kimarite": "yoritaoshi"
+        },
+        {
+          "result": "",
+          "opponentShikonaEn": "",
+          "opponentShikonaJp": "",
+          "opponentID": 0,
+          "kimarite": ""
+        },
+        {
+          "result": "loss",
+          "opponentShikonaEn": "Kazeeidai",
+          "opponentShikonaJp": "é¢¨æ „å¤§(ã‹ãœãˆã„ã ã„)",
+          "opponentID": 586,
+          "kimarite": "yorikiri"
+        },
+        {
+          "result": "",
+          "opponentShikonaEn": "",
+          "opponentShikonaJp": "",
+          "opponentID": 0,
+          "kimarite": ""
+        },
+        {
+          "result": "win",
+          "opponentShikonaEn": "Moriurara",
+          "opponentShikonaJp": "æ£®éº—(ã‚‚ã‚Šã†ã‚‰ã‚‰)",
+          "opponentID": 594,
+          "kimarite": "yorikiri"
+        },
+        {
+          "result": "",
+          "opponentShikonaEn": "",
+          "opponentShikonaJp": "",
+          "opponentID": 0,
+          "kimarite": ""
+        },
+        {
+          "result": "",
+          "opponentShikonaEn": "",
+          "opponentShikonaJp": "",
+          "opponentID": 0,
+          "kimarite": ""
+        }
+      ],
+      "wins": 3,
+      "losses": 4,
+      "absences": 0
+    },
+    {
+      "side": "West",
+      "rikishiID": 602,
+      "shikonaEn": "Sawaisamu",
+      "rank": "Jonokuchi 15 West",
+      "record": [
+        {
+          "result": "",
+          "opponentShikonaEn": "",
+          "opponentShikonaJp": "",
+          "opponentID": 0,
+          "kimarite": ""
+        },
+        {
+          "result": "loss",
+          "opponentShikonaEn": "Shokeima",
+          "opponentShikonaJp": "å‹æ¡‚é¦¬(ã—ã‚‡ã†ã‘ã„ã¾)",
+          "opponentID": 593,
+          "kimarite": "oshitaoshi"
+        },
+        {
+          "result": "",
+          "opponentShikonaEn": "",
+          "opponentShikonaJp": "",
+          "opponentID": 0,
+          "kimarite": ""
+        },
+        {
+          "result": "",
+          "opponentShikonaEn": "",
+          "opponentShikonaJp": "",
+          "opponentID": 0,
+          "kimarite": ""
+        },
+        {
+          "result": "",
+          "opponentShikonaEn": "",
+          "opponentShikonaJp": "",
+          "opponentID": 0,
+          "kimarite": ""
+        },
+        {
+          "result": "loss",
+          "opponentShikonaEn": "Kosei",
+          "opponentShikonaJp": "ç…Œæ˜Ÿ(ã“ã†ã›ã„)",
+          "opponentID": 587,
+          "kimarite": "oshitaoshi"
+        },
+        {
+          "result": "",
+          "opponentShikonaEn": "",
+          "opponentShikonaJp": "",
+          "opponentID": 0,
+          "kimarite": ""
+        },
+        {
+          "result": "loss",
+          "opponentShikonaEn": "Sakuraba",
+          "opponentShikonaJp": "å®‰æ«»(ã‚ã‚“ã–ãã‚‰)",
+          "opponentID": 591,
+          "kimarite": "oshidashi"
+        },
+        {
+          "result": "loss",
+          "opponentShikonaEn": "Soga",
+          "opponentShikonaJp": "æ›½æˆ‘(ããŒ)",
+          "opponentID": 598,
+          "kimarite": "oshidashi"
+        },
+        {
+          "result": "",
+          "opponentShikonaEn": "",
+          "opponentShikonaJp": "",
+          "opponentID": 0,
+          "kimarite": ""
+        },
+        {
+          "result": "loss",
+          "opponentShikonaEn": "Wakayahara",
+          "opponentShikonaJp": "è‹¥ç®­åŽŸ(ã‚ã‹ã‚„ã¯ã‚‰)",
+          "opponentID": 600,
+          "kimarite": "oshidashi"
+        },
+        {
+          "result": "fusen win",
+          "opponentShikonaEn": "Takatairiku",
+          "opponentShikonaJp": "éš†å¤ªé™¸(ãŸã‹ãŸã„ã‚Šã)",
+          "opponentID": 599,
+          "kimarite": "fusen"
+        },
+        {
+          "result": "loss",
+          "opponentShikonaEn": "Nakaishi",
+          "opponentShikonaJp": "ä¸­çŸ³(ãªã‹ã„ã—)",
+          "opponentID": 601,
+          "kimarite": "oshitaoshi"
+        },
+        {
+          "result": "",
+          "opponentShikonaEn": "",
+          "opponentShikonaJp": "",
+          "opponentID": 0,
+          "kimarite": ""
+        },
+        {
+          "result": "",
+          "opponentShikonaEn": "",
+          "opponentShikonaJp": "",
+          "opponentID": 0,
+          "kimarite": ""
+        }
+      ],
+      "wins": 1,
+      "losses": 6,
+      "absences": 0
+    }
+  ]
+}

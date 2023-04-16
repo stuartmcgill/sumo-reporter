@@ -25,15 +25,21 @@ class Performance
             return null;
         }
 
+        $type = StreakType::fromResult($results[$indexOfFirstRelevantBout]->result);
+
         for ($index = $indexOfFirstRelevantBout + 1; $index < count($results); $index++) {
-            if (!$results[$index]->matches($results[$index - 1])) {
+            if ($results[$index]->result === Result::NoBoutScheduled) {
+                continue;
+            }
+
+            if (!$results[$index]->result->matchesStreakType($type)) {
                 break;
             }
         }
 
         return new Streak(
             wrestler: $this->wrestler,
-            type: StreakType::fromResult($results[$indexOfFirstRelevantBout]->result),
+            type: $type,
             length: $index - $this->numberOfDaysWithoutScheduledBouts(),
             isOpen: $this->isStreakOpen(),
         );
