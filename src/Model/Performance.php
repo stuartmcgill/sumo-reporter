@@ -57,18 +57,6 @@ class Performance
         return $this->absences === 0 && ($this->wins === 0 || $this->losses === 0);
     }
 
-    private function numberOfDaysWithoutScheduledBouts(): int
-    {
-        $scheduledBouts = array_filter(
-            array: $this->opponentResults,
-            callback: static function (OpponentResult $opponentResult): bool {
-                return $opponentResult->result === Result::NoBoutScheduled;
-            }
-        );
-
-        return count($scheduledBouts);
-    }
-
     /** @param list<OpponentResult> $results */
     private function findFirstRelevantBout(array $results): ?int
     {

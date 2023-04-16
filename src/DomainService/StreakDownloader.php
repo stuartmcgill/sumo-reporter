@@ -45,12 +45,15 @@ class StreakDownloader
         ));
     }
 
-    /** @param list<Streak> $streaks */
+    /**
+     * @param list<Streak> $streaks
+     * @return list<Streak>
+     */
     private function filter(array $streaks): array
     {
         return array_values(array_filter(
             array: $streaks,
-            callback: static fn (Streak $streak) => $streak->type !== StreakType::None)
-        );
+            callback: static fn (Streak $streak) => $streak->type !== StreakType::None
+        ));
     }
 }

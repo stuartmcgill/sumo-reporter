@@ -4,6 +4,8 @@ declare(strict_types=1);
 
 namespace StuartMcGill\SumoScraper\Model;
 
+use DomainException;
+
 enum Result: string
 {
     case Win = 'win';
@@ -15,7 +17,7 @@ enum Result: string
 
     public function matches(Result $other): bool
     {
-        return match($this) {
+        return match ($this) {
             self::Win => $other->isWin(),
             self::FusenWin => $other->isWin(),
             self::Loss => $other->isLoss(),
@@ -26,9 +28,10 @@ enum Result: string
 
     public function matchesStreakType(StreakType $streakType): bool
     {
-        return match($streakType) {
+        return match ($streakType) {
             StreakType::Winning => $this->isWin(),
             StreakType::Losing => $this->isLoss(),
+            default => throw new DomainException('Unexpected result ' . $streakType->name)
         };
     }
 

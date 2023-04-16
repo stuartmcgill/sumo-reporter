@@ -54,12 +54,11 @@ class FullBashoDownloadTest extends TestCase
 
         $streaks = $this->streakDownloader->download(2023, 3);
 
-        $findStreak = static function(string $name) use ($streaks): Streak {
-            return array_values(array_filter(
+        $findStreak = static fn (string $name) =>
+            array_values(array_filter(
                 $streaks,
                 static fn (Streak $streak) => $streak->wrestler->name === $name
             ))[0];
-        };
 
         // Single basho
         $kiribayamaStreak = $findStreak('Kiribayama');
@@ -81,7 +80,6 @@ class FullBashoDownloadTest extends TestCase
         $this->assertSame(StreakType::Winning, $ryuoStreak->type);
         $this->assertSame(7, $ryuoStreak->length());
         $this->assertSame(false, $ryuoStreak->isOpen());
-
     }
 
     /** @return list<stdClass> */

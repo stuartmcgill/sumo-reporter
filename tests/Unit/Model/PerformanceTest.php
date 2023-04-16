@@ -168,7 +168,12 @@ class PerformanceTest extends TestCase
                 ],
             ],
             'Lower-ranked wrestler after a day where he is not scheduled to fight' => [
-                'results' => [Result::Win, Result::NoBoutScheduled, Result::Win, Result::NoBoutScheduled],
+                'results' => [
+                    Result::Win,
+                    Result::NoBoutScheduled,
+                    Result::Win,
+                    Result::NoBoutScheduled,
+                ],
                 'summary' => [
                     'wins' => 2,
                     'losses' => 0,
