@@ -32,8 +32,20 @@ class DownloadStreaksTest extends TestCase
     {
         $this->streakDownloader->expects('download')->once()->andReturn(
             [
-                $this->createStreak('TEST WRESTLER 1'),
-                $this->createStreak('TEST WRESTLER 2'),
+                $this->createStreak(
+                    wrestlerName: 'TEST WRESTLER 1',
+                    wrestlerRank: 'TEST RANK 1',
+                    type: StreakType::Winning,
+                    length: 15,
+                    isOpen: true,
+                ),
+                $this->createStreak(
+                    wrestlerName: 'TEST WRESTLER 2',
+                    wrestlerRank: 'TEST RANK 2',
+                    type: StreakType::Losing,
+                    length: 4,
+                    isOpen: false,
+                ),
             ]
         );
 
@@ -43,17 +55,28 @@ class DownloadStreaksTest extends TestCase
         $commandTester->assertCommandIsSuccessful();
 
         $output = $commandTester->getDisplay();
-        $this->assertStringContainsString('TEST WRESTLER 1', $output);
-        $this->assertStringContainsString('TEST WRESTLER 2', $output);
+        $this->assertStringContainsString(
+            needle: '| TEST WRESTLER 1 | TEST RANK 1 | Winning | 15          | Yes',
+            haystack: $output,
+        );
+        $this->assertStringContainsString(
+            needle: '| TEST WRESTLER 2 | TEST RANK 2 | Losing  | 4           |    ',
+            haystack: $output,
+        );
     }
 
-    private function createStreak(string $wrestlerName): Streak
-    {
+    private function createStreak(
+        string $wrestlerName,
+        string $wrestlerRank,
+        StreakType $type,
+        int $length,
+        bool $isOpen,
+    ): Streak {
         return new Streak(
-            Generator::wrestler(name: $wrestlerName),
-            StreakType::Winning,
-            1,
-            false,
+            Generator::wrestler(name: $wrestlerName, rank: $wrestlerRank),
+            $type,
+            $length,
+            $isOpen,
         );
     }
 }

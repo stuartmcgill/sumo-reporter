@@ -5,12 +5,13 @@ declare(strict_types=1);
 namespace StuartMcGill\SumoScraper\CliCommand;
 
 use DateTime;
-use StuartMcGill\SumoScraper\DomainService\StreakCompilation;
 use StuartMcGill\SumoScraper\DomainService\StreakDownloader;
 use StuartMcGill\SumoScraper\Model\BashoDate;
 use StuartMcGill\SumoScraper\Model\Streak;
+use StuartMcGill\SumoScraper\Model\StreakType;
 use Symfony\Component\Console\Attribute\AsCommand;
 use Symfony\Component\Console\Command\Command;
+use Symfony\Component\Console\Helper\Table;
 use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
@@ -52,17 +53,52 @@ class DownloadStreaks extends Command
             month: (int)substr(string: $date, offset: 5, length: 2)
         );
 
-        $this->printStreaks($io, $streaks);
+        $this->sortStreaks($streaks);
+        $this->printStreaks($io, $output, $streaks);
         $io->success('Successfully completed');
 
         return Command::SUCCESS;
     }
 
     /** @param list<Streak> $streaks */
-    private function printStreaks(SymfonyStyle $io, array $streaks): void
+    private function printStreaks(SymfonyStyle $io, OutputInterface $output, array $streaks): void
     {
-        foreach ($streaks as $streak) {
-            $io->writeln($streak->wrestler->name);
-        }
+        $table = new Table($output);
+        $table
+            ->setHeaders(['Name', 'Rank', 'Type', 'Streak size', 'Still running?'])
+            ->setRows(array_map(
+                callback: static fn (Streak $streak) => [
+                    $streak->wrestler->name,
+                    $streak->wrestler->rank,
+                    $streak->type()->name,
+                    $streak->length(),
+                    $streak->isOpen() ? 'Yes' : '',
+                ],
+                array: $streaks
+            ))
+            ->render();
+    }
+
+    /** @param list<Streak> $streaks */
+    private function sortStreaks(array &$streaks): void
+    {
+        usort(
+            array: $streaks,
+            callback: static function (Streak $a, Streak $b): int {
+                if ($a->isForSameWrestlerAs($b)) {
+                    return 0;
+                }
+
+                if ($a->type() !== $b->type()) {
+                    return $a->type() === StreakType::Winning ? -1 : 1;
+                }
+
+                if ($a->length() !== $b->length()) {
+                    return $a->length() > $b->length() ? -1 : 1;
+                }
+
+                return $a->wrestler->name < $b->wrestler->name ? -1 : 1;
+            }
+        );
     }
 }

@@ -12,8 +12,8 @@ class Basho
      * @param list<Performance> $performances
     */
     public function __construct(
-        private readonly int $year,
-        private readonly int $month,
+        public readonly int $year,
+        public readonly int $month,
         private readonly array $performances,
     ) {
     }
