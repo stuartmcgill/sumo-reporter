@@ -9,7 +9,6 @@ use StuartMcGill\SumoReporter\Model\Basho;
 use StuartMcGill\SumoReporter\Model\BashoDate;
 use StuartMcGill\SumoReporter\Model\Streak;
 use StuartMcGill\SumoReporter\Model\StreakType;
-use StuartMcGill\SumoReporter\Model\Wrestler;
 
 class StreakDownloader
 {
@@ -21,7 +20,7 @@ class StreakDownloader
     ) {
     }
 
-    /** @return list<Streak> */
+    /** @return list{0: list<Streak>, 1: list<Streak>} */
     public function download(int $year, int $month): array
     {
         $bashoDate = new BashoDate($year, $month);
@@ -33,7 +32,7 @@ class StreakDownloader
             $bashoDate = $bashoDate->previous();
         }
 
-        return $this->filter($this->streakCompilation->streaks());
+        return $this->separate($this->filter($this->streakCompilation->streaks()));
     }
 
     private function retrieveBasho(BashoDate $bashoDate): Basho
@@ -59,5 +58,24 @@ class StreakDownloader
                     haystack: [StreakType::Winning, StreakType::Losing],
                 )
         ));
+    }
+
+    /**
+     * @param list<Streak> $streaks
+     * @return list{0: list<Streak>, 1: list<Streak>}
+     */
+    private function separate(array $streaks): array
+    {
+        $winning = array_values(array_filter(
+            array: $streaks,
+            callback: static fn (Streak $streak) => $streak->type() === StreakType::Winning,
+        ));
+
+        $losing = array_values(array_filter(
+            array: $streaks,
+            callback: static fn (Streak $streak) => $streak->type() === StreakType::Losing,
+        ));
+
+        return [$winning, $losing];
     }
 }

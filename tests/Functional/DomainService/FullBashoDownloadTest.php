@@ -52,30 +52,30 @@ class FullBashoDownloadTest extends TestCase
             ->with(2023, 1, Mockery::any())
             ->andReturn($this->loadTestResponses(2023, 1));
 
-        $streaks = $this->streakDownloader->download(2023, 3);
+        [$winning, $losing] = $this->streakDownloader->download(2023, 3);
 
-        $findStreak = static fn (array $haystack, string $name): Streak =>
+        $findStreak = static fn (array $streaks, string $name): Streak =>
             array_values(array_filter(
-                $haystack,
+                $streaks,
                 static fn (Streak $streak) => $streak->wrestler->name === $name
             ))[0];
 
         // Single basho
-        $daieishoStreak = $findStreak($streaks, 'Daieisho');
+        $daieishoStreak = $findStreak($losing, 'Daieisho');
         $this->assertSame('Daieisho', $daieishoStreak->wrestler->name);
         $this->assertSame(StreakType::Losing, $daieishoStreak->type());
         $this->assertSame(1, $daieishoStreak->length());
         $this->assertSame(false, $daieishoStreak->isOpen());
 
-        // Double basho
-        $ryuoStreak = $findStreak($streaks, 'Ryuo');
+        // Cross-basho
+        $ryuoStreak = $findStreak($winning, 'Ryuo');
         $this->assertSame('Ryuo', $ryuoStreak->wrestler->name);
         $this->assertSame(StreakType::Winning, $ryuoStreak->type());
         $this->assertSame(7, $ryuoStreak->length());
         $this->assertSame(false, $ryuoStreak->isOpen());
 
         // Perfect Jonokuchi after Mae-zumo
-        $ryuoStreak = $findStreak($streaks, 'Asahakuryu');
+        $ryuoStreak = $findStreak($winning, 'Asahakuryu');
         $this->assertSame('Asahakuryu', $ryuoStreak->wrestler->name);
         $this->assertSame(StreakType::Winning, $ryuoStreak->type());
         $this->assertSame(7, $ryuoStreak->length());

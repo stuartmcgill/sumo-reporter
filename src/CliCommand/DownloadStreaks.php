@@ -48,21 +48,29 @@ class DownloadStreaks extends Command
 
         $date = $input->getArgument('date');
 
-        $streaks = $this->streakDownloader->download(
+        [$winning, $losing] = $this->streakDownloader->download(
             year: (int)substr(string: $date, offset: 0, length: 4),
             month: (int)substr(string: $date, offset: 5, length: 2)
         );
 
-        $this->sortStreaks($streaks);
-        $this->printStreaks($io, $output, $streaks);
+        $io->section('Winning');
+        $this->printStreaks($output, $winning);
+        $io->newLine();
+
+        $io->section('Losing');
+        $this->printStreaks($output, $losing);
+        $io->newLine();
+
         $io->success('Successfully completed');
 
         return Command::SUCCESS;
     }
 
     /** @param list<Streak> $streaks */
-    private function printStreaks(SymfonyStyle $io, OutputInterface $output, array $streaks): void
+    private function printStreaks(OutputInterface $output, array $streaks): void
     {
+        $this->sortStreaks($streaks);
+
         $table = new Table($output);
         $table
             ->setHeaders(['Name', 'Rank', 'Type', 'Streak size', 'Still running?'])
