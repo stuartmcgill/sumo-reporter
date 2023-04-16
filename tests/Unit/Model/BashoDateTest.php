@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace unit\Model;
+namespace StuartMcGill\SumoScraper\Tests\Unit\Model;
 
 use DateTime;
 use PHPUnit\Framework\Attributes\Test;

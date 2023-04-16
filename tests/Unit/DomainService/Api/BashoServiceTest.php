@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace unit\DomainService\Api;
+namespace StuartMcGill\SumoScraper\Tests\Unit\DomainService\Api;
 
 use GuzzleHttp\Client;
 use GuzzleHttp\Promise\PromiseInterface;

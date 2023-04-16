@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace functional\DomainService;
+namespace StuartMcGill\SumoScraper\Tests\Functional\DomainService;
 
 use Laminas\ServiceManager\AbstractFactory\ReflectionBasedAbstractFactory;
 use Laminas\ServiceManager\ServiceManager;

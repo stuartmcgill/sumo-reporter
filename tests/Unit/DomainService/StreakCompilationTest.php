@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace unit\DomainService;
+namespace StuartMcGill\SumoScraper\Tests\Unit\DomainService;
 
 use Mockery;
 use Mockery\Adapter\Phpunit\MockeryPHPUnitIntegration;

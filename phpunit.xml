@@ -2,10 +2,10 @@
 <phpunit xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" bootstrap="./vendor/autoload.php" xsi:noNamespaceSchemaLocation="https://schema.phpunit.de/10.0/phpunit.xsd" cacheDirectory=".phpunit.cache">
   <testsuites>
     <testsuite name="Unit">
-      <directory>tests/unit</directory>
+      <directory>tests/Unit</directory>
     </testsuite>
     <testsuite name="Functional">
-      <directory>tests/functional</directory>
+      <directory>tests/Functional</directory>
     </testsuite>
   </testsuites>
   <coverage>

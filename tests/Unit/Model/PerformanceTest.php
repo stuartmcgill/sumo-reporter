@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace unit\Model;
+namespace StuartMcGill\SumoScraper\Tests\Unit\Model;
 
 use PHPUnit\Framework\Attributes\DataProvider;
 use PHPUnit\Framework\Attributes\Test;
@@ -102,7 +102,6 @@ class PerformanceTest extends TestCase
             // TODO - distinguish properly between
             // TODO - formatting output
             // TODO - upload for sumo website
-            // TODO - make script work in basho month leading up to basho e.g. on 1st May - should return March
         ];
     }
 
