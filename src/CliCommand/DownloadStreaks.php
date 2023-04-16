@@ -70,7 +70,7 @@ class DownloadStreaks extends Command
     {
         $table = new Table($output);
         $table
-            ->setHeaders(['Name', 'Rank', 'Type', 'Streak size', 'Still running?'])
+            ->setHeaders(['Name', 'Rank', 'Type', 'Streak size', 'Still active?'])
             ->setRows(array_map(
                 callback: static fn (Streak $streak) => [
                     $streak->wrestler->name,
