@@ -49,8 +49,8 @@ class StreakDownloaderTest extends TestCase
             ->expects('addBasho')
             ->once()
             ->with(Mockery::on(
-                static fn (Basho $basho) => $basho->year === 2023 && $basho->month === 3)
-            );
+                static fn (Basho $basho) => $basho->year === 2023 && $basho->month === 3
+            ));
 
         $this->streakCompilation
             ->expects('streaks')

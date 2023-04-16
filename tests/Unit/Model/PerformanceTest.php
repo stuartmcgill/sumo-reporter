@@ -192,7 +192,6 @@ class PerformanceTest extends TestCase
                     'losses' => 0,
                     'absences' => 0,
                 ],
-                // Need to do this differently e.g. a no bout scheduled streak?
                 'expected' => [
                     'type' => StreakType::NoBoutScheduled,
                     'length' => 0,

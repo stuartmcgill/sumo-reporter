@@ -33,12 +33,14 @@ class Basho
         $performanceData = array_reduce(
             array: $divisionData,
             callback: static function (array $performances, stdClass $divisionData) {
-                $performances = array_merge(
-                    $performances,
+                $eastAndWest = array_merge(
                     $divisionData->east,
                     $divisionData->west,
                 );
-                return $performances;
+
+                self::removePlayoffBouts($eastAndWest);
+
+                return array_merge($performances, $eastAndWest);
             },
             initial: []
         );
@@ -75,5 +77,17 @@ class Basho
             );
 
         return array_map($mapPerformances, $performanceData);
+    }
+
+    /** @param list<stdClass> $performances */
+    private static function removePlayoffBouts(array &$performances): void
+    {
+        foreach ($performances as $performance) {
+            $performance->record = array_values(array_filter(
+                $performance->record,
+                static fn (int $key) => $key < 15,
+                ARRAY_FILTER_USE_KEY,
+            ));
+        }
     }
 }
