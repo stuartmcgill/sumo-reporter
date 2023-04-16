@@ -32,10 +32,13 @@ class StreakDownloader
             $bashoDate = $bashoDate->previous();
         }
 
-        $filtered = $this->filter($this->streakCompilation->streaks());
-        $this->sort($filtered);
+        $streaks = $this->filterStreaks(
+            raw: $this->streakCompilation->streaks(),
+            keep: [StreakType::Winning, StreakType::Losing],
+        );
+        $this->sort($streaks);
 
-        return $this->separate($filtered);
+        return $this->splitIntoWinningAndLosing($streaks);
     }
 
     private function retrieveBasho(BashoDate $bashoDate): Basho
@@ -48,17 +51,18 @@ class StreakDownloader
     }
 
     /**
-     * @param list<Streak> $streaks
+     * @param list<Streak> $raw
+     * @param list<StreakType> $keep
      * @return list<Streak>
      */
-    private function filter(array $streaks): array
+    private function filterStreaks(array $raw, array $keep): array
     {
         return array_values(array_filter(
-            array: $streaks,
+            array: $raw,
             callback: static fn (Streak $streak)
                 => in_array(
                     needle: $streak->type(),
-                    haystack: [StreakType::Winning, StreakType::Losing],
+                    haystack: $keep,
                 )
         ));
     }
@@ -67,7 +71,7 @@ class StreakDownloader
      * @param list<Streak> $streaks
      * @return list{0: list<Streak>, 1: list<Streak>}
      */
-    private function separate(array $streaks): array
+    private function splitIntoWinningAndLosing(array $streaks): array
     {
         $winning = array_values(array_filter(
             array: $streaks,
