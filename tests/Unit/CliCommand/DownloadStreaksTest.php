@@ -32,20 +32,24 @@ class DownloadStreaksTest extends TestCase
     {
         $this->streakDownloader->expects('download')->once()->andReturn(
             [
-                $this->createStreak(
-                    wrestlerName: 'TEST WRESTLER 1',
-                    wrestlerRank: 'TEST RANK 1',
-                    type: StreakType::Winning,
-                    length: 15,
-                    isOpen: true,
-                ),
-                $this->createStreak(
-                    wrestlerName: 'TEST WRESTLER 2',
-                    wrestlerRank: 'TEST RANK 2',
-                    type: StreakType::Losing,
-                    length: 4,
-                    isOpen: false,
-                ),
+                [
+                    $this->createStreak(
+                        wrestlerName: 'TEST WRESTLER 1',
+                        wrestlerRank: 'TEST RANK 1',
+                        type: StreakType::Winning,
+                        length: 15,
+                        isOpen: true,
+                    ),
+                ],
+                [
+                    $this->createStreak(
+                        wrestlerName: 'TEST WRESTLER 2',
+                        wrestlerRank: 'TEST RANK 2',
+                        type: StreakType::Losing,
+                        length: 4,
+                        isOpen: false,
+                    ),
+                ],
             ]
         );
 
@@ -60,7 +64,7 @@ class DownloadStreaksTest extends TestCase
             haystack: $output,
         );
         $this->assertStringContainsString(
-            needle: '| TEST WRESTLER 2 | TEST RANK 2 | Losing  | 4           |    ',
+            needle: '| TEST WRESTLER 2 | TEST RANK 2 | Losing | 4           |    ',
             haystack: $output,
         );
     }

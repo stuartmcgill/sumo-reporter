@@ -254,6 +254,14 @@ class PerformanceTest extends TestCase
                     'absences' => 1,
                 ],
             ],
+            'Intai e.g. Kaisei 2022-09' => [
+                'results' => null,
+                'summary' => [
+                    'wins' => 0,
+                    'losses' => 0,
+                    'absences' => 0,
+                ],
+            ],
         ];
     }
 
