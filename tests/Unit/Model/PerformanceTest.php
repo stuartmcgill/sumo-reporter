@@ -199,9 +199,6 @@ class PerformanceTest extends TestCase
                     'isOpen' => true,
                 ],
             ],
-            // TODO - 3 tournament streak
-            // TODO - formatting output
-            // TODO - upload for sumo website
         ];
     }
 
