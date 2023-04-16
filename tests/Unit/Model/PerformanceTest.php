@@ -115,8 +115,34 @@ class PerformanceTest extends TestCase
                     'isOpen' => true,
                 ],
             ],
+            'Fusensho starts streak' => [
+                'results' => [Result::Win, Result::FusenWin],
+                'summary' => [
+                    'wins' => 2,
+                    'losses' => 0,
+                    'absences' => 0,
+                ],
+                'expected' => [
+                    'type' => StreakType::Winning,
+                    'length' => 2,
+                    'isOpen' => true,
+                ],
+            ],
             'Fusenpai continues streak' => [
                 'results' => [Result::FusenLoss, Result::Loss],
+                'summary' => [
+                    'wins' => 0,
+                    'losses' => 2,
+                    'absences' => 0,
+                ],
+                'expected' => [
+                    'type' => StreakType::Losing,
+                    'length' => 2,
+                    'isOpen' => true,
+                ],
+            ],
+            'Fusen loss streak' => [
+                'results' => [Result::FusenLoss, Result::FusenLoss],
                 'summary' => [
                     'wins' => 0,
                     'losses' => 2,
@@ -155,7 +181,6 @@ class PerformanceTest extends TestCase
                 ],
             ],
             // TODO - 3 tournament streak
-            // TODO - distinguish properly between
             // TODO - formatting output
             // TODO - upload for sumo website
         ];
@@ -198,12 +223,12 @@ class PerformanceTest extends TestCase
                     'absences' => 2,
                 ],
             ],
-            'Fusen loss streak' => [
-                'results' => [Result::FusenLoss, Result::FusenLoss],
+            'Lower-ranked wrestler withdraws midway' => [
+                'results' => [Result::Absent, Result::NoBoutScheduled],
                 'summary' => [
                     'wins' => 0,
-                    'losses' => 2,
-                    'absences' => 0,
+                    'losses' => 0,
+                    'absences' => 1,
                 ],
             ],
         ];

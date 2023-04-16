@@ -21,4 +21,16 @@ class ResultTest extends TestCase
         $this->assertFalse(Result::Win->matches(Result::Absent));
         $this->assertFalse(Result::Win->matches(Result::NoBoutScheduled));
     }
+
+    #[Test]
+    public function winOrLoss(): void
+    {
+        $this->assertTrue(Result::Win->isWinOrLoss());
+        $this->assertTrue(Result::FusenWin->isWinOrLoss());
+        $this->assertTrue(Result::Loss->isWinOrLoss());
+        $this->assertTrue(Result::Loss->isWinOrLoss());
+
+        $this->assertFalse(Result::NoBoutScheduled->isWinOrLoss());
+        $this->assertFalse(Result::Absent->isWinOrLoss());
+    }
 }

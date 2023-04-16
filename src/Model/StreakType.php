@@ -15,7 +15,9 @@ enum StreakType
     {
         return match ($result) {
             Result::Win => self::Winning,
+            Result::FusenWin => self::Winning,
             Result::Loss => self::Losing,
+            Result::FusenLoss => self::Losing,
             default => throw new DomainException('Unexpected result ' . $result->name)
         };
     }

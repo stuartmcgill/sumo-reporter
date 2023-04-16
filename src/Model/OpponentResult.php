@@ -12,11 +12,6 @@ class OpponentResult
     ) {
     }
 
-    public function didBoutHappen(): bool
-    {
-        return $this->result->didBoutHappen();
-    }
-
     public function matches(OpponentResult $other): bool
     {
         return $this->result->matches($other->result);

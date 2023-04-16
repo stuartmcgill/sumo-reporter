@@ -13,11 +13,6 @@ enum Result: string
     case Absent = 'absent';
     case NoBoutScheduled = '';
 
-    public function didBoutHappen(): bool
-    {
-        return $this === self::Win || $this === self::Loss;
-    }
-
     public function matches(Result $other): bool
     {
         return match($this) {
@@ -27,6 +22,11 @@ enum Result: string
             self::FusenLoss => $other->isLoss(),
             default => false,
         };
+    }
+
+    public function isWinOrLoss(): bool
+    {
+        return $this->isWin() || $this->isLoss();
     }
 
     private function isWin(): bool
