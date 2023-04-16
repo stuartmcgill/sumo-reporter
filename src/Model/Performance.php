@@ -33,9 +33,19 @@ class Performance
 
         return new Streak(
             wrestler: $this->wrestler,
-            length: $index,
             type: StreakType::fromResult($initialOpponentResult->result),
-            isOpen: $index === count($this->opponentResults),
+            length: $index,
+            isOpen: $this->isStreakOpen(),
         );
+    }
+
+    private function isStreakOpen(): bool
+    {
+        return $this->absences > 0 ? false : $this->isConsistent();
+    }
+
+    private function isConsistent(): bool
+    {
+        return $this->wins === 0 || $this->losses === 0;
     }
 }
