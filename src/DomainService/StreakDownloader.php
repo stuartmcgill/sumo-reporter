@@ -16,7 +16,7 @@ class StreakDownloader
     public function __construct(
         private readonly BashoService $bashoService,
         private readonly StreakCompilation $streakCompilation,
-        private array $config,
+        private readonly array $config,
     ) {
     }
 
@@ -63,6 +63,7 @@ class StreakDownloader
                 => in_array(
                     needle: $streak->type(),
                     haystack: $keep,
+                    strict: true,
                 )
         ));
     }

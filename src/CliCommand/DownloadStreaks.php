@@ -31,13 +31,12 @@ class DownloadStreaks extends Command
     {
         $defaultDate = BashoDate::fromDateTime(new DateTime());
 
-        $this
-            ->addArgument(
-                name: 'date',
-                mode: InputArgument::OPTIONAL,
-                description: 'Basho date in YYYY-MM format e.g. 2023-03',
-                default: $defaultDate->format('Y-m'),
-            );
+        $this->addArgument(
+            name: 'date',
+            mode: InputArgument::OPTIONAL,
+            description: 'Basho date in YYYY-MM format e.g. 2023-03',
+            default: $defaultDate->format('Y-m'),
+        );
     }
 
     protected function execute(InputInterface $input, OutputInterface $output): int
