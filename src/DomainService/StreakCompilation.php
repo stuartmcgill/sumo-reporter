@@ -45,6 +45,11 @@ class StreakCompilation
         $this->addSubsequentBasho($basho);
     }
 
+    public function isIncomplete(): bool
+    {
+        return count($this->closedStreaks) === 0 || count($this->openStreaks) > 0;
+    }
+
     private function isEmpty(): bool
     {
         return count($this->openStreaks) === 0 && count($this->closedStreaks) === 0;
@@ -67,45 +72,33 @@ class StreakCompilation
 
     private function addSubsequentBasho(Basho $basho): void
     {
-        $newStreaks = $basho->compileStreaks();
+        $subsequentStreaks = $basho->compileStreaks();
 
-        foreach ($newStreaks as $newStreak) {
-            $openStreak = $this->findOpenStreak($newStreak);
+        foreach ($subsequentStreaks as $subsequentStreak) {
+            $activeStreak = $this->findOpenStreak($subsequentStreak);
 
-            if (is_null($openStreak)) {
+            if (is_null($activeStreak)) {
                 continue;
             }
 
-            if ($openStreak->type() === StreakType::NoBoutScheduled) {
-                $openStreak->confirmType($newStreak->type());
+            if ($activeStreak->type() === StreakType::NoBoutScheduled) {
+                $activeStreak->confirmType($subsequentStreak->type());
             }
 
-            if ($newStreak->type() !== $openStreak->type()) {
-                $this->closeStreak($openStreak, 0);
+            if ($subsequentStreak->type() !== $activeStreak->type()) {
+                $this->cutOffStreak($activeStreak);
                 continue;
             }
 
-            if ($newStreak->isClosed()) {
-                $this->closeStreak($openStreak, $newStreak->length());
+            if ($subsequentStreak->isClosed()) {
+                $this->closeStreak($activeStreak, $subsequentStreak->length());
                 continue;
             }
 
-            $openStreak->increment($newStreak->length());
+            $activeStreak->increment($subsequentStreak->length());
         }
 
-        // For any remaining open streaks, if they don't exist in the new streaks (e.g. this might
-        // be their first basho) then close off their streak.
-        foreach ($this->openStreaks() as $openStreak) {
-            $streaks = array_values(array_filter(
-                array: $newStreaks,
-                callback: static fn (Streak $existingStreak) =>
-                $openStreak->isForSameWrestlerAs($existingStreak),
-            ));
-
-            if (count($streaks) === 0) {
-                $this->closeStreak($openStreak, 0);
-            }
-        }
+        $this->cutOffNewStarters($subsequentStreaks);
     }
 
     private function findOpenStreak(Streak $newStreak): ?Streak
@@ -134,8 +127,30 @@ class StreakCompilation
         $this->closedStreaks[] = $existingStreak;
     }
 
-    public function isIncomplete(): bool
+    private function cutOffStreak(Streak $existingStreak): void
     {
-        return count($this->closedStreaks) === 0 || count($this->openStreaks) > 0;
+        $this->closeStreak($existingStreak, 0);
+    }
+
+    /**
+     * For any remaining open streaks, if they don't exist in the new streaks then close off
+     * their streak. This could happen e.g. if a new wrestler goes 7-0 in their first basho, and so
+     * they are not represented in the list of subsequent streaks.
+     *
+     * @param list<Streak> $subsequentStreaks
+     */
+    private function cutOffNewStarters(array $subsequentStreaks): void
+    {
+        foreach ($this->openStreaks() as $activeStreak) {
+            $streaks = array_values(array_filter(
+                array: $subsequentStreaks,
+                callback: static fn (Streak $subsequentStreak) =>
+                $activeStreak->isForSameWrestlerAs($subsequentStreak),
+            ));
+
+            if (count($streaks) === 0) {
+                $this->cutOffStreak($activeStreak);
+            }
+        }
     }
 }

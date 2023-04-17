@@ -6,7 +6,6 @@ namespace StuartMcGill\SumoReporter\Tests\Functional\DomainService;
 
 use PHPUnit\Framework\Attributes\Test;
 use PHPUnit\Framework\TestCase;
-use StuartMcGill\SumoReporter\DomainService\StreakDownloader;
 use StuartMcGill\SumoReporter\Model\Streak;
 use StuartMcGill\SumoReporter\Model\StreakType;
 use StuartMcGill\SumoReporter\Tests\Functional\Support\ServiceProvider;
