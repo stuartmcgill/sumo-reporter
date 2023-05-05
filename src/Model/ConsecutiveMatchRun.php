@@ -9,12 +9,15 @@ use StuartMcGill\SumoApiPhp\Model\RikishiMatch;
 
 class ConsecutiveMatchRun
 {
+    public readonly int $size;
+
     /** @param list<RikishiMatch> $matches */
     public function __construct(public readonly Rikishi $rikishi, private readonly array $matches)
     {
+        $this->size = $this->calculateSize();
     }
 
-    public function size(): int
+    private function calculateSize(): int
     {
         $matches = $this->matches;
 
@@ -31,7 +34,6 @@ class ConsecutiveMatchRun
             return 0;
         }
 
-        $day = 15;
         $size = 1;
 
         foreach ($matches as $match) {
@@ -50,9 +52,16 @@ class ConsecutiveMatchRun
         return $size;
     }
 
-    public function startDate(): string
+    public function startDate(): ?string
     {
-        return $this->matches[$this->size() - 1]->bashoId;
+        if ($this->size === 0) {
+            return null;
+        }
+        $bashoId = $this->matches[$this->size - 1]->bashoId;
+
+        return substr(string: $bashoId, offset: 0, length: 4)
+            . '-'
+            . substr(string: $bashoId, offset: 4, length: 2);
     }
 
     private function isFusenLoss(RikishiMatch $match): bool
@@ -77,8 +86,10 @@ class ConsecutiveMatchRun
                 month: (int)substr(string: $lastMatch->bashoId, offset: 4, length: 2)
             );
 
-            if ($lastMatchBashoDate->previous()->format('Y-m')
-                !== $matchBashoDate->format('Y-m')) {
+            if (
+                $lastMatchBashoDate->previous()->format('Y-m')
+                !== $matchBashoDate->format('Y-m')
+            ) {
                 return false;
             }
 

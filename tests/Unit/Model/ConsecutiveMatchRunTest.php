@@ -21,7 +21,7 @@ class ConsecutiveMatchRunTest extends TestCase
         ];
 
         $run = $this->createRun($matches);
-        $this->assertSame(0, $run->size());
+        $this->assertSame(0, $run->size);
     }
 
     #[Test]
@@ -32,7 +32,33 @@ class ConsecutiveMatchRunTest extends TestCase
         ];
 
         $run = $this->createRun($matches);
-        $this->assertSame(0, $run->size());
+        $this->assertSame(0, $run->size);
+    }
+
+    #[Test]
+    public function sizeOf1EndedByFusenLoss(): void
+    {
+        $matches = [
+            $this->generateMatch(day: 15),
+            $this->generateMatch(day: 14, kimarite: 'fusen', win: false),
+        ];
+
+        $run = $this->createRun($matches);
+        $this->assertSame(1, $run->size);
+    }
+
+    #[Test]
+    public function sizeOf3WithFusenWinInMiddle(): void
+    {
+        $matches = [
+            $this->generateMatch(day: 15),
+            $this->generateMatch(day: 14, kimarite: 'fusen', win: true),
+            $this->generateMatch(day: 13),
+            $this->generateMatch(day: 11),
+        ];
+
+        $run = $this->createRun($matches);
+        $this->assertSame(3, $run->size);
     }
 
     #[Test]
@@ -47,7 +73,7 @@ class ConsecutiveMatchRunTest extends TestCase
         $matches[] = $this->generateMatch(day: 15, division: 'Juryo', bashoId: '202301');
 
         $run = $this->createRun($matches);
-        $this->assertSame(15, $run->size());
+        $this->assertSame(15, $run->size);
     }
 
     #[Test]
@@ -55,10 +81,24 @@ class ConsecutiveMatchRunTest extends TestCase
     {
         $run = $this->createRun([]);
 
-        $this->assertSame(0, $run->size());
+        $this->assertSame(0, $run->size);
     }
 
-    /** @param array list<RikishiMatchData> $matches */
+    #[Test]
+    public function startDate(): void
+    {
+        $run = $this->createRun([$this->generateMatch(day: 15, bashoId: '202301')]);
+        $this->assertSame('2023-01', $run->startDate());
+    }
+
+    #[Test]
+    public function startDateForEmptyRun(): void
+    {
+        $run = $this->createRun([]);
+        $this->assertNull($run->startDate());
+    }
+
+    /** @param list<RikishiMatch> $matches */
     private function createRun(array $matches): ConsecutiveMatchRun
     {
         return new ConsecutiveMatchRun(

@@ -64,6 +64,6 @@ class ConsecutiveMatchTrackerTest extends TestCase
         $runs = $tracker->calculate('202305');
 
         $this->assertCount(1, $runs);
-        $this->assertSame(1, $runs[0]->size());
+        $this->assertSame(1, $runs[0]->size);
     }
 }

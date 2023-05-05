@@ -87,7 +87,7 @@ class RikishiServiceProvider extends AbstractServiceProvider
         )->records;
 
         $matches = array_map(
-            callback: fn (stdClass $rikishiMatchData) => $this->rikishiMatchFactory->build($rikishiMatchData),
+            callback: fn (stdClass $matchData) => $this->rikishiMatchFactory->build($matchData),
             array: $matchData,
         );
 

@@ -22,8 +22,8 @@ class ConsecutiveMatchTrackerTest extends TestCase
         $run = $runs[0];
 
         $this->assertSame('Takarafuji', $run->rikishi->shikonaEn);
-        $this->assertSame(915, $run->size());
-        $this->assertSame('201301', $run->startDate());
+        $this->assertSame(915, $run->size);
+        $this->assertSame('2013-01', $run->startDate());
     }
 
     #[Test]
@@ -37,7 +37,7 @@ class ConsecutiveMatchTrackerTest extends TestCase
         $run = $runs[0];
 
         $this->assertSame('Takarafuji', $run->rikishi->shikonaEn);
-        $this->assertSame(780, $run->size());
-        $this->assertSame('201301', $run->startDate());
+        $this->assertSame(780, $run->size);
+        $this->assertSame('2013-01', $run->startDate());
     }
 }

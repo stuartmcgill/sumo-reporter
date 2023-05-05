@@ -34,8 +34,8 @@ class TrackConsecutiveMatches extends Command
         $this->addArgument(
             name: 'date',
             mode: InputArgument::OPTIONAL,
-            description: 'Basho date in YYYYMM format e.g. 202303',
-            default: $defaultDate->format('Ym'),
+            description: 'Basho date in YYYYMM format e.g. 2023-03',
+            default: $defaultDate->format('Y-m'),
         );
     }
 
@@ -45,7 +45,13 @@ class TrackConsecutiveMatches extends Command
         $io->title('Calculating consecutive matches...');
 
         $date = $input->getArgument('date');
-        $consecutiveMatches = $this->consecutiveMatchTracker->calculate($date);
+        if (!$this->validateDate($date)) {
+            return Command::INVALID;
+        }
+        // Remove the dash
+        $date = str_replace(search: '-', replace: '', subject: $date);
+
+        $consecutiveMatches = $this->consecutiveMatchTracker->calculate(bashoId: $date);
 
         $io->section('Consecutive matches in Makuuchi');
         $this->printConsecutiveMatches($output, $consecutiveMatches);
@@ -56,7 +62,13 @@ class TrackConsecutiveMatches extends Command
         return Command::SUCCESS;
     }
 
-    /** @param list<ConsecutiveMatchRun> $runs */
+    private function validateDate(string $date): bool
+    {
+        //YYYY-MM
+        return preg_match(pattern: '/^[0-9]{4}-[0-9]{2}$/', subject: $date) > 0;
+    }
+
+    /** @param list<ConsecutiveMatchRun> $consecutiveMatches */
     private function printConsecutiveMatches(
         OutputInterface $output,
         array $consecutiveMatches
@@ -68,7 +80,7 @@ class TrackConsecutiveMatches extends Command
                 callback: static fn (ConsecutiveMatchRun $run) => [
                     $run->rikishi->shikonaEn,
                     $run->rikishi->currentRank,
-                    $run->size(),
+                    $run->size,
                     $run->startDate(),
                 ],
                 array: $consecutiveMatches

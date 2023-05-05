@@ -10,7 +10,6 @@ use StuartMcGill\SumoReporter\Model\ConsecutiveMatchRun;
 
 class ConsecutiveMatchTracker
 {
-    /** @param array<string, mixed> $config */
     public function __construct(private readonly RikishiService $rikishiService)
     {
     }
@@ -32,7 +31,23 @@ class ConsecutiveMatchTracker
 
             $runs[] = new ConsecutiveMatchRun($wrestler, $matches);
         }
+        $this->sort($runs);
 
         return $runs;
+    }
+
+    /** @param list<ConsecutiveMatchRun> $runs */
+    private function sort(array &$runs): void
+    {
+        usort(
+            $runs,
+            static function (ConsecutiveMatchRun $a, ConsecutiveMatchRun $b): int {
+                if ($a->size === $b->size) {
+                    return $a->rikishi->shikonaEn < $b->rikishi->shikonaEn ? -1 : 1;
+                }
+
+                return $a->size < $b->size ? -1 : 1;
+            }
+        );
     }
 }
