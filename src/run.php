@@ -16,5 +16,6 @@ $app = new Application();
 
 /** @var ServiceManager $serviceManager */
 $app->add($serviceManager->get(DownloadStreaks::class));
+$app->add($serviceManager->get(MakuuchiConsecutiveMatches::class));
 
 $app->run();
