@@ -8,7 +8,7 @@ use PHPUnit\Framework\Attributes\Test;
 use PHPUnit\Framework\TestCase;
 use StuartMcGill\SumoReporter\Model\Streak;
 use StuartMcGill\SumoReporter\Model\StreakType;
-use StuartMcGill\SumoReporter\Tests\Functional\Support\BashoServiceProvider;
+use StuartMcGill\SumoReporter\Tests\Functional\Support\StreakDownloaderProvider;
 
 /** This tests the real data from the March 2023 basho */
 class FullBashoDownloadTest extends TestCase
@@ -16,7 +16,7 @@ class FullBashoDownloadTest extends TestCase
     #[Test]
     public function fullBashoDownload(): void
     {
-        $serviceProvider = new BashoServiceProvider();
+        $serviceProvider = new StreakDownloaderProvider();
         $streakDownloader = $serviceProvider->getStreakDownloaderForMarch2023();
         [$winning, $losing] = $streakDownloader->download(2023, 3);
 

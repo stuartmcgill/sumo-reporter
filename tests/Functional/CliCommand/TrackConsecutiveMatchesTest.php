@@ -6,7 +6,7 @@ namespace StuartMcGill\SumoReporter\Tests\Functional\CliCommand;
 
 use PHPUnit\Framework\Attributes\Test;
 use PHPUnit\Framework\TestCase;
-use StuartMcGill\SumoReporter\Tests\Functional\Support\RikishiServiceProvider;
+use StuartMcGill\SumoReporter\Tests\Functional\Support\ConsecutiveTrackerProvider;
 use Symfony\Component\Console\Tester\CommandTester;
 
 class TrackConsecutiveMatchesTest extends TestCase
@@ -14,8 +14,11 @@ class TrackConsecutiveMatchesTest extends TestCase
     #[Test]
     public function execute(): void
     {
-        $serviceProvider = new RikishiServiceProvider();
-        $trackCommand = $serviceProvider->getTrackConsecutiveMatchesCliCommand('Takarafuji');
+        $serviceProvider = new ConsecutiveTrackerProvider();
+        $trackCommand = $serviceProvider->getTrackConsecutiveMatchesCliCommand(
+            rikishiId: 25,
+            rikishiName: 'Takarafuji',
+        );
         $commandTester = new CommandTester($trackCommand);
 
         $commandTester->execute([]);

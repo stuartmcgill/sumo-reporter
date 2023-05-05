@@ -11,8 +11,10 @@ use PHPUnit\Framework\Attributes\Test;
 use PHPUnit\Framework\TestCase;
 use StuartMcGill\SumoApiPhp\Model\Rikishi;
 use StuartMcGill\SumoApiPhp\Model\RikishiMatch;
+use StuartMcGill\SumoApiPhp\Service\BashoService;
 use StuartMcGill\SumoApiPhp\Service\RikishiService;
 use StuartMcGill\SumoReporter\DomainService\ConsecutiveMatchTracker;
+use StuartMcGill\SumoReporter\Model\BashoDate;
 
 class ConsecutiveMatchTrackerTest extends TestCase
 {
@@ -21,27 +23,32 @@ class ConsecutiveMatchTrackerTest extends TestCase
     #[Test]
     public function download(): void
     {
-        $service = Mockery::mock(RikishiService::class);
-        $service->expects('fetchDivision')->with('Makuuchi')->andReturn(
-            [
-                new Rikishi(
-                    id: 1,
-                    sumoDbId: null,
-                    nskId: null,
-                    shikonaEn: 'ENGLISH NAME',
-                    shikonaJp: 'JAPANESE NAME',
-                    currentRank: 'Yokozuna 1 East',
-                    heya: 'STABLE',
-                    birthDate: new DateTime(),
-                    shusshin: 'TEST PLACE',
-                    height: 200,
-                    weight: 200,
-                    debut: '202001',
-                )
-            ]
+        $rikishiService = Mockery::mock(RikishiService::class);
+        $bashoService = Mockery::mock(BashoService::class);
+
+        $bashoService
+            ->expects('fetchRikishiIdsByBasho')
+            ->with(2023, 5, 'Makuuchi')
+            ->andReturn([1]);
+
+        $rikishiService->expects('fetch')->with(1)->andReturn(
+            new Rikishi(
+                id: 1,
+                sumoDbId: null,
+                nskId: null,
+                shikonaEn: 'ENGLISH NAME',
+                shikonaJp: 'JAPANESE NAME',
+                currentRank: 'Yokozuna 1 East',
+                heya: 'STABLE',
+                birthDate: new DateTime(),
+                shusshin: 'TEST PLACE',
+                height: 200,
+                weight: 200,
+                debut: '202001',
+            )
         );
 
-        $service->expects('fetchMatches')->with(1)->andReturn(
+        $rikishiService->expects('fetchMatches')->with(1)->andReturn(
             [
                 new RikishiMatch(
                     bashoId: '202305',
@@ -52,6 +59,7 @@ class ConsecutiveMatchTrackerTest extends TestCase
                     eastRank: 'TEST RANK E',
                     westId: 2,
                     westShikona: 'TEST WRESTLER W',
+                    westRank: 'TEST RANK W',
                     kimarite: 'Yorikiri',
                     winnerId: 1,
                     winnerEn: 'TEST WRESTLER E',
@@ -60,8 +68,8 @@ class ConsecutiveMatchTrackerTest extends TestCase
             ]
         );
 
-        $tracker = new ConsecutiveMatchTracker($service);
-        $runs = $tracker->calculate('202305');
+        $tracker = new ConsecutiveMatchTracker($rikishiService, $bashoService);
+        $runs = $tracker->calculate(new BashoDate(2023, 5));
 
         $this->assertCount(1, $runs);
         $this->assertSame(1, $runs[0]->size);

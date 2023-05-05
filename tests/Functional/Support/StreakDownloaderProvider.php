@@ -10,7 +10,7 @@ use StuartMcGill\SumoReporter\CliCommand\DownloadStreaks;
 use StuartMcGill\SumoReporter\DomainService\Api\BashoService;
 use StuartMcGill\SumoReporter\DomainService\StreakDownloader;
 
-class BashoServiceProvider extends AbstractServiceProvider
+class StreakDownloaderProvider extends AbstractServiceProvider
 {
     public function getStreakDownloaderForMarch2023(): StreakDownloader
     {
@@ -31,7 +31,7 @@ class BashoServiceProvider extends AbstractServiceProvider
         return $serviceManager->get(DownloadStreaks::class);
     }
 
-    private function mockBashoService(): BashoService
+    public function mockBashoService(): BashoService
     {
         $bashoService = Mockery::mock(BashoService::class);
 

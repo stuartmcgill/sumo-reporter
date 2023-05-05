@@ -154,6 +154,7 @@ class ConsecutiveMatchRunTest extends TestCase
             eastRank: 'Rank',
             westId: 2,
             westShikona: 'WEST',
+            westRank: 'Rank',
             kimarite: $kimarite,
             winnerId: $win ? 1 : 2,
             winnerEn: 'WEST',

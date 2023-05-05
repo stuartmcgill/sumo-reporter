@@ -741,12 +741,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/stuartmcgill/sumoapi-php.git",
-                "reference": "4817150001571846be83da01a4420a6c154265b0"
+                "reference": "dece514bf75690abf0c3dd78ff6ef33e3439f792"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/stuartmcgill/sumoapi-php/zipball/4817150001571846be83da01a4420a6c154265b0",
-                "reference": "4817150001571846be83da01a4420a6c154265b0",
+                "url": "https://api.github.com/repos/stuartmcgill/sumoapi-php/zipball/dece514bf75690abf0c3dd78ff6ef33e3439f792",
+                "reference": "dece514bf75690abf0c3dd78ff6ef33e3439f792",
                 "shasum": ""
             },
             "require": {
@@ -781,7 +781,7 @@
                 "issues": "https://github.com/stuartmcgill/sumoapi-php/issues",
                 "source": "https://github.com/stuartmcgill/sumoapi-php/tree/main"
             },
-            "time": "2023-05-05T11:09:41+00:00"
+            "time": "2023-05-05T21:25:00+00:00"
         },
         {
             "name": "symfony/console",

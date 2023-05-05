@@ -10,11 +10,12 @@ use StuartMcGill\SumoApiPhp\Factory\RikishiFactory;
 use StuartMcGill\SumoApiPhp\Factory\RikishiMatchFactory;
 use StuartMcGill\SumoApiPhp\Model\Rikishi;
 use StuartMcGill\SumoApiPhp\Model\RikishiMatch;
+use StuartMcGill\SumoApiPhp\Service\BashoService;
 use StuartMcGill\SumoApiPhp\Service\RikishiService;
 use StuartMcGill\SumoReporter\CliCommand\TrackConsecutiveMatches;
 use StuartMcGill\SumoReporter\DomainService\ConsecutiveMatchTracker;
 
-class RikishiServiceProvider extends AbstractServiceProvider
+class ConsecutiveTrackerProvider extends AbstractServiceProvider
 {
     private readonly RikishiFactory $rikishiFactory;
     private readonly RikishiMatchFactory $rikishiMatchFactory;
@@ -25,23 +26,32 @@ class RikishiServiceProvider extends AbstractServiceProvider
         $this->rikishiMatchFactory = new RikishiMatchFactory();
     }
 
-    public function getTrackConsecutiveMatchesCliCommand(string $wrestler): TrackConsecutiveMatches
+    public function getTrackConsecutiveMatchesCliCommand(
+        int $rikishiId,
+        string $rikishiName,
+    ): TrackConsecutiveMatches
     {
         $serviceManager = self::initServiceManager();
         $serviceManager->setService(
             ConsecutiveMatchTracker::class,
-            self::getConsecutiveMatchTracker($wrestler)
+            self::getConsecutiveMatchTracker($rikishiId, $rikishiName),
         );
 
         return $serviceManager->get(TrackConsecutiveMatches::class);
     }
 
-    public function getConsecutiveMatchTracker(string $wrestler): ConsecutiveMatchTracker
-    {
+    public function getConsecutiveMatchTracker(
+        int $rikishiId,
+        string $rikishiName
+    ): ConsecutiveMatchTracker {
         $serviceManager = self::initServiceManager();
         $serviceManager->setService(
             RikishiService::class,
-            self::mockRikishiService($wrestler)
+            self::mockRikishiService($rikishiName)
+        );
+        $serviceManager->setService(
+            BashoService::class,
+            self::mockBashoService($rikishiId)
         );
 
         return $serviceManager->get(ConsecutiveMatchTracker::class);
@@ -52,14 +62,25 @@ class RikishiServiceProvider extends AbstractServiceProvider
         $rikishiService = Mockery::mock(RikishiService::class);
 
         $rikishiService
-            ->expects('fetchDivision')
-            ->andReturn([self::loadRikishiData($wrestler)]);
+            ->expects('fetch')
+            ->andReturn(self::loadRikishiData($wrestler));
 
         $rikishiService
             ->expects('fetchMatches')
             ->andReturn(self::loadRikishiMatchesData($wrestler));
 
         return $rikishiService;
+    }
+
+    private function mockBashoService(int $rikishiId): BashoService
+    {
+        $bashoService = Mockery::mock(BashoService::class);
+
+        $bashoService
+            ->expects('fetchRikishiIdsByBasho')
+            ->andReturn([$rikishiId]);
+
+        return $bashoService;
     }
 
     private function loadRikishiData(string $wrestler): Rikishi

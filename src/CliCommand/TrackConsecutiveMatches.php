@@ -48,10 +48,13 @@ class TrackConsecutiveMatches extends Command
         if (!$this->validateDate($date)) {
             return Command::INVALID;
         }
-        // Remove the dash
-        $date = str_replace(search: '-', replace: '', subject: $date);
 
-        $consecutiveMatches = $this->consecutiveMatchTracker->calculate(bashoId: $date);
+        $bashoDate = new BashoDate(
+            year: (int)substr(string: $date, offset: 0, length: 4),
+            month: (int)substr(string: $date, offset: 5, length: 2)
+        );
+
+        $consecutiveMatches = $this->consecutiveMatchTracker->calculate(bashoDate: $bashoDate);
 
         $io->section('Consecutive matches in Makuuchi');
         $this->printConsecutiveMatches($output, $consecutiveMatches);
