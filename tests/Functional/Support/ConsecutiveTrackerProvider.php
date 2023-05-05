@@ -29,8 +29,7 @@ class ConsecutiveTrackerProvider extends AbstractServiceProvider
     public function getTrackConsecutiveMatchesCliCommand(
         int $rikishiId,
         string $rikishiName,
-    ): TrackConsecutiveMatches
-    {
+    ): TrackConsecutiveMatches {
         $serviceManager = self::initServiceManager();
         $serviceManager->setService(
             ConsecutiveMatchTracker::class,

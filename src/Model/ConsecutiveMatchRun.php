@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace StuartMcGill\SumoReporter\Model;
 
+use StuartMcGill\SumoApiPhp\Model\Rank;
 use StuartMcGill\SumoApiPhp\Model\Rikishi;
 use StuartMcGill\SumoApiPhp\Model\RikishiMatch;
 
@@ -80,7 +81,10 @@ class ConsecutiveMatchRun
 
     private function areMatchesConsecutive(RikishiMatch $match, RikishiMatch $lastMatch): bool
     {
-        if ($match->division !== $lastMatch->division) {
+        $matchRank = $this->getRank($match);
+        $lastMatchRank = $this->getRank($lastMatch);
+
+        if ($matchRank->division() !== $lastMatchRank->division()) {
             return false;
         }
 
@@ -106,5 +110,12 @@ class ConsecutiveMatchRun
         }
 
         return $match->day === $lastMatch->day - 1;
+    }
+
+    private function getRank(RikishiMatch $match): Rank
+    {
+        $apiRank = $match->isEast($this->rikishi->id) ? $match->eastRank : $match->westRank;
+
+        return new Rank($apiRank);
     }
 }

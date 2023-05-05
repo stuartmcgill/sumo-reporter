@@ -70,7 +70,27 @@ class ConsecutiveMatchRunTest extends TestCase
             $matches[] = $this->generateMatch(day: $day, bashoId: '202303');
         }
 
-        $matches[] = $this->generateMatch(day: 15, division: 'Juryo', bashoId: '202301');
+        $matches[] = $this->generateMatch(day: 15, eastRank: 'Juryo 1 East', bashoId: '202301');
+
+        $run = $this->createRun($matches);
+        $this->assertSame(15, $run->size);
+    }
+
+    #[Test]
+    public function sizeWhenJuryoWrestlerHasDay15MakuuchiMatch(): void
+    {
+        $matches = [];
+
+        for ($day = 15; $day >= 1; $day--) {
+            $matches[] = $this->generateMatch(day: $day, bashoId: '202303');
+        }
+
+        $matches[] = $this->generateMatch(
+            day: 15,
+            eastRank: 'Juryo 1 East',
+            division: 'Makuuchi',
+            bashoId: '202301',
+        );
 
         $run = $this->createRun($matches);
         $this->assertSame(15, $run->size);
@@ -144,6 +164,7 @@ class ConsecutiveMatchRunTest extends TestCase
         ?bool $win = true,
         string $bashoId = '202303',
         string $division = 'Makuuchi',
+        string $eastRank = 'TEST RANK E',
     ): RikishiMatch {
         return new RikishiMatch(
             bashoId: $bashoId,
@@ -151,10 +172,10 @@ class ConsecutiveMatchRunTest extends TestCase
             day: $day,
             eastId: 1,
             eastShikona: 'EAST',
-            eastRank: 'Rank',
+            eastRank: $eastRank,
             westId: 2,
             westShikona: 'WEST',
-            westRank: 'Rank',
+            westRank: 'TEST RANK W',
             kimarite: $kimarite,
             winnerId: $win ? 1 : 2,
             winnerEn: 'WEST',
