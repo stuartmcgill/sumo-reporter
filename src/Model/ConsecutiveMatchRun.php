@@ -19,7 +19,7 @@ class ConsecutiveMatchRun
 
     private function calculateSize(): int
     {
-        $matches = $this->matches;
+        $matches = $this->filterOutPlayoffs();
 
         if (count($this->matches) === 0) {
             return 0;
@@ -62,6 +62,15 @@ class ConsecutiveMatchRun
         return substr(string: $bashoId, offset: 0, length: 4)
             . '-'
             . substr(string: $bashoId, offset: 4, length: 2);
+    }
+
+    /** @return list<RikishiMatch> */
+    private function filterOutPlayoffs(): array
+    {
+        return array_values(array_filter(
+            array: $this->matches,
+            callback: static fn (RikishiMatch $match) => $match->day <= 15
+        ));
     }
 
     private function isFusenLoss(RikishiMatch $match): bool

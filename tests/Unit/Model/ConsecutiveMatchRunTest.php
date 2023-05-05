@@ -77,6 +77,19 @@ class ConsecutiveMatchRunTest extends TestCase
     }
 
     #[Test]
+    public function sizePlayoffsIgnored(): void
+    {
+        $matches = [
+            $this->generateMatch(day: 16),
+            $this->generateMatch(day: 15),
+            $this->generateMatch(day: 14, kimarite: 'fusen', win: false),
+        ];
+
+        $run = $this->createRun($matches);
+        $this->assertSame(1, $run->size);
+    }
+
+    #[Test]
     public function sizeWithNoMatches(): void
     {
         $run = $this->createRun([]);

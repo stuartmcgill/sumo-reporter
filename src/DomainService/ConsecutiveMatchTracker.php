@@ -46,7 +46,7 @@ class ConsecutiveMatchTracker
                     return $a->rikishi->shikonaEn < $b->rikishi->shikonaEn ? -1 : 1;
                 }
 
-                return $a->size < $b->size ? -1 : 1;
+                return $a->size < $b->size ? 1 : -1;
             }
         );
     }
