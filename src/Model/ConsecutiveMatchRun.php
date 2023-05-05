@@ -16,11 +16,75 @@ class ConsecutiveMatchRun
 
     public function size(): int
     {
-        return 0;
+        $matches = $this->matches;
+
+        if (count($this->matches) === 0) {
+            return 0;
+        }
+
+        $lastMatch = array_shift($matches);
+        if ($lastMatch->day !== 15) {
+            return 0;
+        }
+
+        if ($this->isFusenLoss($lastMatch)) {
+            return 0;
+        }
+
+        $day = 15;
+        $size = 1;
+
+        foreach ($matches as $match) {
+            if ($this->isFusenLoss($match)) {
+                break;
+            }
+
+            if (!$this->areMatchesConsecutive($match, $lastMatch)) {
+                break;
+            }
+
+            $lastMatch = $match;
+            $size++;
+        }
+
+        return $size;
     }
 
     public function startDate(): string
     {
-        return '';
+        return $this->matches[$this->size() - 1]->bashoId;
+    }
+
+    private function isFusenLoss(RikishiMatch $match): bool
+    {
+        return $match->kimarite === 'fusen' && $match->winnerId !== $this->rikishi->id;
+    }
+
+    private function areMatchesConsecutive(RikishiMatch $match, RikishiMatch $lastMatch): bool
+    {
+        if ($match->division !== $lastMatch->division) {
+            return false;
+        }
+
+        if ($match->bashoId !== $lastMatch->bashoId) {
+            $matchBashoDate = new BashoDate(
+                year: (int)substr(string: $match->bashoId, offset: 0, length: 4),
+                month: (int)substr(string: $match->bashoId, offset: 4, length: 2)
+            );
+
+            $lastMatchBashoDate = new BashoDate(
+                year: (int)substr(string: $lastMatch->bashoId, offset: 0, length: 4),
+                month: (int)substr(string: $lastMatch->bashoId, offset: 4, length: 2)
+            );
+
+            if ($lastMatchBashoDate->previous()->format('Y-m')
+                !== $matchBashoDate->format('Y-m')) {
+                return false;
+            }
+
+            return $lastMatch->day === 1 && $match->day === 15;
+        }
+
+        return $match->day === $lastMatch->day - 1;
     }
 }
