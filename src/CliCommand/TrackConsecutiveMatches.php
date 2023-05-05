@@ -34,8 +34,8 @@ class TrackConsecutiveMatches extends Command
         $this->addArgument(
             name: 'date',
             mode: InputArgument::OPTIONAL,
-            description: 'Basho date in YYYY-MM format e.g. 2023-03',
-            default: $defaultDate->format('Y-m'),
+            description: 'Basho date in YYYYMM format e.g. 202303',
+            default: $defaultDate->format('Ym'),
         );
     }
 
@@ -45,11 +45,7 @@ class TrackConsecutiveMatches extends Command
         $io->title('Calculating consecutive matches...');
 
         $date = $input->getArgument('date');
-
-        $consecutiveMatches = $this->consecutiveMatchTracker->calculate(
-            year: (int)substr(string: $date, offset: 0, length: 4),
-            month: (int)substr(string: $date, offset: 5, length: 2)
-        );
+        $consecutiveMatches = $this->consecutiveMatchTracker->calculate($date);
 
         $io->section('Consecutive matches in Makuuchi');
         $this->printConsecutiveMatches($output, $consecutiveMatches);
