@@ -9,7 +9,7 @@ The following reports are provided:
 - Ordered wrestler 'streaks' i.e. how many bouts wrestlers have won (or lost) in
 a row, which may of course stretch across successive bashos
 - Makuuchi consecutive match tracker i.e. how many successive bouts (regardless of win or loss) each
-wrestler has fought.
+wrestler has fought
 
 # Usage
 

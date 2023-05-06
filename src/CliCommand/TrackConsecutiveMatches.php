@@ -52,6 +52,8 @@ class TrackConsecutiveMatches extends Command
 
         $date = $input->getArgument('date');
         if (!$this->validateDate($date)) {
+            $io->error('If a date is specified it should be in YYYY-MM format e.g. 2020-03');
+
             return Command::INVALID;
         }
 
