@@ -85,16 +85,9 @@ class ConsecutiveTrackerProvider extends AbstractServiceProvider
     private function loadRikishiData(string $wrestler): Rikishi
     {
         $fileName = __DIR__ . "/../../_data/rikishi/$wrestler.json";
-        $contents = file_get_contents($fileName);
-        $json = json_decode($contents);
+        $json = json_decode(file_get_contents($fileName));
 
         return $this->rikishiFactory->build($json);
-
-//        return json_decode(
-//            json: file_get_contents(
-//                filename: __DIR__ . "/../../_data/rikishi/$wrestler.json"
-//            )
-//        );
     }
 
     /** @return list<RikishiMatch> */

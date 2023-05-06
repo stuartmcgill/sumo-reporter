@@ -21,7 +21,7 @@ class ConsecutiveMatchTrackerTest extends TestCase
     use MockeryPHPUnitIntegration;
 
     #[Test]
-    public function download(): void
+    public function calculate(): void
     {
         $rikishiService = Mockery::mock(RikishiService::class);
         $bashoService = Mockery::mock(BashoService::class);
