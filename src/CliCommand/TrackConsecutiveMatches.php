@@ -37,6 +37,12 @@ class TrackConsecutiveMatches extends Command
             description: 'Basho date in YYYYMM format e.g. 2023-03',
             default: $defaultDate->format('Y-m'),
         );
+
+        $this->addArgument(
+            name: 'filename',
+            mode: InputArgument::OPTIONAL,
+            description: 'File to download results to',
+        );
     }
 
     protected function execute(InputInterface $input, OutputInterface $output): int
@@ -60,7 +66,21 @@ class TrackConsecutiveMatches extends Command
         $this->printConsecutiveMatches($output, $consecutiveMatches);
         $io->newLine();
 
-        $io->success('Successfully completed');
+        $io->success('Successfully displayed');
+
+        $filename = $input->getArgument('filename');
+        if (empty($filename)) {
+            return Command::SUCCESS;
+        }
+
+        $fullPath = __DIR__ . '/../../data/' . $filename;
+
+        $this->saveConsecutiveMatches(
+            runs: $consecutiveMatches,
+            filename: $fullPath,
+        );
+
+        $io->success("Successfully saved to $fullPath\n");
 
         return Command::SUCCESS;
     }
@@ -71,23 +91,40 @@ class TrackConsecutiveMatches extends Command
         return preg_match(pattern: '/^[0-9]{4}-[0-9]{2}$/', subject: $date) > 0;
     }
 
-    /** @param list<ConsecutiveMatchRun> $consecutiveMatches */
+    /** @param list<ConsecutiveMatchRun> $runs */
     private function printConsecutiveMatches(
         OutputInterface $output,
-        array $consecutiveMatches
+        array $runs,
     ): void {
         $table = new Table($output);
         $table
-            ->setHeaders(['Name', 'Rank', 'Number of matches', 'Since'])
+            ->setHeaders(['Name', 'Number of matches', 'Since', 'Current rank'])
             ->setRows(array_map(
                 callback: static fn (ConsecutiveMatchRun $run) => [
                     $run->rikishi->shikonaEn,
-                    $run->rikishi->currentRank,
                     $run->size,
                     $run->startDate(),
+                    $run->rikishi->currentRank,
                 ],
-                array: $consecutiveMatches
+                array: $runs
             ))
             ->render();
+    }
+
+    /** @param list<ConsecutiveMatchRun> $runs */
+    private function saveConsecutiveMatches(array $runs, string $filename): void
+    {
+        $data = "Name,Matches,Since,Current rank\n";
+
+        foreach ($runs as $run) {
+            $name = $run->rikishi->shikonaEn;
+            $currentRank = $run->rikishi->currentRank;
+            $size = $run->size;
+            $startDate = $run->startDate();
+
+            $data .= "$name,$size,$startDate,$currentRank\n";
+        }
+
+        file_put_contents(filename: $filename, data: $data);
     }
 }

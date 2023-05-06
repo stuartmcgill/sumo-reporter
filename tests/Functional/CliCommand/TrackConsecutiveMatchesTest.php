@@ -26,7 +26,7 @@ class TrackConsecutiveMatchesTest extends TestCase
 
         $output = $commandTester->getDisplay();
         $this->assertStringContainsString(
-            needle: '| Takarafuji | Maegashira 10 West | 915               | 2013-01 |',
+            needle: '| Takarafuji | 915               | 2013-01 | Maegashira 10 West |',
             haystack: $output,
         );
     }
