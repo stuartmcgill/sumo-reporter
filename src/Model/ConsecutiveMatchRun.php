@@ -18,6 +18,18 @@ class ConsecutiveMatchRun
         $this->size = $this->calculateSize();
     }
 
+    public function startDate(): ?string
+    {
+        if ($this->size === 0) {
+            return null;
+        }
+        $bashoId = $this->matches[$this->size - 1]->bashoId;
+
+        return substr(string: $bashoId, offset: 0, length: 4)
+            . '-'
+            . substr(string: $bashoId, offset: 4, length: 2);
+    }
+
     private function calculateSize(): int
     {
         $matches = $this->filterOutPlayoffs();
@@ -53,18 +65,6 @@ class ConsecutiveMatchRun
         return $size;
     }
 
-    public function startDate(): ?string
-    {
-        if ($this->size === 0) {
-            return null;
-        }
-        $bashoId = $this->matches[$this->size - 1]->bashoId;
-
-        return substr(string: $bashoId, offset: 0, length: 4)
-            . '-'
-            . substr(string: $bashoId, offset: 4, length: 2);
-    }
-
     /** @return list<RikishiMatch> */
     private function filterOutPlayoffs(): array
     {
@@ -81,6 +81,8 @@ class ConsecutiveMatchRun
 
     private function areMatchesConsecutive(RikishiMatch $match, RikishiMatch $lastMatch): bool
     {
+        // Compare ranks rather than divisions to avoid problems caused by Juryo rikishi fighting in
+        // Makuuchi
         $matchRank = $this->getRank($match);
         $lastMatchRank = $this->getRank($lastMatch);
 
