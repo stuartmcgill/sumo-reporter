@@ -3,9 +3,8 @@ name: PHP Composer
 on:
   workflow_dispatch:
   push:
-    branches: [ "main" ]
-  pull_request:
-    branches: [ "main" ]
+    # Ignore code coverage badge branch
+    branches-ignore: [ "image-data" ]
 
 permissions:
   contents: read
