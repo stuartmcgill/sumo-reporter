@@ -6,7 +6,7 @@ namespace StuartMcGill\SumoReporter\Tests\Functional\CliCommand;
 
 use PHPUnit\Framework\Attributes\Test;
 use PHPUnit\Framework\TestCase;
-use StuartMcGill\SumoReporter\Tests\Functional\Support\ServiceProvider;
+use StuartMcGill\SumoReporter\Tests\Functional\Support\StreakDownloaderProvider;
 use Symfony\Component\Console\Tester\CommandTester;
 
 class DownloadStreaksTest extends TestCase
@@ -14,7 +14,8 @@ class DownloadStreaksTest extends TestCase
     #[Test]
     public function download(): void
     {
-        $downloadStreaks = ServiceProvider::getDownloadStreaksCliCommandForMarch2023();
+        $serviceProvider = new StreakDownloaderProvider();
+        $downloadStreaks = $serviceProvider->getDownloadStreaksCliCommandForMarch2023();
         $commandTester = new CommandTester($downloadStreaks);
 
         $commandTester->execute(['date' => '2023-03']);

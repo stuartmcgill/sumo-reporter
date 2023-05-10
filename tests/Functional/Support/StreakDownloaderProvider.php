@@ -4,25 +4,23 @@ declare(strict_types=1);
 
 namespace StuartMcGill\SumoReporter\Tests\Functional\Support;
 
-use Laminas\ServiceManager\AbstractFactory\ReflectionBasedAbstractFactory;
-use Laminas\ServiceManager\ServiceManager;
 use Mockery;
 use stdClass;
 use StuartMcGill\SumoReporter\CliCommand\DownloadStreaks;
 use StuartMcGill\SumoReporter\DomainService\Api\BashoService;
 use StuartMcGill\SumoReporter\DomainService\StreakDownloader;
 
-abstract class ServiceProvider
+class StreakDownloaderProvider extends AbstractServiceProvider
 {
-    public static function getStreakDownloaderForMarch2023(): StreakDownloader
+    public function getStreakDownloaderForMarch2023(): StreakDownloader
     {
-        $serviceManager = self::initServiceManager();
+        $serviceManager = $this->initServiceManager();
         $serviceManager->setService(BashoService::class, self::mockBashoService());
 
         return $serviceManager->get(StreakDownloader::class);
     }
 
-    public static function getDownloadStreaksCliCommandForMarch2023(): DownloadStreaks
+    public function getDownloadStreaksCliCommandForMarch2023(): DownloadStreaks
     {
         $serviceManager = self::initServiceManager();
         $serviceManager->setService(
@@ -33,7 +31,7 @@ abstract class ServiceProvider
         return $serviceManager->get(DownloadStreaks::class);
     }
 
-    private static function mockBashoService(): BashoService
+    public function mockBashoService(): BashoService
     {
         $bashoService = Mockery::mock(BashoService::class);
 
@@ -50,19 +48,8 @@ abstract class ServiceProvider
         return $bashoService;
     }
 
-    private static function initServiceManager(): ServiceManager
-    {
-        $serviceManager = new ServiceManager();
-        $serviceManager->addAbstractFactory(new ReflectionBasedAbstractFactory());
-
-        $config = include __DIR__ . '/../../../config/config.php';
-        $serviceManager->setService('config', $config);
-
-        return $serviceManager;
-    }
-
     /** @return list<stdClass> */
-    private static function loadTestResponses(int $year, int $month): array
+    private function loadTestResponses(int $year, int $month): array
     {
         $dataDir = __DIR__ . sprintf('/../../_data/basho/%d-%02d/', $year, $month);
         $files = array_diff(scandir($dataDir), ['.', '..']);
