@@ -89,7 +89,7 @@ class TrackConsecutiveMatches extends Command
 
     private function validateDate(string $date): bool
     {
-        //YYYY-MM
+        // YYYY-MM
         return preg_match(pattern: '/^[0-9]{4}-[0-9]{2}$/', subject: $date) > 0;
     }
 
