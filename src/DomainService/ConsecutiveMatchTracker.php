@@ -19,7 +19,7 @@ class ConsecutiveMatchTracker
     }
 
     /** @return list<ConsecutiveMatchRun> */
-    public function calculate(BashoDate $bashoDate): array
+    public function calculate(BashoDate $bashoDate, ?bool $allowCovidExemptions = true): array
     {
         $runs = [];
 
@@ -41,9 +41,19 @@ class ConsecutiveMatchTracker
 
             $runs[] = new ConsecutiveMatchRun($rikishi, $matches);
         }
+
+        if ($allowCovidExemptions) {
+            $this->applyCovidAdjustments($runs);
+        }
         $this->sort($runs);
 
         return $runs;
+    }
+
+    /** @param list<ConsecutiveMatchRun> $runs */
+    private function applyCovidAdjustments(array &$runs): void
+    {
+
     }
 
     /** @param list<ConsecutiveMatchRun> $runs */

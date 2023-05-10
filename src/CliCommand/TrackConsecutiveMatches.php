@@ -43,6 +43,13 @@ class TrackConsecutiveMatches extends Command
             mode: InputArgument::OPTIONAL,
             description: 'File to download results to',
         );
+
+        $this->addArgument(
+            name: 'covid-exemptions',
+            mode: InputArgument::OPTIONAL,
+            description: 'Whether or not to allow exemptions for kyujo due to COVID',
+            default: true,
+        );
     }
 
     protected function execute(InputInterface $input, OutputInterface $output): int
@@ -62,7 +69,12 @@ class TrackConsecutiveMatches extends Command
             month: (int)substr(string: $date, offset: 5, length: 2)
         );
 
-        $consecutiveMatches = $this->consecutiveMatchTracker->calculate(bashoDate: $bashoDate);
+        $allowCovidExemptions = $input->getArgument('covid-exemptions');
+
+        $consecutiveMatches = $this->consecutiveMatchTracker->calculate(
+            bashoDate: $bashoDate,
+            allowCovidExemptions: $allowCovidExemptions,
+        );
 
         $io->section('Consecutive matches in Makuuchi');
         $this->printConsecutiveMatches($output, $consecutiveMatches);

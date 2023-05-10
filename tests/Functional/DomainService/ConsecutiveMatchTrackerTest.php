@@ -44,4 +44,18 @@ class ConsecutiveMatchTrackerTest extends TestCase
         $this->assertSame(780, $run->size);
         $this->assertSame('2013-01', $run->startDate());
     }
+
+    #[Test]
+    public function covidExemptionsForTamawashi(): void
+    {
+        $serviceProvider = new ConsecutiveTrackerProvider();
+        $tracker = $serviceProvider->getConsecutiveMatchTracker(14, 'Tamawashi');
+        $runs = $tracker->calculate(new BashoDate(2023, 3));
+
+        $this->assertCount(1, $runs);
+        $run = $runs[0];
+
+        $this->assertSame('2013-07', $run->startDate());
+        $this->assertSame(870, $run->size);
+    }
 }
