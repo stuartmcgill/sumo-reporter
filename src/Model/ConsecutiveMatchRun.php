@@ -11,13 +11,12 @@ use StuartMcGill\SumoApiPhp\Model\RikishiMatch;
 class ConsecutiveMatchRun
 {
     private int $size;
-    private ?string $startDate;
+    private bool $hasCovidFusensho = false;
 
     /** @param list<RikishiMatch> $matches */
     public function __construct(public readonly Rikishi $rikishi, private readonly array $matches)
     {
         $this->size = $this->calculateSize();
-        $this->startDate = $this->calculateStartDate(false);
     }
 
     public function size(): int
@@ -27,13 +26,13 @@ class ConsecutiveMatchRun
 
     public function startDate(): ?string
     {
-        return $this->startDate;
+        return $this->calculateStartDate();
     }
 
     public function applyCovidAdjustment(int $sizeAdjustment, bool $isFusensho): void
     {
         $this->size += $sizeAdjustment;
-        $this->startDate = $this->calculateStartDate($isFusensho);
+        $this->hasCovidFusensho = $isFusensho;
     }
 
     private function calculateSize(): int
@@ -77,13 +76,13 @@ class ConsecutiveMatchRun
      * go back far enough. A full-basho kyujo (e.g. Chiyoshoma in 2021) doesn't require this
      * adjustment since there is no fusensho to adjust for.
      */
-    private function calculateStartDate(bool $hasCovidFusensho): ?string
+    private function calculateStartDate(): ?string
     {
         if ($this->size === 0) {
             return null;
         }
         $bashoId = $this->matches[
-            $this->size + ($hasCovidFusensho ? 1 : 0) - 1
+            $this->size + ($this->hasCovidFusensho ? 1 : 0) - 1
         ]->bashoId;
 
         return substr(string: $bashoId, offset: 0, length: 4)
