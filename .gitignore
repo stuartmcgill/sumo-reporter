@@ -53,3 +53,4 @@
 
 /.gitconfig
 /data
+/tests/_output
