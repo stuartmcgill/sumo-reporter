@@ -19,7 +19,7 @@ class ConsecutiveMatchTracker
     ) {
     }
 
-    /** @return ConsecutiveMatchRun */
+    /** @return list<ConsecutiveMatchRun> */
     public function calculate(BashoDate $bashoDate, ?bool $allowCovidExemptions = true): array
     {
         $runs = [];
@@ -51,7 +51,7 @@ class ConsecutiveMatchTracker
         return $runs;
     }
 
-    /** @param ConsecutiveMatchRun $runs */
+    /** @param list<ConsecutiveMatchRun> $runs */
     private function applyCovidAdjustments(array &$runs): void
     {
         foreach ($runs as $run) {
@@ -59,7 +59,7 @@ class ConsecutiveMatchTracker
         }
     }
 
-    /** @param ConsecutiveMatchRun $runs */
+    /** @param list<ConsecutiveMatchRun> $runs */
     private function sort(array &$runs): void
     {
         usort(

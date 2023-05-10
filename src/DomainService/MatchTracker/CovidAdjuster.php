@@ -8,6 +8,7 @@ use StuartMcGill\SumoReporter\Model\ConsecutiveMatchRun;
 
 class CovidAdjuster
 {
+    /** @var array<string, list<array<string, mixed>>> */
     private array $bashoAdjustments = [
         '2021-03' => [
             [
