@@ -59,15 +59,19 @@ Winning
 ## Makuuchi consecutive match tracker
 
 ``` 
-src/run.php report:consecutivematchtracker [YYYY-MM] [test.csv]
+src/run.php report:consecutivematchtracker [YYYY-MM] [test.csv] [--covid-breaks-run]
 ```
 
 If a date (e.g. 2023-03) is not supplied then the tracker will be started from the most recent basho.
 
+If the `--covid-breaks-run` option is set then COVID-enforced kyujos will cause the run to end. The
+default behaviour (i.e. with no option set) is to ignore COVID-enforced kyujos and allowe the run to
+continue.
+
 # Sample output
 
 ```
- src/run.php report:consecutivematchtracker
+ src/run.php report:consecutivematchtracker 2023-03
 
 Calculating consecutive matches...
 ==================================

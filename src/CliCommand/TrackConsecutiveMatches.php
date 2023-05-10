@@ -13,6 +13,7 @@ use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Helper\Table;
 use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputInterface;
+use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Output\OutputInterface;
 use Symfony\Component\Console\Style\SymfonyStyle;
 
@@ -44,11 +45,9 @@ class TrackConsecutiveMatches extends Command
             description: 'File to download results to',
         );
 
-        $this->addArgument(
-            name: 'covid-exemptions',
-            mode: InputArgument::OPTIONAL,
-            description: 'Whether or not to allow exemptions for kyujo due to COVID',
-            default: true,
+        $this->addOption(
+            name: 'covid-breaks-run',
+            description: 'Whether or not to stop the run in case of a COVID kyujo',
         );
     }
 
@@ -69,11 +68,11 @@ class TrackConsecutiveMatches extends Command
             month: (int)substr(string: $date, offset: 5, length: 2)
         );
 
-        $allowCovidExemptions = $input->getArgument('covid-exemptions');
+        $covidBreaksRun = $input->getOption('covid-breaks-run');
 
         $consecutiveMatches = $this->consecutiveMatchTracker->calculate(
             bashoDate: $bashoDate,
-            allowCovidExemptions: $allowCovidExemptions,
+            allowCovidExemptions: !$covidBreaksRun,
         );
 
         $io->section('Consecutive matches in Makuuchi');
