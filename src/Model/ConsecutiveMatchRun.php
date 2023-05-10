@@ -12,6 +12,7 @@ class ConsecutiveMatchRun
 {
     private int $size;
     private ?string $startDate;
+    private int $covidSizeBonus = 0;
 
     /** @param list<RikishiMatch> $matches */
     public function __construct(public readonly Rikishi $rikishi, private readonly array $matches)
@@ -30,10 +31,11 @@ class ConsecutiveMatchRun
         return $this->startDate;
     }
 
-    public function applyCovidAdjustment(int $sizeAdjustment, string $newStartDate): void
+    public function applyCovidAdjustment(int $sizeAdjustment, int $covidSizeBonus): void
     {
         $this->size += $sizeAdjustment;
-        $this->startDate = $newStartDate;
+        $this->covidSizeBonus = $covidSizeBonus;
+        $this->startDate = $this->calculateStartDate();
     }
 
     private function calculateSize(): int
@@ -76,7 +78,7 @@ class ConsecutiveMatchRun
         if ($this->size === 0) {
             return null;
         }
-        $bashoId = $this->matches[$this->size - 1]->bashoId;
+        $bashoId = $this->matches[$this->size + $this->covidSizeBonus - 1]->bashoId;
 
         return substr(string: $bashoId, offset: 0, length: 4)
             . '-'

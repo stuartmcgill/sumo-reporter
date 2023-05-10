@@ -77,7 +77,7 @@ class CovidAdjuster
                 // Tamawashi
                 'rikishiId' => 14,
                 'adjustment' => 807,
-                'newStartDate' => '2013-07',
+                'covidSizeBonus' => 1,
             ],
             [
                 // Tobizaru
@@ -96,7 +96,7 @@ class CovidAdjuster
                     if ($wrestlerAdjustment['rikishiId'] === $run->rikishi->id) {
                         $run->applyCovidAdjustment(
                             sizeAdjustment: $wrestlerAdjustment['adjustment'],
-                            newStartDate: $wrestlerAdjustment['newStartDate'],
+                            covidSizeBonus: $wrestlerAdjustment['covidSizeBonus'],
                         );
                     }
                 }
