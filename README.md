@@ -4,13 +4,19 @@
 
 This console application uses the [Sumo API](https://sumo-api.com/) to produce formatted reports.
 
-Currently it can show ordered wrestler 'streaks' i.e. how many bouts wrestlers have won (or lost) in
-a row, which may of course stretch across successive bashos.
+The following reports are provided:
+
+- Ordered wrestler 'streaks' i.e. how many bouts wrestlers have won (or lost) in
+a row, which may of course stretch across successive bashos
+- Makuuchi consecutive match tracker i.e. how many successive bouts (regardless of win or loss) each
+wrestler has fought
 
 # Usage
 
+## Streaks
+
 ```
-src/run.php report:streaks [YYYY-MM] 
+src/run.php report:streaks [YYYY-MM]
 ```
 
 If a date (e.g. 2023-03) is not supplied then the streaks will be calculated starting from the most recent (or
@@ -19,7 +25,7 @@ in-progress) basho.
 # Sample output
 
 ```
- src/run.php report:streaks                                                                                                                      8.2s  2023-04-16 21:22
+ src/run.php report:streaks
 
 Downloading wrestler streaks...
 ===============================
@@ -48,4 +54,39 @@ Winning
 | Hamasaki      | Jonidan 98 West    | Winning | 5           |                |
 | Kobayashi     | Jonokuchi 14 East  | Winning | 5           |                |
 | Kyokutaisei   | Sandanme 55 West   | Winning | 5           |                |
+```
+
+## Makuuchi consecutive match tracker
+
+``` 
+src/run.php report:consecutivematchtracker [YYYY-MM] [test.csv]
+```
+
+If a date (e.g. 2023-03) is not supplied then the tracker will be started from the most recent basho.
+
+# Sample output
+
+```
+ src/run.php report:consecutivematchtracker
+
+Calculating consecutive matches...
+==================================
+
+Consecutive matches in Makuuchi
+-------------------------------
+
++--------------+-------------------+---------+--------------------+
+| Name         | Number of matches | Since   | Current rank       |
++--------------+-------------------+---------+--------------------+
+| Takarafuji   | 915               | 2013-01 | Maegashira 10 West |
+| Meisei       | 240               | 2020-09 | Maegashira 6 East  |
+| Kiribayama   | 228               | 2020-09 | Sekiwake 1 East    |
+| Shodai       | 210               | 2021-01 | Komusubi 2 East    |
+| Chiyoshoma   | 195               | 2021-03 | Maegashira 13 East |
+| Aoiyama      | 172               | 2021-05 | Maegashira 12 East |
+| Sadanoumi    | 135               | 2021-11 | Maegashira 8 East  |
+| Wakamotoharu | 120               | 2022-01 | Sekiwake 2 West    |
+| Myogiryu     | 107               | 2022-01 | Maegashira 14 West |
+...
++--------------+-------------------+---------+--------------------+
 ```

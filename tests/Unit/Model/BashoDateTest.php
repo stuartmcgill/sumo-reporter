@@ -36,6 +36,19 @@ class BashoDateTest extends TestCase
     }
 
     #[Test]
+    /** May 2020 was cancelled due to COVID */
+    public function previousFromJuly2020(): void
+    {
+        $bashoDate = new BashoDate(2020, 7);
+        $previousDate = $bashoDate->previous();
+
+        $this->assertSame(
+            expected: [2020, 3],
+            actual: [$previousDate->year, $previousDate->month],
+        );
+    }
+
+    #[Test]
     public function fromMonthWithBasho(): void
     {
         $bashoDate = BashoDate::fromDateTime(new DateTime('2021-03-01'));

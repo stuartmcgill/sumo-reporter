@@ -10,11 +10,13 @@ require_once 'serviceManager.php';
 
 use Laminas\ServiceManager\ServiceManager;
 use StuartMcGill\SumoReporter\CliCommand\DownloadStreaks;
+use StuartMcGill\SumoReporter\CliCommand\TrackConsecutiveMatches;
 use Symfony\Component\Console\Application;
 
 $app = new Application();
 
 /** @var ServiceManager $serviceManager */
 $app->add($serviceManager->get(DownloadStreaks::class));
+$app->add($serviceManager->get(TrackConsecutiveMatches::class));
 
 $app->run();

@@ -15,6 +15,11 @@ class BashoDate
 
     public function previous(): self
     {
+        // The March 2020 basho was cancelled due to COVID
+        if ($this->year === 2020 && $this->month === 7) {
+            return new BashoDate(2020, 3);
+        }
+
         return $this->month === 1
             ? new BashoDate($this->year - 1, 11)
             : new BashoDate($this->year, $this->month - 2);
