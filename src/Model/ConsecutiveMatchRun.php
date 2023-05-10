@@ -10,24 +10,30 @@ use StuartMcGill\SumoApiPhp\Model\RikishiMatch;
 
 class ConsecutiveMatchRun
 {
-    public readonly int $size;
+    private int $size;
+    private ?string $startDate;
 
     /** @param list<RikishiMatch> $matches */
     public function __construct(public readonly Rikishi $rikishi, private readonly array $matches)
     {
         $this->size = $this->calculateSize();
+        $this->startDate = $this->calculateStartDate();
+    }
+
+    public function size(): int
+    {
+        return $this->size;
     }
 
     public function startDate(): ?string
     {
-        if ($this->size === 0) {
-            return null;
-        }
-        $bashoId = $this->matches[$this->size - 1]->bashoId;
+        return $this->startDate;
+    }
 
-        return substr(string: $bashoId, offset: 0, length: 4)
-            . '-'
-            . substr(string: $bashoId, offset: 4, length: 2);
+    public function applyCovidAdjustment(int $sizeAdjustment, string $newStartDate): void
+    {
+        $this->size += $sizeAdjustment;
+        $this->startDate = $newStartDate;
     }
 
     private function calculateSize(): int
@@ -63,6 +69,18 @@ class ConsecutiveMatchRun
         }
 
         return $size;
+    }
+
+    private function calculateStartDate(): ?string
+    {
+        if ($this->size === 0) {
+            return null;
+        }
+        $bashoId = $this->matches[$this->size - 1]->bashoId;
+
+        return substr(string: $bashoId, offset: 0, length: 4)
+            . '-'
+            . substr(string: $bashoId, offset: 4, length: 2);
     }
 
     /** @return list<RikishiMatch> */

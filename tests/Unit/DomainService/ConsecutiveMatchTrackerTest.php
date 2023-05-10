@@ -13,7 +13,8 @@ use StuartMcGill\SumoApiPhp\Model\Rikishi;
 use StuartMcGill\SumoApiPhp\Model\RikishiMatch;
 use StuartMcGill\SumoApiPhp\Service\BashoService;
 use StuartMcGill\SumoApiPhp\Service\RikishiService;
-use StuartMcGill\SumoReporter\DomainService\ConsecutiveMatchTracker;
+use StuartMcGill\SumoReporter\DomainService\MatchTracker\ConsecutiveMatchTracker;
+use StuartMcGill\SumoReporter\DomainService\MatchTracker\CovidAdjuster;
 use StuartMcGill\SumoReporter\Model\BashoDate;
 
 class ConsecutiveMatchTrackerTest extends TestCase
@@ -68,10 +69,13 @@ class ConsecutiveMatchTrackerTest extends TestCase
             ]
         );
 
-        $tracker = new ConsecutiveMatchTracker($rikishiService, $bashoService);
+        $covidAdjuster = Mockery::mock(CovidAdjuster::class);
+        $covidAdjuster->allows('adjust');
+
+        $tracker = new ConsecutiveMatchTracker($rikishiService, $bashoService, $covidAdjuster);
         $runs = $tracker->calculate(new BashoDate(2023, 5));
 
         $this->assertCount(1, $runs);
-        $this->assertSame(1, $runs[0]->size);
+        $this->assertSame(1, $runs[0]->size());
     }
 }

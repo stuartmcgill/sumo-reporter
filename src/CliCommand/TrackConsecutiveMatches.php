@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace StuartMcGill\SumoReporter\CliCommand;
 
 use DateTime;
-use StuartMcGill\SumoReporter\DomainService\ConsecutiveMatchTracker;
+use StuartMcGill\SumoReporter\DomainService\MatchTracker\ConsecutiveMatchTracker;
 use StuartMcGill\SumoReporter\Model\BashoDate;
 use StuartMcGill\SumoReporter\Model\ConsecutiveMatchRun;
 use Symfony\Component\Console\Attribute\AsCommand;
@@ -116,7 +116,7 @@ class TrackConsecutiveMatches extends Command
             ->setRows(array_map(
                 callback: static fn (ConsecutiveMatchRun $run) => [
                     $run->rikishi->shikonaEn,
-                    $run->size,
+                    $run->size(),
                     $run->startDate(),
                     $run->rikishi->currentRank,
                 ],

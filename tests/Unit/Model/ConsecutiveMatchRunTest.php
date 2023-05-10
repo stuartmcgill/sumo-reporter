@@ -21,7 +21,7 @@ class ConsecutiveMatchRunTest extends TestCase
         ];
 
         $run = $this->createRun($matches);
-        $this->assertSame(0, $run->size);
+        $this->assertSame(0, $run->size());
     }
 
     #[Test]
@@ -32,7 +32,7 @@ class ConsecutiveMatchRunTest extends TestCase
         ];
 
         $run = $this->createRun($matches);
-        $this->assertSame(0, $run->size);
+        $this->assertSame(0, $run->size());
     }
 
     #[Test]
@@ -44,7 +44,7 @@ class ConsecutiveMatchRunTest extends TestCase
         ];
 
         $run = $this->createRun($matches);
-        $this->assertSame(1, $run->size);
+        $this->assertSame(1, $run->size());
     }
 
     #[Test]
@@ -58,7 +58,7 @@ class ConsecutiveMatchRunTest extends TestCase
         ];
 
         $run = $this->createRun($matches);
-        $this->assertSame(3, $run->size);
+        $this->assertSame(3, $run->size());
     }
 
     #[Test]
@@ -73,7 +73,7 @@ class ConsecutiveMatchRunTest extends TestCase
         $matches[] = $this->generateMatch(day: 15, eastRank: 'Juryo 1 East', bashoId: '202301');
 
         $run = $this->createRun($matches);
-        $this->assertSame(15, $run->size);
+        $this->assertSame(15, $run->size());
     }
 
     #[Test]
@@ -93,7 +93,7 @@ class ConsecutiveMatchRunTest extends TestCase
         );
 
         $run = $this->createRun($matches);
-        $this->assertSame(15, $run->size);
+        $this->assertSame(15, $run->size());
     }
 
     #[Test]
@@ -106,7 +106,7 @@ class ConsecutiveMatchRunTest extends TestCase
         ];
 
         $run = $this->createRun($matches);
-        $this->assertSame(1, $run->size);
+        $this->assertSame(1, $run->size());
     }
 
     #[Test]
@@ -114,7 +114,7 @@ class ConsecutiveMatchRunTest extends TestCase
     {
         $run = $this->createRun([]);
 
-        $this->assertSame(0, $run->size);
+        $this->assertSame(0, $run->size());
     }
 
     #[Test]

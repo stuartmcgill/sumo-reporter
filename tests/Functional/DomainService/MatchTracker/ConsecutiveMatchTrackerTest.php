@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace StuartMcGill\SumoReporter\Tests\Functional\DomainService;
+namespace StuartMcGill\SumoReporter\Tests\Functional\DomainService\MatchTracker;
 
 use PHPUnit\Framework\Attributes\Test;
 use PHPUnit\Framework\TestCase;
@@ -26,7 +26,7 @@ class ConsecutiveMatchTrackerTest extends TestCase
         $run = $runs[0];
 
         $this->assertSame('Takarafuji', $run->rikishi->shikonaEn);
-        $this->assertSame(915, $run->size);
+        $this->assertSame(915, $run->size());
         $this->assertSame('2013-01', $run->startDate());
     }
 
@@ -41,7 +41,7 @@ class ConsecutiveMatchTrackerTest extends TestCase
         $run = $runs[0];
 
         $this->assertSame('Takarafuji', $run->rikishi->shikonaEn);
-        $this->assertSame(780, $run->size);
+        $this->assertSame(780, $run->size());
         $this->assertSame('2013-01', $run->startDate());
     }
 
@@ -56,6 +56,6 @@ class ConsecutiveMatchTrackerTest extends TestCase
         $run = $runs[0];
 
         $this->assertSame('2013-07', $run->startDate());
-        $this->assertSame(870, $run->size);
+        $this->assertSame(867, $run->size());
     }
 }
