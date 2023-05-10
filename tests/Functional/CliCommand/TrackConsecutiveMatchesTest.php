@@ -12,12 +12,12 @@ use Symfony\Component\Console\Tester\CommandTester;
 class TrackConsecutiveMatchesTest extends TestCase
 {
     #[Test]
-    public function execute(): void
+    public function withCovidExemptions(): void
     {
         $serviceProvider = new ConsecutiveTrackerProvider();
         $trackCommand = $serviceProvider->getTrackConsecutiveMatchesCliCommand(
-            rikishiId: 25,
-            rikishiName: 'Takarafuji',
+            rikishiId: 14,
+            rikishiName: 'Tamawashi',
         );
         $commandTester = new CommandTester($trackCommand);
 
@@ -26,7 +26,27 @@ class TrackConsecutiveMatchesTest extends TestCase
 
         $output = $commandTester->getDisplay();
         $this->assertStringContainsString(
-            needle: '| Takarafuji | 915               | 2013-01 | Maegashira 10 West |',
+            needle: '| Tamawashi | 867               | 2013-07 | Maegashira 7 West |',
+            haystack: $output,
+        );
+    }
+
+    #[Test]
+    public function withoutCovidExemptions(): void
+    {
+        $serviceProvider = new ConsecutiveTrackerProvider();
+        $trackCommand = $serviceProvider->getTrackConsecutiveMatchesCliCommand(
+            rikishiId: 14,
+            rikishiName: 'Tamawashi',
+        );
+        $commandTester = new CommandTester($trackCommand);
+
+        $commandTester->execute(['--covid-breaks-run' => true]);
+        $commandTester->assertCommandIsSuccessful();
+
+        $output = $commandTester->getDisplay();
+        $this->assertStringContainsString(
+            needle: '| Tamawashi | 60                | 2022-09 | Maegashira 7 West |',
             haystack: $output,
         );
     }
