@@ -64,13 +64,18 @@ class ConsecutiveMatchRunTest extends TestCase
     #[Test]
     public function sizePromotedFromJuryoLastBasho(): void
     {
-        $matches = [];
+        $matches = $this->generateBashoMatches(bashoId: '202301');
+        $matches[] = $this->generateMatch(day: 15, bashoId: '202301', eastRank: 'Juryo 1 East');
 
-        for ($day = 15; $day >= 1; $day--) {
-            $matches[] = $this->generateMatch(day: $day, bashoId: '202303');
-        }
+        $run = $this->createRun($matches);
+        $this->assertSame(15, $run->size());
+    }
 
-        $matches[] = $this->generateMatch(day: 15, eastRank: 'Juryo 1 East', bashoId: '202301');
+    #[Test]
+    public function sizeWhenEntireBashoSkipped(): void
+    {
+        $matches = $this->generateBashoMatches(bashoId: '202305');
+        $matches[] = $this->generateMatch(day: 15, bashoId: '202301');
 
         $run = $this->createRun($matches);
         $this->assertSame(15, $run->size());
@@ -79,12 +84,7 @@ class ConsecutiveMatchRunTest extends TestCase
     #[Test]
     public function sizeWhenJuryoWrestlerHasDay15MakuuchiMatch(): void
     {
-        $matches = [];
-
-        for ($day = 15; $day >= 1; $day--) {
-            $matches[] = $this->generateMatch(day: $day, bashoId: '202303');
-        }
-
+        $matches = $this->generateBashoMatches(bashoId: '202301');
         $matches[] = $this->generateMatch(
             day: 15,
             eastRank: 'Juryo 1 East',
@@ -181,5 +181,17 @@ class ConsecutiveMatchRunTest extends TestCase
             winnerEn: 'WEST',
             winnerJp: 'WEST',
         );
+    }
+
+    /** @return list<RikishiMatch> */
+    private function generateBashoMatches(?string $bashoId = '202303'): array
+    {
+        $matches = [];
+
+        for ($day = 15; $day >= 1; $day--) {
+            $matches[] = $this->generateMatch(day: $day, bashoId: $bashoId);
+        }
+
+        return $matches;
     }
 }
