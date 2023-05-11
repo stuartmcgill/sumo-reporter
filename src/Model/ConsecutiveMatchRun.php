@@ -10,7 +10,8 @@ use StuartMcGill\SumoApiPhp\Model\RikishiMatch;
 
 class ConsecutiveMatchRun
 {
-    public readonly int $size;
+    private int $size;
+    private bool $hasCovidFusensho = false;
 
     /** @param list<RikishiMatch> $matches */
     public function __construct(public readonly Rikishi $rikishi, private readonly array $matches)
@@ -18,16 +19,20 @@ class ConsecutiveMatchRun
         $this->size = $this->calculateSize();
     }
 
+    public function size(): int
+    {
+        return $this->size;
+    }
+
     public function startDate(): ?string
     {
-        if ($this->size === 0) {
-            return null;
-        }
-        $bashoId = $this->matches[$this->size - 1]->bashoId;
+        return $this->calculateStartDate();
+    }
 
-        return substr(string: $bashoId, offset: 0, length: 4)
-            . '-'
-            . substr(string: $bashoId, offset: 4, length: 2);
+    public function applyCovidAdjustment(int $sizeAdjustment, bool $isFusensho): void
+    {
+        $this->size += $sizeAdjustment;
+        $this->hasCovidFusensho = $isFusensho;
     }
 
     private function calculateSize(): int
@@ -63,6 +68,26 @@ class ConsecutiveMatchRun
         }
 
         return $size;
+    }
+
+    /**
+     * Mid-basho COVID cancellations are tricky. The fusensho appears in the list of matches
+     * but it shouldn't count towards the streak - therefore we need to add one to make sure we
+     * go back far enough. A full-basho kyujo (e.g. Chiyoshoma in 2021) doesn't require this
+     * adjustment since there is no fusensho to adjust for.
+     */
+    private function calculateStartDate(): ?string
+    {
+        if ($this->size === 0) {
+            return null;
+        }
+        $bashoId = $this->matches[
+            $this->size + ($this->hasCovidFusensho ? 1 : 0) - 1
+        ]->bashoId;
+
+        return substr(string: $bashoId, offset: 0, length: 4)
+            . '-'
+            . substr(string: $bashoId, offset: 4, length: 2);
     }
 
     /** @return list<RikishiMatch> */

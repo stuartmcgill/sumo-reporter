@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace StuartMcGill\SumoReporter\CliCommand;
 
 use DateTime;
-use StuartMcGill\SumoReporter\DomainService\ConsecutiveMatchTracker;
+use StuartMcGill\SumoReporter\DomainService\MatchTracker\ConsecutiveMatchTracker;
 use StuartMcGill\SumoReporter\Model\BashoDate;
 use StuartMcGill\SumoReporter\Model\ConsecutiveMatchRun;
 use Symfony\Component\Console\Attribute\AsCommand;
@@ -43,6 +43,11 @@ class TrackConsecutiveMatches extends Command
             mode: InputArgument::OPTIONAL,
             description: 'File to download results to',
         );
+
+        $this->addOption(
+            name: 'covid-breaks-run',
+            description: 'Whether or not to stop the run in case of a COVID kyujo',
+        );
     }
 
     protected function execute(InputInterface $input, OutputInterface $output): int
@@ -62,7 +67,12 @@ class TrackConsecutiveMatches extends Command
             month: (int)substr(string: $date, offset: 5, length: 2)
         );
 
-        $consecutiveMatches = $this->consecutiveMatchTracker->calculate(bashoDate: $bashoDate);
+        $covidBreaksRun = $input->getOption('covid-breaks-run');
+
+        $consecutiveMatches = $this->consecutiveMatchTracker->calculate(
+            bashoDate: $bashoDate,
+            allowCovidExemptions: !$covidBreaksRun,
+        );
 
         $io->section('Consecutive matches in Makuuchi');
         $this->printConsecutiveMatches($output, $consecutiveMatches);
@@ -104,7 +114,7 @@ class TrackConsecutiveMatches extends Command
             ->setRows(array_map(
                 callback: static fn (ConsecutiveMatchRun $run) => [
                     $run->rikishi->shikonaEn,
-                    $run->size,
+                    $run->size(),
                     $run->startDate(),
                     $run->rikishi->currentRank,
                 ],
@@ -121,7 +131,7 @@ class TrackConsecutiveMatches extends Command
         foreach ($runs as $run) {
             $name = $run->rikishi->shikonaEn;
             $currentRank = $run->rikishi->currentRank;
-            $size = $run->size;
+            $size = $run->size();
             $startDate = $run->startDate();
 
             $data .= "$name,$size,$startDate,$currentRank\n";

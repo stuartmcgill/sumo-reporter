@@ -13,7 +13,7 @@ use StuartMcGill\SumoApiPhp\Model\RikishiMatch;
 use StuartMcGill\SumoApiPhp\Service\BashoService;
 use StuartMcGill\SumoApiPhp\Service\RikishiService;
 use StuartMcGill\SumoReporter\CliCommand\TrackConsecutiveMatches;
-use StuartMcGill\SumoReporter\DomainService\ConsecutiveMatchTracker;
+use StuartMcGill\SumoReporter\DomainService\MatchTracker\ConsecutiveMatchTracker;
 
 class ConsecutiveTrackerProvider extends AbstractServiceProvider
 {

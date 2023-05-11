@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace StuartMcGill\SumoReporter\DomainService;
+namespace StuartMcGill\SumoReporter\DomainService\MatchTracker;
 
 use StuartMcGill\SumoApiPhp\Model\RikishiMatch;
 use StuartMcGill\SumoApiPhp\Service\BashoService;
@@ -15,11 +15,12 @@ class ConsecutiveMatchTracker
     public function __construct(
         private readonly RikishiService $rikishiService,
         private readonly BashoService $bashoService,
+        private readonly CovidAdjuster $covidAdjuster,
     ) {
     }
 
     /** @return list<ConsecutiveMatchRun> */
-    public function calculate(BashoDate $bashoDate): array
+    public function calculate(BashoDate $bashoDate, ?bool $allowCovidExemptions = true): array
     {
         $runs = [];
 
@@ -41,9 +42,21 @@ class ConsecutiveMatchTracker
 
             $runs[] = new ConsecutiveMatchRun($rikishi, $matches);
         }
+
+        if ($allowCovidExemptions) {
+            $this->applyCovidAdjustments($runs);
+        }
         $this->sort($runs);
 
         return $runs;
+    }
+
+    /** @param list<ConsecutiveMatchRun> $runs */
+    private function applyCovidAdjustments(array &$runs): void
+    {
+        foreach ($runs as $run) {
+            $this->covidAdjuster->adjust($run);
+        }
     }
 
     /** @param list<ConsecutiveMatchRun> $runs */
@@ -52,11 +65,11 @@ class ConsecutiveMatchTracker
         usort(
             $runs,
             static function (ConsecutiveMatchRun $a, ConsecutiveMatchRun $b): int {
-                if ($a->size === $b->size) {
+                if ($a->size() === $b->size()) {
                     return $a->rikishi->shikonaEn < $b->rikishi->shikonaEn ? -1 : 1;
                 }
 
-                return $a->size < $b->size ? 1 : -1;
+                return $a->size() < $b->size() ? 1 : -1;
             }
         );
     }
