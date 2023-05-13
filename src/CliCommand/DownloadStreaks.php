@@ -37,6 +37,12 @@ class DownloadStreaks extends Command
             description: 'Basho date in YYYY-MM format e.g. 2023-03',
             default: $defaultDate->format('Y-m'),
         );
+
+        $this->addArgument(
+            name: 'filename',
+            mode: InputArgument::OPTIONAL,
+            description: 'File to download results to',
+        );
     }
 
     protected function execute(InputInterface $input, OutputInterface $output): int
@@ -59,7 +65,22 @@ class DownloadStreaks extends Command
         $this->printStreaks($output, $losing);
         $io->newLine();
 
-        $io->success('Successfully completed');
+        $io->success('Successfully displayed');
+
+        $filename = $input->getArgument('filename');
+        if (empty($filename)) {
+            return Command::SUCCESS;
+        }
+
+        $fullPath = __DIR__ . '/../../data/' . $filename;
+
+        $this->saveStreaks(
+            winning: $winning,
+            losing: $losing,
+            filename: $fullPath,
+        );
+
+        $io->success("Successfully saved to $fullPath\n");
 
         return Command::SUCCESS;
     }
@@ -69,7 +90,7 @@ class DownloadStreaks extends Command
     {
         $table = new Table($output);
         $table
-            ->setHeaders(['Name', 'Rank', 'Type', 'Streak size', 'Still active?'])
+            ->setHeaders(['Name', 'Rank', 'Type', 'Streak size', 'Streak still active?'])
             ->setRows(array_map(
                 callback: static fn (Streak $streak) => [
                     $streak->wrestler->name,
@@ -81,5 +102,37 @@ class DownloadStreaks extends Command
                 array: $streaks
             ))
             ->render();
+    }
+
+    /**
+     * @param list<Streak> $winning
+     * @param list<Streak> $losing
+     */
+    private function saveStreaks(array $winning, array $losing, string $filename): void
+    {
+        $data = $this->appendStreaksToCsvData('Winning', $winning);
+        $data .= "\n";
+        $data .= $this->appendStreaksToCsvData('Losing', $losing);
+
+        file_put_contents(filename: $filename, data: $data);
+    }
+
+    /** @param list<Streak> $streaks */
+    private function appendStreaksToCsvData(string $title, array $streaks): string
+    {
+        $data = "$title streaks\n";
+        $data .= "Name,Rank,Type,Streak size, Streak still active?\n";
+
+        foreach ($streaks as $streak) {
+            $name = $streak->wrestler->name;
+            $rank = $streak->wrestler->rank;
+            $type = $streak->type()->name;
+            $length = $streak->length();
+            $isActive = $streak->isOpen() ? 'Yes' : '';
+
+            $data .= "$name,$rank,$type,$length,$isActive\n";
+        }
+
+        return $data;
     }
 }

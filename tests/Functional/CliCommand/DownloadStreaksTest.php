@@ -31,4 +31,22 @@ class DownloadStreaksTest extends TestCase
             haystack: $output,
         );
     }
+
+    #[Test]
+    public function filename(): void
+    {
+        $serviceProvider = new StreakDownloaderProvider();
+        $downloadStreaks = $serviceProvider->getDownloadStreaksCliCommandForMarch2023();
+        $commandTester = new CommandTester($downloadStreaks);
+
+        $filename = '/../tests/_output/streaks.csv';
+        $commandTester->execute(['date' => '2023-03', 'filename' => $filename]);
+        $commandTester->assertCommandIsSuccessful();
+
+        $output = $commandTester->getDisplay();
+        $this->assertStringContainsString(
+            needle: 'Successfully saved to ',
+            haystack: $output,
+        );
+    }
 }

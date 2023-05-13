@@ -16,7 +16,7 @@ wrestler has fought
 ## Streaks
 
 ```
-src/run.php report:streaks [YYYY-MM]
+src/run.php report:streaks [YYYY-MM] [output.csv]
 ```
 
 If a date (e.g. 2023-03) is not supplied then the streaks will be calculated starting from the most recent (or
@@ -59,7 +59,7 @@ Winning
 ## Makuuchi consecutive match tracker
 
 ``` 
-src/run.php report:consecutivematchtracker [YYYY-MM] [test.csv] [--covid-breaks-run]
+src/run.php report:consecutivematchtracker [YYYY-MM] [output.csv] [--covid-breaks-run]
 ```
 
 If a date (e.g. 2023-03) is not supplied then the tracker will be started from the most recent basho.
