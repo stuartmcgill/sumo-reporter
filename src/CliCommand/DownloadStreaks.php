@@ -90,14 +90,14 @@ class DownloadStreaks extends Command
     {
         $table = new Table($output);
         $table
-            ->setHeaders(['Name', 'Rank', 'Type', 'Streak size', 'Streak still active?'])
+            ->setHeaders(['Name', 'Rank', 'Type', 'Streak size', 'Unblemished?'])
             ->setRows(array_map(
                 callback: static fn (Streak $streak) => [
                     $streak->wrestler->name,
                     $streak->wrestler->rank,
                     $streak->type()->name,
                     $streak->length(),
-                    $streak->isOpen() ? 'Yes' : '',
+                    $streak->isPure() ? 'Yes' : '',
                 ],
                 array: $streaks
             ))
@@ -128,9 +128,9 @@ class DownloadStreaks extends Command
             $rank = $streak->wrestler->rank;
             $type = $streak->type()->name;
             $length = $streak->length();
-            $isActive = $streak->isPure() ? 'Yes' : '';
+            $isPure = $streak->isPure() ? 'Yes' : '';
 
-            $data .= "$name,$rank,$type,$length,$isActive\n";
+            $data .= "$name,$rank,$type,$length,$isPure\n";
         }
 
         return $data;
