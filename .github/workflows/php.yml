@@ -11,7 +11,7 @@ permissions:
 
 jobs:
   build:
-
+    name: sumo-reporter-build
     runs-on: ubuntu-latest
     permissions:
       contents: write
