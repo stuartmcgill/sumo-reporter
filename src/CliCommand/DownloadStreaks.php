@@ -121,14 +121,14 @@ class DownloadStreaks extends Command
     private function appendStreaksToCsvData(string $title, array $streaks): string
     {
         $data = "$title streaks\n";
-        $data .= "Name,Rank,Type,Streak size, Streak still active?\n";
+        $data .= "Name,Rank,Type,Streak size,Unblemished?\n";
 
         foreach ($streaks as $streak) {
             $name = $streak->wrestler->name;
             $rank = $streak->wrestler->rank;
             $type = $streak->type()->name;
             $length = $streak->length();
-            $isActive = $streak->isOpen() ? 'Yes' : '';
+            $isActive = $streak->isPure() ? 'Yes' : '';
 
             $data .= "$name,$rank,$type,$length,$isActive\n";
         }

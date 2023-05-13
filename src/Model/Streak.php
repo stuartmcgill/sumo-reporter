@@ -8,6 +8,8 @@ use DomainException;
 
 class Streak
 {
+    private bool $isPure = false;
+
     public function __construct(
         public readonly Wrestler $wrestler,
         private StreakType $type,
@@ -59,5 +61,15 @@ class Streak
         }
 
         $this->type = $newType;
+    }
+
+    public function isPure(): bool
+    {
+        return $this->isPure;
+    }
+
+    public function markAsPure(): void
+    {
+        $this->isPure = true;
     }
 }
