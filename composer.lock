@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "78870fa14fd16abd488efb9167b98fb2",
+    "content-hash": "97fcb5dfa1d99bfc2416ce66df261eef",
     "packages": [
         {
             "name": "guzzlehttp/guzzle",
@@ -737,16 +737,16 @@
         },
         {
             "name": "stuartmcgill/sumoapi-php",
-            "version": "dev-main",
+            "version": "0.4.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/stuartmcgill/sumoapi-php.git",
-                "reference": "62493e458ee1938c88aa6b4ba98781484096dd49"
+                "reference": "ebc174351dbb26d115afcfb69ce05b9cec5e78bc"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/stuartmcgill/sumoapi-php/zipball/62493e458ee1938c88aa6b4ba98781484096dd49",
-                "reference": "62493e458ee1938c88aa6b4ba98781484096dd49",
+                "url": "https://api.github.com/repos/stuartmcgill/sumoapi-php/zipball/ebc174351dbb26d115afcfb69ce05b9cec5e78bc",
+                "reference": "ebc174351dbb26d115afcfb69ce05b9cec5e78bc",
                 "shasum": ""
             },
             "require": {
@@ -760,7 +760,6 @@
                 "phpstan/phpstan-mockery": "^1.1",
                 "phpunit/phpunit": "^10.0"
             },
-            "default-branch": true,
             "type": "library",
             "autoload": {
                 "psr-4": {
@@ -779,9 +778,9 @@
             "description": "A PHP wrapper for https://sumo-api.com/",
             "support": {
                 "issues": "https://github.com/stuartmcgill/sumoapi-php/issues",
-                "source": "https://github.com/stuartmcgill/sumoapi-php/tree/main"
+                "source": "https://github.com/stuartmcgill/sumoapi-php/tree/0.4.0"
             },
-            "time": "2023-05-08T20:49:27+00:00"
+            "time": "2023-05-13T20:26:44+00:00"
         },
         {
             "name": "symfony/console",
@@ -2287,16 +2286,16 @@
         },
         {
             "name": "phpunit/phpunit",
-            "version": "10.1.2",
+            "version": "10.1.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/phpunit.git",
-                "reference": "6f0cd95be71add539f8fd2be25b2a4a29789000b"
+                "reference": "2379ebafc1737e71cdc84f402acb6b7f04198b9d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/6f0cd95be71add539f8fd2be25b2a4a29789000b",
-                "reference": "6f0cd95be71add539f8fd2be25b2a4a29789000b",
+                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/2379ebafc1737e71cdc84f402acb6b7f04198b9d",
+                "reference": "2379ebafc1737e71cdc84f402acb6b7f04198b9d",
                 "shasum": ""
             },
             "require": {
@@ -2368,7 +2367,7 @@
             "support": {
                 "issues": "https://github.com/sebastianbergmann/phpunit/issues",
                 "security": "https://github.com/sebastianbergmann/phpunit/security/policy",
-                "source": "https://github.com/sebastianbergmann/phpunit/tree/10.1.2"
+                "source": "https://github.com/sebastianbergmann/phpunit/tree/10.1.3"
             },
             "funding": [
                 {
@@ -2384,7 +2383,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2023-04-22T07:38:19+00:00"
+            "time": "2023-05-11T05:16:22+00:00"
         },
         {
             "name": "sebastian/cli-parser",
@@ -3349,9 +3348,7 @@
     ],
     "aliases": [],
     "minimum-stability": "stable",
-    "stability-flags": {
-        "stuartmcgill/sumoapi-php": 20
-    },
+    "stability-flags": [],
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": {

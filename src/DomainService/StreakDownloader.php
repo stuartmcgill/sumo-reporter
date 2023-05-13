@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace StuartMcGill\SumoReporter\DomainService;
 
+use StuartMcGill\SumoApiPhp\Model\Rank;
 use StuartMcGill\SumoReporter\DomainService\Api\BashoService;
 use StuartMcGill\SumoReporter\Model\Basho;
 use StuartMcGill\SumoReporter\Model\BashoDate;
@@ -105,7 +106,10 @@ class StreakDownloader
                     return $a->length() > $b->length() ? -1 : 1;
                 }
 
-                return $a->wrestler->name < $b->wrestler->name ? -1 : 1;
+                $rankA = new Rank($a->wrestler->rank);
+                $rankB = new Rank($b->wrestler->rank);
+
+                return $rankA->isGreaterThan($rankB) ? -1 : 1;
             }
         );
     }

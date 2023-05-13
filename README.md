@@ -16,7 +16,7 @@ wrestler has fought
 ## Streaks
 
 ```
-src/run.php report:streaks [YYYY-MM]
+src/run.php report:streaks [YYYY-MM] [output.csv]
 ```
 
 If a date (e.g. 2023-03) is not supplied then the streaks will be calculated starting from the most recent (or
@@ -33,33 +33,32 @@ Downloading wrestler streaks...
 Winning
 -------
 
-+---------------+--------------------+---------+-------------+----------------+
-| Name          | Rank               | Type    | Streak size | Still active?  |
-+---------------+--------------------+---------+-------------+----------------+
-| Toshunryu     | Sandanme 24 West   | Winning | 9           |                |
-| Ichinojo      | Juryo 3 East       | Winning | 8           |                |
-| Kiribayama    | Sekiwake 2 East    | Winning | 8           |                |
-| Kiyonoumi     | Sandanme 80 East   | Winning | 8           |                |
-| Asahakuryu    | Jonokuchi 11 West  | Winning | 7           |                |
-| Ryuo          | Makushita 26 East  | Winning | 7           |                |
-| Suguro        | Jonidan 60 West    | Winning | 7           |                |
-| Fukai         | Makushita 40 West  | Winning | 6           |                |
-| Kazenoumi     | Jonidan 32 East    | Winning | 6           |                |
-| Kitanosho     | Jonidan 100 East   | Winning | 6           |                |
-| Takahashi     | Makushita 33 West  | Winning | 6           |                |
-| Takarafuji    | Maegashira 12 West | Winning | 6           |                |
-| Anzakura      | Jonidan 99 West    | Winning | 5           |                |
-| Gonoumi       | Jonokuchi 13 West  | Winning | 5           |                |
-| Gonowaka      | Jonidan 68 West    | Winning | 5           |                |
-| Hamasaki      | Jonidan 98 West    | Winning | 5           |                |
-| Kobayashi     | Jonokuchi 14 East  | Winning | 5           |                |
-| Kyokutaisei   | Sandanme 55 West   | Winning | 5           |                |
++---------------+--------------------+---------+-------------+--------------+
+| Name          | Rank               | Type    | Streak size | Unblemished? |
++---------------+--------------------+---------+-------------+--------------+
+| Toshunryu     | Sandanme 24 West   | Winning | 9           |              |
+| Kiribayama    | Sekiwake 2 East    | Winning | 8           |              |
+| Ichinojo      | Juryo 3 East       | Winning | 8           |              |
+| Kiyonoumi     | Sandanme 80 East   | Winning | 8           |              |
+| Ryuo          | Makushita 26 East  | Winning | 7           |              |
+| Suguro        | Jonidan 60 West    | Winning | 7           |              |
+| Asahakuryu    | Jonokuchi 11 West  | Winning | 7           | Yes          |
+| Takarafuji    | Maegashira 12 West | Winning | 6           |              |
+| Takahashi     | Makushita 33 West  | Winning | 6           |              |
+| Fukai         | Makushita 40 West  | Winning | 6           |              |
+| Kazenoumi     | Jonidan 32 East    | Winning | 6           |              |
+| Kitanosho     | Jonidan 100 East   | Winning | 6           |              |
+| Nabatame      | Makushita 24 West  | Winning | 5           |              |
+| Narutaki      | Makushita 29 East  | Winning | 5           |              |
+| Tokisoma      | Sandanme 29 West   | Winning | 5           |              |
+| Marusho       | Sandanme 42 East   | Winning | 5           |              |
+| Kyokutaisei   | Sandanme 55 West   | Winning | 5           |              |
 ```
 
 ## Makuuchi consecutive match tracker
 
 ``` 
-src/run.php report:consecutivematchtracker [YYYY-MM] [test.csv] [--covid-breaks-run]
+src/run.php report:consecutivematchtracker [YYYY-MM] [output.csv] [--covid-breaks-run]
 ```
 
 If a date (e.g. 2023-03) is not supplied then the tracker will be started from the most recent basho.

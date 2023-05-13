@@ -150,6 +150,7 @@ class StreakCompilation
 
             if (count($streaks) === 0) {
                 $this->cutOffStreak($activeStreak);
+                $activeStreak->markAsPure();
             }
         }
     }
