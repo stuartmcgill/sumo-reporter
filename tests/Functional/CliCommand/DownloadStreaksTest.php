@@ -23,11 +23,11 @@ class DownloadStreaksTest extends TestCase
 
         $output = $commandTester->getDisplay();
         $this->assertStringContainsString(
-            needle: '| Kiribayama    | Sekiwake 2 East    | Winning | 8           |',
+            needle: '| Kiribayama    | Sekiwake 2 East    | Winning | 8    |',
             haystack: $output,
         );
         $this->assertStringContainsString(
-            needle: '| Mitakeumi     | Maegashira 3 East  | Losing | 6           |',
+            needle: '| Mitakeumi     | Maegashira 3 East  | Losing | 6    |',
             haystack: $output,
         );
     }
