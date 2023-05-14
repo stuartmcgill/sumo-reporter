@@ -90,7 +90,7 @@ class DownloadStreaks extends Command
     {
         $table = new Table($output);
         $table
-            ->setHeaders(['Name', 'Rank', 'Type', 'Streak size', 'Unblemished?'])
+            ->setHeaders(['Name', 'Rank', 'Type', 'Size', 'Unblemished?'])
             ->setRows(array_map(
                 callback: static fn (Streak $streak) => [
                     $streak->wrestler->name,
@@ -121,16 +121,19 @@ class DownloadStreaks extends Command
     private function appendStreaksToCsvData(string $title, array $streaks): string
     {
         $data = "$title streaks\n";
-        $data .= "Name,Rank,Type,Streak size,Unblemished?\n";
+        $data .= "Name,Rank,Size,Unblemished?\n";
 
         foreach ($streaks as $streak) {
             $name = $streak->wrestler->name;
-            $rank = $streak->wrestler->rank;
-            $type = $streak->type()->name;
+            $rank = str_replace(
+                search: ' West',
+                replace: 'W',
+                subject: str_replace(' East', 'E', $streak->wrestler->rank)
+            );
             $length = $streak->length();
             $isPure = $streak->isPure() ? 'Yes' : '';
 
-            $data .= "$name,$rank,$type,$length,$isPure\n";
+            $data .= "$name,$rank,$length,$isPure\n";
         }
 
         return $data;
