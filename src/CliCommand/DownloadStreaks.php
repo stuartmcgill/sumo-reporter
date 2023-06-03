@@ -22,8 +22,15 @@ use Symfony\Component\Console\Style\SymfonyStyle;
 )]
 class DownloadStreaks extends Command
 {
-    public function __construct(private readonly StreakDownloader $streakDownloader)
-    {
+    private string $dataDir;
+
+    /** @param array<string, mixed> $config */
+    public function __construct(
+        private readonly StreakDownloader $streakDownloader,
+        array $config,
+    ) {
+        $this->dataDir =  $config['dataDir'];
+
         parent::__construct();
     }
 
@@ -72,7 +79,7 @@ class DownloadStreaks extends Command
             return Command::SUCCESS;
         }
 
-        $fullPath = __DIR__ . '/../../data/' . $filename;
+        $fullPath = "$this->dataDir/$filename";
 
         if (
             !$this->saveStreaks(

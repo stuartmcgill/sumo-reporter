@@ -26,11 +26,13 @@ class ConsecutiveTrackerProvider extends AbstractServiceProvider
         $this->rikishiMatchFactory = new RikishiMatchFactory();
     }
 
+    /** @param array <string, mixed> $configOverrides */
     public function getTrackConsecutiveMatchesCliCommand(
         int $rikishiId,
         string $rikishiName,
+        array $configOverrides = [],
     ): TrackConsecutiveMatches {
-        $serviceManager = self::initServiceManager();
+        $serviceManager = self::initServiceManager($configOverrides);
         $serviceManager->setService(
             ConsecutiveMatchTracker::class,
             self::getConsecutiveMatchTracker($rikishiId, $rikishiName),

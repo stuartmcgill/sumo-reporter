@@ -4,6 +4,8 @@ declare(strict_types=1);
 
 namespace StuartMcGill\SumoReporter\Tests\Functional\CliCommand;
 
+use org\bovigo\vfs\vfsStream;
+use org\bovigo\vfs\vfsStreamDirectory;
 use PHPUnit\Framework\Attributes\Test;
 use PHPUnit\Framework\TestCase;
 use StuartMcGill\SumoReporter\Tests\Functional\Support\StreakDownloaderProvider;
@@ -12,6 +14,13 @@ use Symfony\Component\Console\Tester\CommandTester;
 
 class DownloadStreaksTest extends TestCase
 {
+    private vfsStreamDirectory $root;
+
+    public function setUp(): void
+    {
+        $this->root = vfsStream::setup('data');
+    }
+
     #[Test]
     public function download(): void
     {
@@ -37,17 +46,17 @@ class DownloadStreaksTest extends TestCase
     public function filename(): void
     {
         $serviceProvider = new StreakDownloaderProvider();
-        $downloadStreaks = $serviceProvider->getDownloadStreaksCliCommandForMarch2023();
+        $downloadStreaks = $serviceProvider->getDownloadStreaksCliCommandForMarch2023(
+            ['dataDir' => (vfsStream::url('data'))]
+        );
         $commandTester = new CommandTester($downloadStreaks);
+        $commandTester->execute(['date' => '2023-03', 'filename' => 'streaks.csv']);
 
-        $filename = '/../tests/_output/streaks.csv';
-        $commandTester->execute(['date' => '2023-03', 'filename' => $filename]);
         $commandTester->assertCommandIsSuccessful();
-
-        $output = $commandTester->getDisplay();
+        $this->assertTrue($this->root->hasChild('streaks.csv'));
         $this->assertStringContainsString(
             needle: 'Successfully saved to ',
-            haystack: $output,
+            haystack: $commandTester->getDisplay(),
         );
     }
 
@@ -60,12 +69,13 @@ class DownloadStreaksTest extends TestCase
 
         $filename = '/non_existent_directory/streaks.csv';
         $commandTester->execute(['date' => '2023-03', 'filename' => $filename]);
-        $this->assertSame(Command::FAILURE, $commandTester->getStatusCode());
 
-        $output = $commandTester->getDisplay();
+        $this->assertSame(Command::FAILURE, $commandTester->getStatusCode());
+        $this->assertFalse($this->root->hasChild('streaks.csv'));
+
         $this->assertStringContainsString(
             needle: 'Unable to save results',
-            haystack: $output,
+            haystack: $commandTester->getDisplay(),
         );
     }
 }

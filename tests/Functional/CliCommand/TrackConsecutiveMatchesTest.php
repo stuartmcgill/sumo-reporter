@@ -6,6 +6,8 @@ namespace StuartMcGill\SumoReporter\Tests\Functional\CliCommand;
 
 use Mockery;
 use Mockery\Adapter\Phpunit\MockeryPHPUnitIntegration;
+use org\bovigo\vfs\vfsStream;
+use org\bovigo\vfs\vfsStreamDirectory;
 use PHPUnit\Framework\Attributes\Test;
 use PHPUnit\Framework\TestCase;
 use StuartMcGill\SumoReporter\CliCommand\TrackConsecutiveMatches;
@@ -17,6 +19,13 @@ use Symfony\Component\Console\Tester\CommandTester;
 class TrackConsecutiveMatchesTest extends TestCase
 {
     use MockeryPHPUnitIntegration;
+
+    private vfsStreamDirectory $root;
+
+    public function setUp(): void
+    {
+        $this->root = vfsStream::setup('data');
+    }
 
     #[Test]
     public function withCovidExemptions(): void
@@ -65,17 +74,18 @@ class TrackConsecutiveMatchesTest extends TestCase
         $trackCommand = $serviceProvider->getTrackConsecutiveMatchesCliCommand(
             rikishiId: 14,
             rikishiName: 'Tamawashi',
+            configOverrides: ['dataDir' => (vfsStream::url('data'))],
         );
         $commandTester = new CommandTester($trackCommand);
+        $commandTester->execute(['filename' => 'tamawashi.csv']);
 
-        $filename = '/../tests/_output/tamawashi.csv';
-        $commandTester->execute(['filename' => $filename]);
         $commandTester->assertCommandIsSuccessful();
 
-        $output = $commandTester->getDisplay();
+        $children = $this->root->getChildren();
+        $this->assertTrue($this->root->hasChild('tamawashi.csv'));
         $this->assertStringContainsString(
             needle: 'Successfully saved to ',
-            haystack: $output,
+            haystack: $commandTester->getDisplay(),
         );
     }
 
@@ -83,7 +93,8 @@ class TrackConsecutiveMatchesTest extends TestCase
     public function invalidDate(): void
     {
         $trackCommand = new TrackConsecutiveMatches(
-            Mockery::mock(ConsecutiveMatchTracker::class)
+            Mockery::mock(ConsecutiveMatchTracker::class),
+            ['dataDir' => ''],
         );
         $commandTester = new CommandTester($trackCommand);
 

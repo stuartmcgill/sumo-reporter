@@ -20,12 +20,14 @@ class StreakDownloaderProvider extends AbstractServiceProvider
         return $serviceManager->get(StreakDownloader::class);
     }
 
-    public function getDownloadStreaksCliCommandForMarch2023(): DownloadStreaks
-    {
-        $serviceManager = self::initServiceManager();
+    /** @param array <string, mixed> $configOverrides */
+    public function getDownloadStreaksCliCommandForMarch2023(
+        array $configOverrides = []
+    ): DownloadStreaks {
+        $serviceManager = self::initServiceManager($configOverrides);
         $serviceManager->setService(
             StreakDownloader::class,
-            self::getStreakDownloaderForMarch2023()
+            self::getStreakDownloaderForMarch2023(),
         );
 
         return $serviceManager->get(DownloadStreaks::class);
