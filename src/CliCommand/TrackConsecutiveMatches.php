@@ -22,8 +22,15 @@ use Symfony\Component\Console\Style\SymfonyStyle;
 )]
 class TrackConsecutiveMatches extends Command
 {
-    public function __construct(private readonly ConsecutiveMatchTracker $consecutiveMatchTracker)
-    {
+    private string $dataDir;
+
+    /** @param array<string, mixed> $config */
+    public function __construct(
+        private readonly ConsecutiveMatchTracker $consecutiveMatchTracker,
+        array $config,
+    ) {
+        $this->dataDir =  $config['dataDir'];
+
         parent::__construct();
     }
 
@@ -85,7 +92,7 @@ class TrackConsecutiveMatches extends Command
             return Command::SUCCESS;
         }
 
-        $fullPath = __DIR__ . '/../../data/' . $filename;
+        $fullPath = "$this->dataDir/$filename";
 
         $this->saveConsecutiveMatches(
             runs: $consecutiveMatches,

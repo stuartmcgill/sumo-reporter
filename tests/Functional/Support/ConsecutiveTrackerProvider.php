@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace StuartMcGill\SumoReporter\Tests\Functional\Support;
 
+use Laminas\ServiceManager\ServiceManager;
 use Mockery;
 use stdClass;
 use StuartMcGill\SumoApiPhp\Factory\RikishiFactory;
@@ -19,41 +20,39 @@ class ConsecutiveTrackerProvider extends AbstractServiceProvider
 {
     private readonly RikishiFactory $rikishiFactory;
     private readonly RikishiMatchFactory $rikishiMatchFactory;
+    private readonly ServiceManager $serviceManager;
 
-    public function __construct()
+    /** @param array <string, mixed> $configOverrides */
+    public function __construct(private readonly array $configOverrides = [])
     {
         $this->rikishiFactory = new RikishiFactory();
         $this->rikishiMatchFactory = new RikishiMatchFactory();
+        $this->serviceManager = self::initServiceManager($this->configOverrides);
     }
 
     public function getTrackConsecutiveMatchesCliCommand(
         int $rikishiId,
         string $rikishiName,
     ): TrackConsecutiveMatches {
-        $serviceManager = self::initServiceManager();
-        $serviceManager->setService(
-            ConsecutiveMatchTracker::class,
-            self::getConsecutiveMatchTracker($rikishiId, $rikishiName),
-        );
+        self::getConsecutiveMatchTracker($rikishiId, $rikishiName);
 
-        return $serviceManager->get(TrackConsecutiveMatches::class);
+        return $this->serviceManager->get(TrackConsecutiveMatches::class);
     }
 
     public function getConsecutiveMatchTracker(
         int $rikishiId,
         string $rikishiName
     ): ConsecutiveMatchTracker {
-        $serviceManager = self::initServiceManager();
-        $serviceManager->setService(
+        $this->serviceManager->setService(
             RikishiService::class,
             self::mockRikishiService($rikishiName)
         );
-        $serviceManager->setService(
+        $this->serviceManager->setService(
             BashoService::class,
             self::mockBashoService($rikishiId)
         );
 
-        return $serviceManager->get(ConsecutiveMatchTracker::class);
+        return $this->serviceManager->get(ConsecutiveMatchTracker::class);
     }
 
     private function mockRikishiService(string $wrestler): RikishiService

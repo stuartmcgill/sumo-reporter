@@ -9,12 +9,13 @@ use Laminas\ServiceManager\ServiceManager;
 
 class AbstractServiceProvider
 {
-    protected function initServiceManager(): ServiceManager
+    /** @param array <string, mixed> $configOverrides */
+    protected function initServiceManager(array $configOverrides = []): ServiceManager
     {
         $serviceManager = new ServiceManager();
         $serviceManager->addAbstractFactory(new ReflectionBasedAbstractFactory());
 
-        $config = include __DIR__ . '/../../../config/config.php';
+        $config = array_merge(include __DIR__ . '/../../../config/config.php', $configOverrides);
         $serviceManager->setService('config', $config);
 
         return $serviceManager;

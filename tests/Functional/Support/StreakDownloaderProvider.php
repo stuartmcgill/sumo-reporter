@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace StuartMcGill\SumoReporter\Tests\Functional\Support;
 
+use Laminas\ServiceManager\ServiceManager;
 use Mockery;
 use stdClass;
 use StuartMcGill\SumoReporter\CliCommand\DownloadStreaks;
@@ -12,23 +13,26 @@ use StuartMcGill\SumoReporter\DomainService\StreakDownloader;
 
 class StreakDownloaderProvider extends AbstractServiceProvider
 {
+    private readonly ServiceManager $serviceManager;
+
+    /** @param array <string, mixed> $configOverrides */
+    public function __construct(private readonly array $configOverrides = [])
+    {
+        $this->serviceManager = self::initServiceManager($this->configOverrides);
+    }
+
     public function getStreakDownloaderForMarch2023(): StreakDownloader
     {
-        $serviceManager = $this->initServiceManager();
-        $serviceManager->setService(BashoService::class, self::mockBashoService());
+        $this->serviceManager->setService(BashoService::class, self::mockBashoService());
 
-        return $serviceManager->get(StreakDownloader::class);
+        return $this->serviceManager->get(StreakDownloader::class);
     }
 
     public function getDownloadStreaksCliCommandForMarch2023(): DownloadStreaks
     {
-        $serviceManager = self::initServiceManager();
-        $serviceManager->setService(
-            StreakDownloader::class,
-            self::getStreakDownloaderForMarch2023()
-        );
+        self::getStreakDownloaderForMarch2023();
 
-        return $serviceManager->get(DownloadStreaks::class);
+        return $this->serviceManager->get(DownloadStreaks::class);
     }
 
     public function mockBashoService(): BashoService

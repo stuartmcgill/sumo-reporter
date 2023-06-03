@@ -22,8 +22,15 @@ use Symfony\Component\Console\Style\SymfonyStyle;
 )]
 class DownloadStreaks extends Command
 {
-    public function __construct(private readonly StreakDownloader $streakDownloader)
-    {
+    private string $dataDir;
+
+    /** @param array<string, mixed> $config */
+    public function __construct(
+        private readonly StreakDownloader $streakDownloader,
+        array $config,
+    ) {
+        $this->dataDir =  $config['dataDir'];
+
         parent::__construct();
     }
 
@@ -72,13 +79,19 @@ class DownloadStreaks extends Command
             return Command::SUCCESS;
         }
 
-        $fullPath = __DIR__ . '/../../data/' . $filename;
+        $fullPath = "$this->dataDir/$filename";
 
-        $this->saveStreaks(
-            winning: $winning,
-            losing: $losing,
-            filename: $fullPath,
-        );
+        if (
+            !$this->saveStreaks(
+                winning: $winning,
+                losing: $losing,
+                filename: $fullPath,
+            )
+        ) {
+            $io->error("Unable to save results to $fullPath\n");
+
+            return Command::FAILURE;
+        }
 
         $io->success("Successfully saved to $fullPath\n");
 
@@ -108,13 +121,13 @@ class DownloadStreaks extends Command
      * @param list<Streak> $winning
      * @param list<Streak> $losing
      */
-    private function saveStreaks(array $winning, array $losing, string $filename): void
+    private function saveStreaks(array $winning, array $losing, string $filename): bool
     {
         $data = $this->appendStreaksToCsvData('Winning', $winning);
         $data .= "\n";
         $data .= $this->appendStreaksToCsvData('Losing', $losing);
 
-        file_put_contents(filename: $filename, data: $data);
+        return file_put_contents(filename: $filename, data: $data) !== false;
     }
 
     /** @param list<Streak> $streaks */
