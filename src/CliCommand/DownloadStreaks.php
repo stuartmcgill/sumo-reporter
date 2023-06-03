@@ -74,11 +74,15 @@ class DownloadStreaks extends Command
 
         $fullPath = __DIR__ . '/../../data/' . $filename;
 
-        $this->saveStreaks(
+        if (!$this->saveStreaks(
             winning: $winning,
             losing: $losing,
             filename: $fullPath,
-        );
+        )) {
+            $io->error("Unable to save results to $fullPath\n");
+
+            return Command::FAILURE;
+        }
 
         $io->success("Successfully saved to $fullPath\n");
 
@@ -108,13 +112,13 @@ class DownloadStreaks extends Command
      * @param list<Streak> $winning
      * @param list<Streak> $losing
      */
-    private function saveStreaks(array $winning, array $losing, string $filename): void
+    private function saveStreaks(array $winning, array $losing, string $filename): bool
     {
         $data = $this->appendStreaksToCsvData('Winning', $winning);
         $data .= "\n";
         $data .= $this->appendStreaksToCsvData('Losing', $losing);
 
-        file_put_contents(filename: $filename, data: $data);
+        return file_put_contents(filename: $filename, data: $data) !== false;
     }
 
     /** @param list<Streak> $streaks */
