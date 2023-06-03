@@ -45,10 +45,10 @@ class DownloadStreaksTest extends TestCase
     #[Test]
     public function filename(): void
     {
-        $serviceProvider = new StreakDownloaderProvider();
-        $downloadStreaks = $serviceProvider->getDownloadStreaksCliCommandForMarch2023(
-            ['dataDir' => (vfsStream::url('data'))]
+        $serviceProvider = new StreakDownloaderProvider(
+            configOverrides: ['dataDir' => (vfsStream::url('data'))]
         );
+        $downloadStreaks = $serviceProvider->getDownloadStreaksCliCommandForMarch2023();
         $commandTester = new CommandTester($downloadStreaks);
         $commandTester->execute(['date' => '2023-03', 'filename' => 'streaks.csv']);
 
