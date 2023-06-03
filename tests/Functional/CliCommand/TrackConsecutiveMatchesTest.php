@@ -70,7 +70,9 @@ class TrackConsecutiveMatchesTest extends TestCase
     #[Test]
     public function filename(): void
     {
-        $serviceProvider = new ConsecutiveTrackerProvider(configOverrides: ['dataDir' => (vfsStream::url('data'))]);
+        $serviceProvider = new ConsecutiveTrackerProvider(
+            configOverrides: ['dataDir' => (vfsStream::url('data'))],
+        );
         $trackCommand = $serviceProvider->getTrackConsecutiveMatchesCliCommand(
             rikishiId: 14,
             rikishiName: 'Tamawashi',
