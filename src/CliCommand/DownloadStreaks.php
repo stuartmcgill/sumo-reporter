@@ -74,11 +74,13 @@ class DownloadStreaks extends Command
 
         $fullPath = __DIR__ . '/../../data/' . $filename;
 
-        if (!$this->saveStreaks(
-            winning: $winning,
-            losing: $losing,
-            filename: $fullPath,
-        )) {
+        if (
+            !$this->saveStreaks(
+                winning: $winning,
+                losing: $losing,
+                filename: $fullPath,
+            )
+        ) {
             $io->error("Unable to save results to $fullPath\n");
 
             return Command::FAILURE;
