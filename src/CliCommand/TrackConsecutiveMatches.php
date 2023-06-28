@@ -137,11 +137,13 @@ class TrackConsecutiveMatches extends Command
 
         foreach ($runs as $run) {
             $name = $run->rikishi->shikonaEn;
+            $sumoDbId = $run->rikishi->sumoDbId;
+            $link = "<a href=\"https://sumodb.sumogames.de/Rikishi.aspx?r=$sumoDbId\">$name</a>";
             $currentRank = $run->rikishi->currentRank;
             $size = $run->size();
             $startDate = $run->startDate();
 
-            $data .= "$name,$size,$startDate,$currentRank\n";
+            $data .= "$link,$size,$startDate,$currentRank\n";
         }
 
         file_put_contents(filename: $filename, data: $data);
