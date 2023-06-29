@@ -16,11 +16,16 @@ class Performance
     ) {
     }
 
+    public function totalBouts(): int
+    {
+        return $this->wins + $this->losses + $this->absences;
+    }
+
     public function calculateStreak(): Streak
     {
         $results = array_reverse($this->opponentResults);
 
-        if ($this->wins === 0 && $this->losses === 0 && $this->absences === 0 && count($this->opponentResults) === 15) {
+        if ($this->totalBouts() === 0 && count($this->opponentResults) === 15) {
             return new Streak(
                 wrestler: $this->wrestler,
                 type: StreakType::NoBoutScheduled,

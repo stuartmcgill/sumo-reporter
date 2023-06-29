@@ -18,6 +18,20 @@ use StuartMcGill\SumoReporter\Tests\Unit\Support\Generator;
 
 class PerformanceTest extends TestCase
 {
+    #[Test]
+    public function totalBouts(): void
+    {
+        $performance = new Performance(
+            wrestler: Generator::wrestler(),
+            wins: 1,
+            losses: 2,
+            absences: 4,
+            opponentResults: [],
+        );
+
+        $this->assertSame(7, $performance->totalBouts());
+    }
+
     /**
      * @param list<Result> $results
      * @param array<string, int> $summary
