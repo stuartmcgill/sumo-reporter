@@ -27,8 +27,9 @@ class Performance
     {
         $results = array_reverse($this->opponentResults);
 
-        $rank = new Rank($this->wrestler->rank);
-        if ($this->totalBouts() === 0 && count($this->opponentResults) === $rank->matchesPerBasho()) {
+        // Sometimes the API returns a full set of 'NoBoutScheduled' results for a retired wrestler
+        // We don't want to create an open streak and go on to the previous
+        if ($this->isIntaiButWithBoutsReturned()) {
             return new Streak(
                 wrestler: $this->wrestler,
                 type: StreakType::NoBoutScheduled,
@@ -76,6 +77,14 @@ class Performance
             length: $index - $numDaysWithoutScheduledBouts,
             isOpen: $this->isStreakOpen(),
         );
+    }
+
+    private function isIntaiButWithBoutsReturned(): bool
+    {
+        $rank = new Rank($this->wrestler->rank);
+
+        return $this->totalBouts() === 0
+            && count($this->opponentResults) === $rank->matchesPerBasho();
     }
 
     private function isStreakOpen(): bool
