@@ -251,7 +251,7 @@ class PerformanceTest extends TestCase
                 'absences' => 0,
             ],
             results: array_fill(start_index: 0, count: 15, value: Result::NoBoutScheduled),
-            wrestler: Generator::wrestler(id: 1, name: 'Octofuji'),
+            wrestler: Generator::wrestler(rank: 'Maegashira 1 East'),
         );
 
         $streak = $performance->calculateStreak();

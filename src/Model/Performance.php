@@ -4,6 +4,8 @@ declare(strict_types=1);
 
 namespace StuartMcGill\SumoReporter\Model;
 
+use StuartMcGill\SumoApiPhp\Model\Rank;
+
 class Performance
 {
     /** @param list<OpponentResult> $opponentResults */
@@ -25,7 +27,8 @@ class Performance
     {
         $results = array_reverse($this->opponentResults);
 
-        if ($this->totalBouts() === 0 && count($this->opponentResults) === 15) {
+        $rank = new Rank($this->wrestler->rank);
+        if ($this->totalBouts() === 0 && count($this->opponentResults) === $rank->matchesPerBasho()) {
             return new Streak(
                 wrestler: $this->wrestler,
                 type: StreakType::NoBoutScheduled,
