@@ -4,6 +4,8 @@ declare(strict_types=1);
 
 namespace StuartMcGill\SumoReporter\Model;
 
+use StuartMcGill\SumoApiPhp\Model\Rank;
+
 class Performance
 {
     /** @param list<OpponentResult> $opponentResults */
@@ -16,9 +18,25 @@ class Performance
     ) {
     }
 
+    public function totalBouts(): int
+    {
+        return $this->wins + $this->losses + $this->absences;
+    }
+
     public function calculateStreak(): Streak
     {
         $results = array_reverse($this->opponentResults);
+
+        // Sometimes the API returns a full set of 'NoBoutScheduled' results for a retired wrestler
+        // We don't want to create an open streak and go on to the previous
+        if ($this->isIntaiButWithBoutsReturned()) {
+            return new Streak(
+                wrestler: $this->wrestler,
+                type: StreakType::NoBoutScheduled,
+                length: 0,
+                isOpen: false,
+            );
+        }
 
         if ($this->areAllDaysSoFarNonScheduled($results)) {
             return new Streak(
@@ -59,6 +77,14 @@ class Performance
             length: $index - $numDaysWithoutScheduledBouts,
             isOpen: $this->isStreakOpen(),
         );
+    }
+
+    private function isIntaiButWithBoutsReturned(): bool
+    {
+        $rank = new Rank($this->wrestler->rank);
+
+        return $this->totalBouts() === 0
+            && count($this->opponentResults) === $rank->matchesPerBasho();
     }
 
     private function isStreakOpen(): bool
