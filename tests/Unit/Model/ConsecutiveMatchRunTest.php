@@ -62,13 +62,14 @@ class ConsecutiveMatchRunTest extends TestCase
     }
 
     #[Test]
-    public function sizePromotedFromJuryoLastBasho(): void
+    public function sizeZeroForJuryoPromotees(): void
     {
-        $matches = $this->generateBashoMatches(bashoId: '202301');
-        $matches[] = $this->generateMatch(day: 15, bashoId: '202301', eastRank: 'Juryo 1 East');
+        $matches = [
+            $this->generateMatch(day: 15, division: 'Juryo'),
+        ];
 
         $run = $this->createRun($matches);
-        $this->assertSame(15, $run->size());
+        $this->assertSame(0, $run->size());
     }
 
     #[Test]
@@ -83,6 +84,21 @@ class ConsecutiveMatchRunTest extends TestCase
 
     #[Test]
     public function sizeWhenJuryoWrestlerHasDay15MakuuchiMatch(): void
+    {
+        $matches = $this->generateBashoMatches(bashoId: '202301');
+        $matches[] = $this->generateMatch(
+            day: 15,
+            eastRank: 'Juryo 1 East',
+            division: 'Makuuchi',
+            bashoId: '202301',
+        );
+
+        $run = $this->createRun($matches);
+        $this->assertSame(15, $run->size());
+    }
+
+    #[Test]
+    public function sizeForJuryoPromotee(): void
     {
         $matches = $this->generateBashoMatches(bashoId: '202301');
         $matches[] = $this->generateMatch(
