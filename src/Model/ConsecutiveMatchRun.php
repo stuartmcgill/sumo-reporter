@@ -52,6 +52,10 @@ class ConsecutiveMatchRun
             return 0;
         }
 
+        if ($lastMatch->division !== 'Makuuchi') {
+            return 0;
+        }
+
         $size = 1;
 
         foreach ($matches as $match) {
