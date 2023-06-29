@@ -62,7 +62,7 @@ class ConsecutiveMatchRunTest extends TestCase
     }
 
     #[Test]
-    public function sizeZeroForJuryoPromotees(): void
+    public function sizeZeroForJuryoPromotee(): void
     {
         $matches = [
             $this->generateMatch(day: 15, division: 'Juryo'),
@@ -70,6 +70,21 @@ class ConsecutiveMatchRunTest extends TestCase
 
         $run = $this->createRun($matches);
         $this->assertSame(0, $run->size());
+    }
+
+    #[Test]
+    public function sizePromotedFromJuryoLastBasho(): void
+    {
+        $matches = $this->generateBashoMatches(bashoId: '202301');
+        $matches[] = $this->generateMatch(
+            day: 15,
+            bashoId: '202301',
+            division: 'Makuuchi',
+            eastRank: 'Juryo 1 East',
+        );
+
+        $run = $this->createRun($matches);
+        $this->assertSame(15, $run->size());
     }
 
     #[Test]
@@ -88,24 +103,9 @@ class ConsecutiveMatchRunTest extends TestCase
         $matches = $this->generateBashoMatches(bashoId: '202301');
         $matches[] = $this->generateMatch(
             day: 15,
-            eastRank: 'Juryo 1 East',
-            division: 'Makuuchi',
             bashoId: '202301',
-        );
-
-        $run = $this->createRun($matches);
-        $this->assertSame(15, $run->size());
-    }
-
-    #[Test]
-    public function sizeForJuryoPromotee(): void
-    {
-        $matches = $this->generateBashoMatches(bashoId: '202301');
-        $matches[] = $this->generateMatch(
-            day: 15,
-            eastRank: 'Juryo 1 East',
             division: 'Makuuchi',
-            bashoId: '202301',
+            eastRank: 'Juryo 1 East',
         );
 
         $run = $this->createRun($matches);
