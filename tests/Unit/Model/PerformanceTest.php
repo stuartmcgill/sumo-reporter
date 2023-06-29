@@ -222,6 +222,31 @@ class PerformanceTest extends TestCase
         $this->assertSame(false, $streak->isOpen());
     }
 
+    #[Test]
+    /**
+     * Sometimes the API returns a full set of 'NoBoutScheduled' results for a retired wrestler
+     * e.g. Ichinojo 2023-05. We don't want to create an open streak and go on to the previous
+     * basho.
+     */
+    public function calculateStreakIntaiStreaksAreClosed(): void
+    {
+        $performance = $this->createPerformance(
+            summary: [
+                'wins' => 0,
+                'losses' => 0,
+                'absences' => 0,
+            ],
+            results: array_fill(start_index: 0, count: 15, value: Result::NoBoutScheduled),
+            wrestler: Generator::wrestler(id: 1, name: 'Octofuji'),
+        );
+
+        $streak = $performance->calculateStreak();
+
+        $this->assertSame(StreakType::NoBoutScheduled, $streak->type());
+        $this->assertSame(0, $streak->length());
+        $this->assertSame(false, $streak->isOpen());
+    }
+
     /** @return array<string, mixed> */
     public static function noStreakProvider(): array
     {
@@ -250,7 +275,7 @@ class PerformanceTest extends TestCase
                     'absences' => 1,
                 ],
             ],
-            'Intai e.g. Kaisei 2022-09' => [
+            'Intai where API returns no matches e.g. Kaisei 2022-09' => [
                 'results' => [],
                 'summary' => [
                     'wins' => 0,

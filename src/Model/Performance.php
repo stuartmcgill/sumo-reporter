@@ -20,6 +20,15 @@ class Performance
     {
         $results = array_reverse($this->opponentResults);
 
+        if ($this->wins === 0 && $this->losses === 0 && $this->absences === 0 && count($this->opponentResults) === 15) {
+            return new Streak(
+                wrestler: $this->wrestler,
+                type: StreakType::NoBoutScheduled,
+                length: 0,
+                isOpen: false,
+            );
+        }
+
         if ($this->areAllDaysSoFarNonScheduled($results)) {
             return new Streak(
                 wrestler: $this->wrestler,
