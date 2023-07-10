@@ -11,6 +11,12 @@ a row, which may of course stretch across successive bashos
 - Makuuchi consecutive match tracker i.e. how many successive bouts (regardless of win or loss) each
 wrestler has fought
 
+# Dependencies
+
+_Sumo reporter_ is a [Symfony Console](https://symfony.com/doc/current/components/console.html) app
+and uses [Laminas Service Manager](https://docs.laminas.dev/laminas-servicemanager/) for dependency
+injection (in particular the [Reflection-based Abstract Factory](https://docs.laminas.dev/laminas-servicemanager/reflection-abstract-factory/)).
+
 # Usage
 
 ## Streaks
@@ -22,7 +28,9 @@ src/run.php report:streaks [YYYY-MM] [output.csv]
 If a date (e.g. 2023-03) is not supplied then the streaks will be calculated starting from the most recent (or
 in-progress) basho.
 
-# Sample output
+This report is used to maintain the Sumo Forum [winning and losing streaks](http://www.sumoforum.net/forums/topic/42758-winning-and-losing-streaks/) thread.
+
+### Sample output
 
 ```
  src/run.php report:streaks
@@ -67,7 +75,9 @@ If the `--covid-breaks-run` option is set then COVID-enforced kyujos will cause 
 default behaviour (i.e. with no option set) is to ignore COVID-enforced kyujos and allow the run to
 continue.
 
-# Sample output
+This report is used to maintain the Sumo Forum [Makuuchi consecutive match tracker](http://www.sumoforum.net/forums/topic/36454-makuuchi-consecutive-match-tracker/?page=3) thread.
+
+### Sample output
 
 ```
  src/run.php report:consecutivematchtracker 2023-03
