@@ -17,13 +17,6 @@ _Sumo reporter_ is a [Symfony Console](https://symfony.com/doc/current/component
 and uses [Laminas Service Manager](https://docs.laminas.dev/laminas-servicemanager/) for dependency
 injection (in particular the [Reflection-based Abstract Factory](https://docs.laminas.dev/laminas-servicemanager/reflection-abstract-factory/)).
 
-The following testing and code quality tools are used:
-
-- PHPUnit/Mockery
-- `phpcs`
-- PHPStan
-- `parallel-lint`
-
 # Usage
 
 ## Streaks
