@@ -40,6 +40,13 @@ class ConsecutiveMatchTracker
                     => $match->bashoId <= $bashoDate->format('Ym')
             ));
 
+            $missedBashoChecker = new MissedBashoChecker($bashoDate, $matches);
+            if ($missedBashoChecker->wasBashoMissed()) {
+                $runs[] = new ConsecutiveMatchRun($rikishi, []);
+
+                continue;
+            }
+
             $runs[] = new ConsecutiveMatchRun($rikishi, $matches);
         }
 

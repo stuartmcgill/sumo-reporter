@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace StuartMcGill\SumoReporter\Tests\Unit\DomainService;
+namespace DomainService\MatchTracker;
 
 use DateTime;
 use Mockery;
@@ -67,7 +67,7 @@ class ConsecutiveMatchTrackerTest extends TestCase
         );
 
         $this->rikishiService->expects('fetchMatches')->with(1)->andReturn(
-            [$this->generateMatch(15)]
+            [$this->generateMatch(day: 15, bashoId: '202303')]
         );
 
         $runs = $this->tracker->calculate(new BashoDate(2023, 5));
@@ -102,7 +102,7 @@ class ConsecutiveMatchTrackerTest extends TestCase
         );
 
         $this->rikishiService->expects('fetchMatches')->with(1)->andReturn(
-            $this->generateBashoMatches('202305')
+            $this->generateBashoMatches('202303')
         );
 
         $runs = $this->tracker->calculate(new BashoDate(2023, 7));
@@ -136,7 +136,7 @@ class ConsecutiveMatchTrackerTest extends TestCase
         );
     }
 
-    /** @return list<RikishiMatch> */
+    /** @return RikishiMatch */
     private function generateBashoMatches(?string $bashoId = '202303'): array
     {
         $matches = [];
