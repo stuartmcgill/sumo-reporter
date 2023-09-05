@@ -12,7 +12,7 @@ use StuartMcGill\SumoReporter\Tests\Helpers\MatchGenerator;
 
 class MissedBashoCheckerTest extends TestCase
 {
-    private readonly MatchGenerator $matchGenerator;
+    private MatchGenerator $matchGenerator;
 
     public function setUp(): void
     {

@@ -22,10 +22,10 @@ class ConsecutiveMatchTrackerTest extends TestCase
 {
     use MockeryPHPUnitIntegration;
 
-    private readonly MockInterface | RikishiService $rikishiService;
-    private readonly MockInterface | BashoService $bashoService;
-    private readonly MockInterface | ConsecutiveMatchTracker $tracker;
-    private readonly MatchGenerator $matchGenerator;
+    private MockInterface|RikishiService $rikishiService;
+    private MockInterface|BashoService $bashoService;
+    private MockInterface|ConsecutiveMatchTracker $tracker;
+    private MatchGenerator $matchGenerator;
 
     public function setUp(): void
     {

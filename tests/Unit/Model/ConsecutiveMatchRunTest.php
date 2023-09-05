@@ -14,7 +14,7 @@ use StuartMcGill\SumoReporter\Tests\Helpers\MatchGenerator;
 
 class ConsecutiveMatchRunTest extends TestCase
 {
-    private readonly MatchGenerator $matchGenerator;
+    private MatchGenerator $matchGenerator;
 
     public function setUp(): void
     {
