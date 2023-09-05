@@ -11,12 +11,12 @@ use Mockery\MockInterface;
 use PHPUnit\Framework\Attributes\Test;
 use PHPUnit\Framework\TestCase;
 use StuartMcGill\SumoApiPhp\Model\Rikishi;
-use StuartMcGill\SumoApiPhp\Model\RikishiMatch;
 use StuartMcGill\SumoApiPhp\Service\BashoService;
 use StuartMcGill\SumoApiPhp\Service\RikishiService;
 use StuartMcGill\SumoReporter\DomainService\MatchTracker\ConsecutiveMatchTracker;
 use StuartMcGill\SumoReporter\DomainService\MatchTracker\CovidAdjuster;
 use StuartMcGill\SumoReporter\Model\BashoDate;
+use StuartMcGill\SumoReporter\Tests\Helpers\MatchGenerator;
 
 class ConsecutiveMatchTrackerTest extends TestCase
 {
@@ -25,9 +25,11 @@ class ConsecutiveMatchTrackerTest extends TestCase
     private readonly MockInterface | RikishiService $rikishiService;
     private readonly MockInterface | BashoService $bashoService;
     private readonly MockInterface | ConsecutiveMatchTracker $tracker;
+    private readonly MatchGenerator $matchGenerator;
 
     public function setUp(): void
     {
+        $this->matchGenerator = new MatchGenerator();
         $this->rikishiService = Mockery::mock(RikishiService::class);
         $this->bashoService = Mockery::mock(BashoService::class);
 
@@ -67,7 +69,7 @@ class ConsecutiveMatchTrackerTest extends TestCase
         );
 
         $this->rikishiService->expects('fetchMatches')->with(1)->andReturn(
-            [$this->generateMatch(day: 15, bashoId: '202303')]
+            [$this->matchGenerator->generateMatch(day: 15, bashoId: '202303')]
         );
 
         $runs = $this->tracker->calculate(new BashoDate(2023, 5));
@@ -102,49 +104,12 @@ class ConsecutiveMatchTrackerTest extends TestCase
         );
 
         $this->rikishiService->expects('fetchMatches')->with(1)->andReturn(
-            $this->generateBashoMatches('202303')
+            $this->matchGenerator->generateBashoMatches('202303')
         );
 
         $runs = $this->tracker->calculate(new BashoDate(2023, 7));
 
         $this->assertCount(expectedCount: 1, haystack: $runs);
         $this->assertSame(expected: 0, actual: $runs[0]->size());
-    }
-
-    private function generateMatch(
-        int $day,
-        ?string $kimarite = 'Yorikiri',
-        ?bool $win = true,
-        string $bashoId = '202303',
-        string $division = 'Makuuchi',
-        string $eastRank = 'TEST RANK E',
-    ): RikishiMatch {
-        return new RikishiMatch(
-            bashoId: $bashoId,
-            division: $division,
-            day: $day,
-            eastId: 1,
-            eastShikona: 'EAST',
-            eastRank: $eastRank,
-            westId: 2,
-            westShikona: 'WEST',
-            westRank: 'TEST RANK W',
-            kimarite: $kimarite,
-            winnerId: $win ? 1 : 2,
-            winnerEn: 'WEST',
-            winnerJp: 'WEST',
-        );
-    }
-
-    /** @return RikishiMatch */
-    private function generateBashoMatches(?string $bashoId = '202303'): array
-    {
-        $matches = [];
-
-        for ($day = 15; $day >= 1; $day--) {
-            $matches[] = $this->generateMatch(day: $day, bashoId: $bashoId);
-        }
-
-        return $matches;
     }
 }
