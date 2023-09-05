@@ -37,7 +37,7 @@ class TrackConsecutiveMatchesTest extends TestCase
         );
         $commandTester = new CommandTester($trackCommand);
 
-        $commandTester->execute([]);
+        $commandTester->execute(['date' => '2023-03']);
         $commandTester->assertCommandIsSuccessful();
 
         $output = $commandTester->getDisplay();
@@ -57,7 +57,10 @@ class TrackConsecutiveMatchesTest extends TestCase
         );
         $commandTester = new CommandTester($trackCommand);
 
-        $commandTester->execute(['--covid-breaks-run' => true]);
+        $commandTester->execute([
+            'date' => '2023-03',
+            '--covid-breaks-run' => true,
+        ]);
         $commandTester->assertCommandIsSuccessful();
 
         $output = $commandTester->getDisplay();
