@@ -16,7 +16,7 @@ class MissedBashoChecker
     ) {
     }
 
-    public function wasBashoMissed(): bool
+    public function wasLastBashoMissed(): bool
     {
         return count(array_filter(
             array: $this->matches,

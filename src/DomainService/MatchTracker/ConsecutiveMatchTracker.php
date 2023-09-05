@@ -41,7 +41,7 @@ class ConsecutiveMatchTracker
             ));
 
             $missedBashoChecker = new MissedBashoChecker($bashoDate, $matches);
-            if ($missedBashoChecker->wasBashoMissed()) {
+            if ($missedBashoChecker->wasLastBashoMissed()) {
                 $runs[] = new ConsecutiveMatchRun($rikishi, []);
 
                 continue;
