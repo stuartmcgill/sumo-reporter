@@ -69,7 +69,7 @@ Winning
 src/run.php report:consecutivematchtracker [YYYY-MM] [output.csv] [--covid-breaks-run]
 ```
 
-If a date (e.g. 2023-03) is not supplied then the tracker will be started from the most recent basho.
+If a date (e.g. 2024-01) is not supplied then the tracker will be started from the most recent basho.
 
 If the `--covid-breaks-run` option is set then COVID-enforced kyujos will cause the run to end. The
 default behaviour (i.e. with no option set) is to ignore COVID-enforced kyujos and allow the run to
@@ -80,7 +80,7 @@ This report is used to maintain the Sumo Forum [Makuuchi consecutive match track
 ### Sample output
 
 ```
- src/run.php report:consecutivematchtracker 2023-03
+ src/run.php report:consecutivematchtracker 2024-01
 
 Calculating consecutive matches...
 ==================================
@@ -91,15 +91,15 @@ Consecutive matches in Makuuchi
 +--------------+-------------------+---------+--------------------+
 | Name         | Number of matches | Since   | Current rank       |
 +--------------+-------------------+---------+--------------------+
-| Takarafuji   | 915               | 2013-01 | Maegashira 10 West |
-| Meisei       | 240               | 2020-09 | Maegashira 6 East  |
-| Kiribayama   | 228               | 2020-09 | Sekiwake 1 East    |
-| Shodai       | 210               | 2021-01 | Komusubi 2 East    |
-| Chiyoshoma   | 195               | 2021-03 | Maegashira 13 East |
-| Aoiyama      | 172               | 2021-05 | Maegashira 12 East |
-| Sadanoumi    | 135               | 2021-11 | Maegashira 8 East  |
-| Wakamotoharu | 120               | 2022-01 | Sekiwake 2 West    |
-| Myogiryu     | 107               | 2022-01 | Maegashira 14 West |
+| Takarafuji   | 990               | 2013-01 | Juryo 1 West       |
+| Tamawashi    | 942               | 2013-07 | Maegashira 7 West  |
+| Daieisho     | 612               | 2017-03 | Sekiwake 1 East    |
+| Mitakeumi    | 431               | 2019-01 | Maegashira 10 West |
+| Meisei       | 315               | 2020-09 | Maegashira 2 West  |
+| Tobizaru     | 312               | 2020-09 | Maegashira 4 East  |
+| Shodai       | 285               | 2021-01 | Maegashira 10 East |
+| Sadanoumi    | 210               | 2021-11 | Maegashira 11 West |
+| Kotonowaka   | 205               | 2021-11 | Ozeki 2 West       |
 ...
 +--------------+-------------------+---------+--------------------+
 ```
