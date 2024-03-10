@@ -127,7 +127,8 @@ class DownloadStreaks extends Command
         $data .= "\n";
         $data .= $this->appendStreaksToCsvData('Losing', $losing);
 
-        return file_put_contents(filename: $filename, data: $data) !== false;
+        return is_dir(dirname($filename))
+            && file_put_contents(filename: $filename, data: $data) !== false;
     }
 
     /** @param list<Streak> $streaks */
