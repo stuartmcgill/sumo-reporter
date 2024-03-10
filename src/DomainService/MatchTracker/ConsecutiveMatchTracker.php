@@ -32,6 +32,17 @@ class ConsecutiveMatchTracker
 
         foreach ($rikishiIds as $rikishiId) {
             $rikishi = $this->rikishiService->fetch($rikishiId);
+            if (is_null($rikishi)) {
+                // This could happen if the Rikishi has retired since the basho in question. We can
+                // get at least some Rikishi information via the Basho service.
+                $rikishi = $this->bashoService->getRikishiFromBanzuke(
+                    year: $bashoDate->year,
+                    month: $bashoDate->month,
+                    division: 'Makuuchi',
+                    rikishiId: $rikishiId,
+                );
+            }
+
             $matches = $this->rikishiService->fetchMatches($rikishiId);
 
             $matches = array_values(array_filter(
@@ -41,7 +52,7 @@ class ConsecutiveMatchTracker
             ));
 
             $missedBashoChecker = new MissedBashoChecker($bashoDate, $matches);
-            if ($missedBashoChecker->wasLastBashoMissed()) {
+            if ($missedBashoChecker->wasBashoMissed()) {
                 $runs[] = new ConsecutiveMatchRun($rikishi, []);
 
                 continue;

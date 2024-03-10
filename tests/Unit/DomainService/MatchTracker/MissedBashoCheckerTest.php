@@ -23,7 +23,7 @@ class MissedBashoCheckerTest extends TestCase
     public function moMatchesProvided(): void
     {
         $checker = new MissedBashoChecker(new BashoDate(2023, 7), []);
-        $this->assertTrue($checker->wasLastBashoMissed());
+        $this->assertTrue($checker->wasBashoMissed());
     }
 
     #[Test]
@@ -33,7 +33,7 @@ class MissedBashoCheckerTest extends TestCase
             new BashoDate(2023, 7),
             $this->matchGenerator->generateBashoMatches('202303'),
         );
-        $this->assertTrue($checker->wasLastBashoMissed());
+        $this->assertTrue($checker->wasBashoMissed());
     }
 
     #[Test]
@@ -43,7 +43,7 @@ class MissedBashoCheckerTest extends TestCase
             new BashoDate(2023, 7),
             $this->matchGenerator->generateBashoMatches('202305'),
         );
-        $this->assertFalse($checker->wasLastBashoMissed());
+        $this->assertFalse($checker->wasBashoMissed());
     }
 
     #[Test]
@@ -56,6 +56,6 @@ class MissedBashoCheckerTest extends TestCase
                 $this->matchGenerator->generateMatch(day: 1, bashoId: '202307'),
             ],
         );
-        $this->assertFalse($checker->wasLastBashoMissed());
+        $this->assertFalse($checker->wasBashoMissed());
     }
 }
