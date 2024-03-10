@@ -48,7 +48,7 @@ class ConsecutiveMatchTrackerTest extends TestCase
     {
         $this->bashoService
             ->expects('fetchRikishiIdsByBasho')
-            ->with(2023, 5, 'Makuuchi')
+            ->with(2023, 3, 'Makuuchi')
             ->andReturn([1]);
 
         $this->rikishiService->expects('fetch')->with(1)->andReturn(
@@ -72,7 +72,7 @@ class ConsecutiveMatchTrackerTest extends TestCase
             [$this->matchGenerator->generateMatch(day: 15, bashoId: '202303')]
         );
 
-        $runs = $this->tracker->calculate(new BashoDate(2023, 5));
+        $runs = $this->tracker->calculate(new BashoDate(2023, 3));
 
         $this->assertCount(expectedCount: 1, haystack: $runs);
         $this->assertSame(expected: 1, actual: $runs[0]->size());
@@ -83,7 +83,7 @@ class ConsecutiveMatchTrackerTest extends TestCase
     {
         $this->bashoService
             ->expects('fetchRikishiIdsByBasho')
-            ->with(2023, 7, 'Makuuchi')
+            ->with(2023, 5, 'Makuuchi')
             ->andReturn([1]);
 
         $this->rikishiService->expects('fetch')->with(1)->andReturn(
@@ -107,7 +107,7 @@ class ConsecutiveMatchTrackerTest extends TestCase
             $this->matchGenerator->generateBashoMatches('202303')
         );
 
-        $runs = $this->tracker->calculate(new BashoDate(2023, 7));
+        $runs = $this->tracker->calculate(new BashoDate(2023, 5));
 
         $this->assertCount(expectedCount: 1, haystack: $runs);
         $this->assertSame(expected: 0, actual: $runs[0]->size());

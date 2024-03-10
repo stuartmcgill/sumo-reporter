@@ -20,39 +20,38 @@ class MissedBashoCheckerTest extends TestCase
     }
 
     #[Test]
-    public function moMatchesProvided(): void
+    public function noMatchesProvided(): void
     {
         $checker = new MissedBashoChecker(new BashoDate(2023, 7), []);
         $this->assertTrue($checker->wasBashoMissed());
     }
 
     #[Test]
-    public function noMatchesFoughtInPreviousBasho(): void
+    public function noMatchesFoughtInBasho(): void
     {
         $checker = new MissedBashoChecker(
-            new BashoDate(2023, 7),
+            new BashoDate(2023, 5),
             $this->matchGenerator->generateBashoMatches('202303'),
         );
         $this->assertTrue($checker->wasBashoMissed());
     }
 
     #[Test]
-    public function allMatchesFoughtInPreviousBasho(): void
+    public function allMatchesFoughtInBasho(): void
     {
         $checker = new MissedBashoChecker(
-            new BashoDate(2023, 7),
+            new BashoDate(2023, 5),
             $this->matchGenerator->generateBashoMatches('202305'),
         );
         $this->assertFalse($checker->wasBashoMissed());
     }
 
     #[Test]
-    public function someMatchesFoughtInPreviousBasho(): void
+    public function someMatchesFoughtInBasho(): void
     {
         $checker = new MissedBashoChecker(
             new BashoDate(2023, 7),
             [
-                $this->matchGenerator->generateMatch(day: 1, bashoId: '202305'),
                 $this->matchGenerator->generateMatch(day: 1, bashoId: '202307'),
             ],
         );
