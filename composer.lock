@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "efe9742ee39352e027132b9eac98b463",
+    "content-hash": "e002fca344d9a5ba28fe0d7e227074e3",
     "packages": [
         {
             "name": "guzzlehttp/guzzle",
@@ -734,21 +734,21 @@
         },
         {
             "name": "stuartmcgill/sumoapi-php",
-            "version": "0.6.0",
+            "version": "0.7.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/stuartmcgill/sumoapi-php.git",
-                "reference": "26e8d3355fd0d27eb329843ffb0139b72e933cb6"
+                "reference": "ddc4b2e94b5b1bd277c96ee4f78a69a542b9dfea"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/stuartmcgill/sumoapi-php/zipball/26e8d3355fd0d27eb329843ffb0139b72e933cb6",
-                "reference": "26e8d3355fd0d27eb329843ffb0139b72e933cb6",
+                "url": "https://api.github.com/repos/stuartmcgill/sumoapi-php/zipball/ddc4b2e94b5b1bd277c96ee4f78a69a542b9dfea",
+                "reference": "ddc4b2e94b5b1bd277c96ee4f78a69a542b9dfea",
                 "shasum": ""
             },
             "require": {
                 "guzzlehttp/guzzle": "^7.5",
-                "php": ">=8.2"
+                "php": ">=8.3"
             },
             "require-dev": {
                 "mockery/mockery": "^1.5",
@@ -775,9 +775,9 @@
             "description": "A PHP wrapper for https://sumo-api.com/",
             "support": {
                 "issues": "https://github.com/stuartmcgill/sumoapi-php/issues",
-                "source": "https://github.com/stuartmcgill/sumoapi-php/tree/0.6.0"
+                "source": "https://github.com/stuartmcgill/sumoapi-php/tree/0.7.0"
             },
-            "time": "2023-11-04T11:08:21+00:00"
+            "time": "2024-03-10T09:11:18+00:00"
         },
         {
             "name": "symfony/console",
