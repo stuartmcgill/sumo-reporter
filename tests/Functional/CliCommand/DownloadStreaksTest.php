@@ -67,7 +67,7 @@ class DownloadStreaksTest extends TestCase
         $downloadStreaks = $serviceProvider->getDownloadStreaksCliCommandForMarch2023();
         $commandTester = new CommandTester($downloadStreaks);
 
-        $filename = '/non_existent_directory/streaks.csv';
+        $filename = 'non_existent_directory/streaks.csv';
         $commandTester->execute(['date' => '2023-03', 'filename' => $filename]);
 
         $this->assertSame(Command::FAILURE, $commandTester->getStatusCode());

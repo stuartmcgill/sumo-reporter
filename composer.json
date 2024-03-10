@@ -28,7 +28,7 @@
         "phpunit/phpunit": "^10.0"
     },
     "require": {
-        "php": ">=8.2",
+        "php": ">=8.3",
         "symfony/console": "^6.2",
         "guzzlehttp/guzzle": "^7.5",
         "laminas/laminas-servicemanager": "^3.15",
