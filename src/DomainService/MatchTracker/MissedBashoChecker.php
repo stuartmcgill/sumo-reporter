@@ -16,12 +16,12 @@ class MissedBashoChecker
     ) {
     }
 
-    public function wasLastBashoMissed(): bool
+    public function wasBashoMissed(): bool
     {
         return count(array_filter(
             array: $this->matches,
             callback: fn (RikishiMatch $match)
-                => $match->bashoId === $this->bashoDate->previous()->format('Ym'),
+                => $match->bashoId === $this->bashoDate->format('Ym'),
         )) === 0;
     }
 }
