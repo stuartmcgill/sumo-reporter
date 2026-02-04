@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "e002fca344d9a5ba28fe0d7e227074e3",
+    "content-hash": "724dd8f195840cd398ca20fdd3e536db",
     "packages": [
         {
             "name": "guzzlehttp/guzzle",
@@ -734,16 +734,16 @@
         },
         {
             "name": "stuartmcgill/sumoapi-php",
-            "version": "0.7.1",
+            "version": "v0.8.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/stuartmcgill/sumoapi-php.git",
-                "reference": "0f727eea64364594396b64936af9c1fa40863bb3"
+                "reference": "3137f20056863563c0a69b111f0fa3676ab11ad9"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/stuartmcgill/sumoapi-php/zipball/0f727eea64364594396b64936af9c1fa40863bb3",
-                "reference": "0f727eea64364594396b64936af9c1fa40863bb3",
+                "url": "https://api.github.com/repos/stuartmcgill/sumoapi-php/zipball/3137f20056863563c0a69b111f0fa3676ab11ad9",
+                "reference": "3137f20056863563c0a69b111f0fa3676ab11ad9",
                 "shasum": ""
             },
             "require": {
@@ -775,9 +775,9 @@
             "description": "A PHP wrapper for https://sumo-api.com/",
             "support": {
                 "issues": "https://github.com/stuartmcgill/sumoapi-php/issues",
-                "source": "https://github.com/stuartmcgill/sumoapi-php/tree/0.7.1"
+                "source": "https://github.com/stuartmcgill/sumoapi-php/tree/v0.8.3"
             },
-            "time": "2024-03-10T15:29:34+00:00"
+            "time": "2026-02-04T20:21:59+00:00"
         },
         {
             "name": "symfony/console",
