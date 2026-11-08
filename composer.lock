@@ -740,16 +740,16 @@
         },
         {
             "name": "stuartmcgill/sumoapi-php",
-            "version": "v0.8.3",
+            "version": "v0.8.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/stuartmcgill/sumoapi-php.git",
-                "reference": "3137f20056863563c0a69b111f0fa3676ab11ad9"
+                "reference": "5235707b14b522868e9f063bf8f83950bd6997e4"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/stuartmcgill/sumoapi-php/zipball/3137f20056863563c0a69b111f0fa3676ab11ad9",
-                "reference": "3137f20056863563c0a69b111f0fa3676ab11ad9",
+                "url": "https://api.github.com/repos/stuartmcgill/sumoapi-php/zipball/5235707b14b522868e9f063bf8f83950bd6997e4",
+                "reference": "5235707b14b522868e9f063bf8f83950bd6997e4",
                 "shasum": ""
             },
             "require": {
@@ -761,7 +761,8 @@
                 "php-parallel-lint/php-parallel-lint": "^1.3",
                 "phpstan/phpstan": "^1.10",
                 "phpstan/phpstan-mockery": "^1.1",
-                "phpunit/phpunit": "^10.0"
+                "phpunit/phpunit": "^10.0",
+                "squizlabs/php_codesniffer": "^4.0"
             },
             "type": "library",
             "autoload": {
@@ -781,9 +782,9 @@
             "description": "A PHP wrapper for https://sumo-api.com/",
             "support": {
                 "issues": "https://github.com/stuartmcgill/sumoapi-php/issues",
-                "source": "https://github.com/stuartmcgill/sumoapi-php/tree/v0.8.3"
+                "source": "https://github.com/stuartmcgill/sumoapi-php/tree/v0.8.4"
             },
-            "time": "2026-02-04T20:21:59+00:00"
+            "time": "2026-11-08T16:48:54+00:00"
         },
         {
             "name": "symfony/console",
